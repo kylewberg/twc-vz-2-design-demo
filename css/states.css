@@ -1,0 +1,40 @@
+/** Logged In Transformation *****************************************/
+
+.sound-control,
+.active-number,
+.settings-link,
+.app-menu,
+.my-location,
+.collapse-link
+{
+	display:none;
+}
+
+.logged-in .sound-control,
+.logged-in .active-number,
+.logged-in .settings-link,
+.logged-in .app-menu,
+.logged-in .my-location,
+.logged-in .collapse-link
+{
+	display:inherit;
+}
+
+/** Collpased Transformation *****************************************/
+
+.collapsed .collapse-link,
+.collapsed .app-content
+{
+	display:none;
+}
+
+/** Muted Transformation *****************************************/
+.sound-control .sound-off,
+.muted .sound-control .sound-on
+{
+	display:none;
+}
+
+.muted .sound-control .sound-off{
+	display:inherit;
+}

@@ -1,0 +1,177 @@
+
+/** App *****************************************/
+
+.app{
+	position:relative;
+	width:400px;
+	height: auto; 
+	margin:40px auto 0 auto;
+}
+
+
+/** App Top *****************************************/
+
+.app-top{
+	position:relative;
+	width:100%;
+	height:24px;
+	margin:0;
+}
+
+.app-title{
+	position:absolute;
+	left:5px;
+	top:4px;
+	margin:0;	
+}
+
+.btn.app-close,
+.btn.app-minimize{
+	position:absolute;
+	top:5px;
+}
+
+.btn.app-close{right:5px;}
+.btn.app-minimize{right:30px;}
+
+
+/** App Header *****************************************/
+
+.app-header{
+	position:relative;
+	width:100%;
+	height: 55px;	
+	margin:0;
+}
+
+.logo-twc{
+	position:absolute;
+	top:10px;
+	left:5px;
+}
+
+.sound-control{
+	position:absolute;
+	top:10px;
+	right:5px;
+}
+
+.utility-links{
+	position:absolute;
+	bottom:10px;
+	right:5px;
+	margin:0;	
+}
+
+
+/** App Menu *****************************************/
+
+.app-menu{
+	position:relative;
+	width:100%;
+	height:auto;
+}
+
+
+/** App Content *****************************************/
+
+.app-content{
+	position:relative;
+	width:100%;
+	height:auto;
+	margin:0;
+}
+
+.frame{
+	position:relative;
+	width:97%;
+	height:350px;
+	margin:0 auto;
+}
+
+.frame.login{
+	height:396px;
+}
+
+.frame-title{
+	position:absolute;
+	left:0;
+	top:5px;
+	margin:0;
+}
+
+.frame-subtitle{
+	position:absolute;
+	text-align:right;
+	right:0;
+	top:12px;
+}
+
+.frame-content{
+	position:absolute;
+	top:35px;
+	width:100%;
+	height:307px;
+}
+
+.login .frame-content{
+	height:353px;
+}
+
+
+/** App Footer *****************************************/
+
+.app-footer{
+	position:relative;
+	width:100%;
+	height:24px;
+	margin:0;	
+}
+
+.my-location{
+	position:absolute;
+	left:5px;
+	top:5px;
+}
+
+.collapse-link{
+	position:absolute;
+	right:5px;
+	top:5px;
+}
+
+/** Frames *****************************************/
+
+/**** Login ****/
+ 
+.login-username,
+.login-password,
+.login-remember,
+.login-button
+{
+	position:absolute;
+	left:35px;		
+}
+ 
+.login-username{
+	top:35px;
+}
+
+.login-password{
+	top:132px;
+}
+
+.login-remember{
+	bottom:100px;
+}
+
+.login-button{
+	bottom:35px;
+}
+
+/**** SMS Conversation ****/
+
+.new-message-bar{
+	position:absolute;
+	bottom:20px;
+}

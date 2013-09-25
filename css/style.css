@@ -1,0 +1,768 @@
+/** Color Reference ****************************************
+ 
+ Hex	|	Color	|	Use
+ -------+-----------+-------------------------------
+ 3376b2	|	blue	|	links
+ 387ab4 |	blue	|	button gradient start
+ 01437d	|	blue	|	button gradient end
+ c3d6e7	|	blue	|	table row background dark
+ f8f8fa	|	gray	|	table row background light
+ afc7d9	|	blue	|	table row background hover
+ -------+-----------+-------------------------------
+ */
+
+/** Fonts *****************************************/
+
+@font-face{font-family: 'TWC-Round-Bold'; src: url("../fonts/TWC Round-Bold.otf");}
+@font-face{font-family: 'TWC-Round-Bold-Italic'; src: url("../fonts/TWC Round-Bold Italic.otf");}
+@font-face{font-family: 'TWC-Round-Book'; src: url("../fonts/TWC Round-Book.otf");}
+@font-face{font-family: 'TWC-Round-Book-Italic'; src: url("../fonts/TWC Round-Book Italic.otf");}
+@font-face{font-family: 'TWC-Round-Light'; src: url("../fonts/TWC Round-Light.otf");}
+@font-face{font-family: 'TWC-Round-Light-Italic'; src: url("../fonts/TWC Round-Light Italic.otf");}
+@font-face{font-family: 'TWC-Round-Medium'; src: url("../fonts/TWC Round-Medium.otf");}
+@font-face{font-family: 'TWC-Round-Medium-Italic'; src: url("../fonts/TWC Round-Medium Italic.otf");}
+@font-face{font-family: 'TWC-Round-Semibold'; src: url("../fonts/TWC Round-Semibold.otf");}
+@font-face{font-family: 'TWC-Round-Semibold-Italic'; src: url("../fonts/TWC Round-Semibold Italic.otf");}
+
+/** App Sections *****************************************/
+
+.app {
+	padding:0;	
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 2px 6px #acacac;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	color: #333333;		
+	overflow: hidden;	
+}
+
+.app-top{
+	-webkit-box-sizing: border-box;		
+	padding:0;	
+	background: #000000;
+	border-bottom: 1px solid #4d4f53;
+}
+
+.app-title{
+	padding:0;	
+	font-family: 'TWC-Round-Light';
+	font-size:16px;
+	color: #ffffff;
+}
+
+.app-header{
+	-webkit-box-sizing: border-box;	
+	padding:0;
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343536), color-stop(100%, #1a1b1c));
+	font-size: 12px;
+	color:#ffffff;
+}
+
+.app-menu{
+	overflow:hidden;
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4e4f53), color-stop(100%, #343436));		
+	color:#ffffff;
+}
+
+.app-content{
+	padding:0;
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3d4d8), color-stop(100%, #f4f4f4));	
+}
+
+.app-footer{
+	padding:0;
+	font-size: 12px;
+	color: #666666;
+	font-weight: bold;	
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%,rgba(211,211,212,1)), color-stop(3%,rgba(231,231,232,1)), color-stop(16%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));	
+}
+
+/** Scrollbars *****************************************/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    /*border-radius: 10px;*/
+}
+ 
+::-webkit-scrollbar-thumb {
+	/*background-color:#387ab4;*/
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    /*border-radius: 10px;*/	
+}
+
+::-webkit-scrollbar-button       { /* 2 */ }
+::-webkit-scrollbar-track-piece  { /* 4 */ }
+::-webkit-scrollbar-corner       { /* 6 */ }
+::-webkit-resizer                { /* 7 */ }
+
+
+/** Misc *****************************************/
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/** Links *****************************************/
+
+.link{
+	cursor:pointer;
+}
+
+.link:hover{
+	text-decoration:underline;
+	color:#3376b2;
+}
+
+.back-link,
+.cancel-link
+{
+	background:url('../img/arrow-gray-left.png') left center no-repeat;
+	padding-left:10px;
+}
+
+.back-link:hover,
+.cancel-link:hover
+{
+	background-image:url('../img/arrow-blue-left.png');
+}
+
+.collapse-link{
+	background:url('../img/arrow-gray-up.png') right center no-repeat;
+	padding-right:12px;
+}
+
+.collapse-link:hover{
+	background-image:url('../img/arrow-blue-up.png');
+}
+
+.sound-control{
+	cursor:pointer;
+}
+
+.forgot-link{
+	display:block;
+	font-weight: bold;
+	color: #3e90d2;
+}
+
+.forgot-link:hover{
+	text-decoration:none;
+}
+
+/** Select Menus *****************************************/
+
+.styled-select {
+	overflow: hidden;
+}
+
+.styled-select select {
+	margin:0;
+	padding:0;	
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	-webkit-appearance: none;
+	font:inherit;
+	cursor:pointer;
+	color:inherit;
+}
+
+.active-number-select select{
+	padding-right:13px;
+	background: url('../img/arrow-white-down.png') right center no-repeat;	
+}
+
+.my-location-select select{
+	color:#3376b2;
+	padding-right:13px;	
+	background:url('../img/arrow-blue-down.png') right center no-repeat;
+}
+
+.ringtone-select select{
+	font-size:16px;
+	padding-right:16px;	
+	background:url('../img/arrow-large-gray-down.png') right center no-repeat;
+}
+
+/** Inputs and Labels *****************************************/
+
+input[type=text]{
+	background-color: white;
+	border: 1px solid #cccccc;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	color: #555555;
+	-webkit-border-radius: 3px;
+	vertical-align: middle;	
+}
+
+.login-label{
+	display: block;	
+	font-weight: bold;
+	color: #222222;	
+	margin-bottom:5px;	
+}
+
+.login-input{
+	display: inline-block;		
+	display: block;		
+	width: 214px;
+	padding: 4px 6px;
+	margin-bottom:9px;
+	font-size: 13px;
+	line-height: 18px;	
+}
+
+
+/** Logos *****************************************/
+
+.logo-twc{
+	width:204px;
+	height:35px;
+	background-size:contain;
+	background-image:url('../img/logo-twc-enjoy-better.png');
+	background-position:0 0;
+	background-repeat:no-repeat;
+}
+
+/** Buttons *****************************************/
+
+.btn {
+	display: inline-block;	
+	vertical-align: middle;	
+	text-align: center;
+	border: 0px;
+	-webkit-box-sizing: border-box;
+	cursor:pointer;
+}
+
+.btn-action,
+.btn-number
+{
+	border-radius: 4px;	
+	font-family:"TWC-Round-Medium";		
+}
+
+.btn-action{
+	min-width:102px;	
+	padding: 12px 16px;	
+	font-size: 14px;		
+}
+
+.btn-action:after{
+	content:url('../img/arrow-large-white-right.png');
+	padding-left:7px;
+	vertical-align:-2px;
+}
+
+.btn-number{
+	min-width:80px;	
+	padding: 10px 14px;	
+	font-size: 12px;	
+}
+
+.btn-number:after{
+	content:url('../img/arrow-white-right.png');
+	padding-left:5px;
+}
+
+.btn.blue{
+	color: #ffffff;		
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #387ab4), color-stop(100%, #01437d));
+}
+
+.btn.blue:hover{
+	background: #01437d;
+}
+
+.btn.black{
+	color: #ffffff;		
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343536), color-stop(100%, #1a1b1c));	
+}
+
+.btn.black:hover{
+	background: #1a1b1c;
+}
+
+.btn-app{
+	padding:0px 8px;
+	color:#ffffff;	
+	font-size:12px;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #387ab4), color-stop(100%, #044680));
+}
+
+.action-buttons .btn-action{
+
+}
+
+/** Text Blocks *****************************************/
+
+.transcript{
+	
+}
+
+.transcript .title{
+	font-weight:bold;
+}
+
+.transcript .copy{
+	width:100%;
+	margin:0;
+	padding:0;
+}
+
+/** Containers *****************************************/
+
+.contact-number{
+	position:relative;
+	width:100%;
+	height:40px;
+}
+
+.contact-number .number-label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:14px;
+}
+
+.contact-number .number{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+}
+
+.contact-number .number-buttons{
+	position:absolute;
+	width:50%;
+	right:0px;
+	top:6px;
+}
+
+.number-buttons .btn{
+	position:absolute;
+	top:0;
+}
+
+.number-buttons .call-button{
+	left:0;
+}
+
+.number-buttons .text-button{
+	right:0;
+}
+
+.name,
+.number
+{
+	font-size:20px;
+}
+
+/** Images *****************************************/
+
+.contact-image{
+	max-width:100px;
+	max-height:100px;
+}
+
+/** Navigation Menus *****************************************/
+
+.utility-links{
+	list-style-type:none;	
+	padding:0;	
+}
+
+.utility-links > li{
+	float:left;	
+	padding-left:5px;
+	margin:0;
+	padding:0 5px;	
+	border-right:solid 1px #ffffff;	
+	cursor:pointer;	
+}
+
+.utility-links > li:hover{
+	text-decoration:underline;
+	color:#ffffff;
+}
+
+.utility-links > li:last-child{
+	border-right:none;
+	padding-right:0;
+}
+
+.nav-main > .nav-link{
+	float:left;
+	cursor:pointer;
+	padding:15px 20px;
+	-webkit-box-sizing: border-box;
+	font-size: 15px;
+	font-family: 'TWC-Round-Medium';
+	text-transform: uppercase;
+	text-align:center;
+	border-right: 1px solid #545457;
+}
+
+.nav-main > .nav-link:hover{
+	background-color:#ffffff;
+	color:#333333;
+}
+
+.nav-main > .nav-link.active{
+	background-color:#eeeeef;
+	color:#333333;
+    border-right: 1px solid #eeeeef;	
+}
+
+.nav-main > .nav-link.sms-link{
+	padding-left:22px;
+	padding-right:22px;
+}
+
+.nav-main > .nav-link:last-child{
+	border-right:none;
+}
+
+
+/** List Items *****************************************/
+
+.list-item{
+	float:left;
+	position:relative;
+	width:100%;
+	height:40px;
+	border: 1px solid #E6E8EB;
+	margin-bottom: 2px;
+	background: url('../img/arrow-large-gray-right.png') 97% 55% no-repeat, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e0e6e9), color-stop(100%, #f2f4f5));
+	cursor:pointer;
+}
+
+.list-item.conversation{
+	height:54px;	
+}
+
+.list-item:hover{
+	background: url('../img/arrow-large-gray-right.png') 97% 55% no-repeat, #afc7d9;	
+}
+
+.list-item .name{
+	position:absolute;	
+	left:5px;
+	top:9px;	
+}
+
+.list-item .date,
+.list-item .time
+{
+	position:absolute;	
+	top:14px;		
+}
+
+.list-item .date{		
+	text-align:right;
+	right:100px;	
+}
+
+.list-item .time{	
+	text-align:right;
+	right:30px;	
+}
+
+.list-item .copy{
+	position:absolute;
+	width:345px;	
+	left:5px;
+	bottom:8px;
+	font-size:11px;
+	color:#666666;
+}
+
+.message{
+	max-width:80%;
+	min-width:60%;
+	margin:5px 10px;
+	padding:5px 10px;
+	border-radius:5px;
+	border: 1px solid #cdd2d8;
+}
+
+.message:last-child{
+	margin-bottom:30px;
+}
+
+.message .name,
+.message .datetime
+{
+	display:inline-block;
+}
+
+.message .name{
+	max-width:65%;
+}
+
+.message .datetime{
+	padding-top:8px;
+}
+
+.message .copy{
+	clear:both;
+	color:#666666;
+	padding-top:5px;
+}
+
+.message.incoming{
+	float:left;
+	background:#f8f8fa;	
+}
+
+.message.incoming .name{
+	float:left;	
+}
+
+.message.incoming .datetime{
+	float:right;
+}
+
+.message.outgoing{
+	float:right;
+	background:#c3d6e7;
+}
+
+.message.outgoing .name{
+	float:right;
+	text-align:right;
+}
+
+.message.outgoing .datetime{
+	float:left;
+}
+
+/** Info Cards *****************************************/
+
+.info .name{
+	position:absolute;
+	top:10px;
+	left:15px;
+}
+
+.info .date,
+.info .time,
+.info .ringtone
+{
+	position:absolute;
+	top:16px;
+}
+
+.info .date{
+	right:80px;
+}
+
+.info .time,
+.info .ringtone
+{
+	right:15px;
+}
+
+.info .contact-image{
+	position:absolute;
+	top:50px;
+	left:15px;
+}
+
+.info .action-buttons{
+	position:absolute;
+	top:50px;
+	right:15px;
+	width:58%;
+	height:100px;
+}
+
+.action-buttons .btn{
+	position:absolute;
+}
+
+.action-buttons .edit-button,
+.action-buttons .add-button
+{
+	top:0;
+	left:0;
+}
+
+.action-buttons .delete-button
+{
+	bottom:0;
+	left:0;
+}
+
+.action-buttons .call-button
+{
+	top:0;
+	right:0;
+}
+
+.action-buttons .text-button
+{
+	bottom:0;
+	right:0;
+}
+
+.info .transcript{
+	position:absolute;
+	top:165px;
+	left:15px;
+	width:355px;
+}
+
+.info .transcript .copy{
+	padding-bottom:15px;
+}
+
+.info .numbers{
+	position:absolute;
+	top:165px;
+	left:15px;
+	width:93%;
+}
+
+.info .numbers .contact-number{
+	margin-bottom:5px;
+}
+
+/** Edit Cards *****************************************/
+.edit .contact-image{
+	position:absolute;
+	top:15px;
+	left:15px;
+}
+
+.edit .first-name,
+.edit .last-name,
+.edit .nick-name
+{
+	position:absolute;
+	right:15px;
+	width:60%;
+}
+
+.edit .first-name{
+	top:15px;
+}
+
+.edit .last-name{
+	top:50px;
+}
+.edit .nick-name{
+	top:85px;
+}
+
+.edit .ringtone-select{
+	position:absolute;
+	left:15px;
+	top:140px;
+}	
+
+.edit .save-button{
+	position:absolute;
+	top:130px;
+	right:15px;
+}
+
+.edit .numbers{
+	position:absolute;
+	top:185px;
+	left:15px;
+	width:93%;
+}
+
+.edit .numbers .edit-contact-number{
+	height:40px;
+	margin-bottom:5px;
+}
+
+.edit .number-label{
+	font-size:20px;
+}
+
+.edit .number-label
+{
+	position:absolute;
+	left:0;
+	width:40%;
+}
+
+.edit .number
+{
+	position:absolute;
+	right:0;
+	width:57%;
+}
+
+/** Frames *****************************************/
+
+.frame{
+	padding:0;
+	overflow:hidden;
+}
+
+.frame-title{
+	padding:0;
+	font-size: 28px;
+	font-family: 'TWC-Round-Light';
+}
+
+.frame-subtitle{
+	font-size:14px;
+}
+
+.frame-content{
+	overflow-x:hidden;
+	overflow-y:auto;
+	background-color:#ffffff;
+	-webkit-box-sizing: border-box;	
+	border: 1px solid #cccccc;	
+}
+
+
+/** Old ****************************************
+
+.section{
+	border-radius: 4px;
+	-webkit-box-shadow: 0 2px 6px #acacac;
+	box-shadow: 0 2px 6px #acacac;
+	display: block;
+	margin:0px 10px;
+	paddig:0 10px;
+	overflow:hidden;
+}
+
+.section-header{
+	font-family: "TWC-Round-Book";
+	height: 55px;
+	width: 100%;
+	padding: 0 0 0 35px;
+	margin: 0;
+	color: #FFFFFF;
+	font-size: 26px;
+	font-weight: normal;
+	line-height: 55px;
+	-webkit-box-sizing: border-box;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #387ab4), color-stop(100%, #01437d));
+}
+
+.service-header {
+	background: #47627C;
+	position: relative;
+	z-Index: 10;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #4c565f), color-stop(100%, #3a7fc0));
+}
+
+*/

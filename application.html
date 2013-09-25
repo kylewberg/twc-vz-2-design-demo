@@ -1,0 +1,220 @@
+<html>
+	<head>
+        <title>VoiceZone 2.0 Design Demo</title>
+        <link type="text/css" href="css/style.css" rel="stylesheet" />
+		<link type="text/css" href="css/layout.css" rel="stylesheet" />
+		<link type="text/css" href="css/states.css" rel="stylesheet" />
+        <script type="text/javascript" src="lib/jquery/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="lib/air/AIRAliases.js"></script>
+        <script type="text/javascript" src="lib/air/AIRIntrospector.js"></script>		
+        <script type="text/javascript" src="js/script.js"></script>
+	</head>
+    <body>
+    	<div id="app" class="app">
+    		<div id="app-top" class="app-top">
+    			<h1 class="app-title">VoiceZone</h1>
+	    		<div id="close-minimize" class="btn btn-app app-minimize">-</div>
+	    		<div id="close-button" class="btn btn-app app-close">x</div>				
+    		</div>
+	    	<div id="app-header" class="app-header">
+	    		<div class="logo logo-twc"></div>
+				<div id="sound-control" class="sound-control">
+					<span class="sound-option sound-on">Sound: On</span>
+					<span class="sound-option sound-off">Sound: Off</span>
+				</div>
+				<ul class="utility-links">
+					<li id="active-number" class="active-number">
+						<span class="styled-select active-number-select">
+							<select>
+								<option>123-456-7890</option>
+								<option>098-765-4321</option>
+							</select>
+						</span>
+					</li>
+					<li id="settings-link" class="link settings-link">Settings</li>
+					<li id="help-link" class="last help-link">Help</li>
+				</ul>
+	    	</div>
+			<div id="app-menu" class="app-menu nav-main">
+				<div id="calls-link" class="nav-link first">Calls</div>
+				<div id="contacts-link" class="nav-link">Contacts</div>
+				<div id="voicemails-link" class="nav-link">Voicemails</div>
+				<div id="sms-link" class="nav-link sms-link">SMS</div>
+				<!--div id="link-directory" class="nav-link last">Directory</div-->
+			</div>
+			<div id="app-content" class="app-content">
+				<div id="login" class="frame login">
+					<h2 class="frame-title">Sign In</h2> 
+					<span class="frame-subtitle version">Version 2.0.0</span>
+					<div id="login-form" class="frame-content">
+						<div class="login-username">
+							<label for="username" class="login-label">Username</label>
+							<input id="username" class="login-input" type="text" />
+							<span class="link forgot-link">Forgot Username?</span>
+						</div>
+						<div class="login-password">
+							<label for="password" class="login-label">Password</label>
+							<input id="password" class="login-input" type="text" />
+							<span class="link forgot-link">Forgot Password?</span>
+						</div>
+						<div class="login-remember">
+							<input id="remember-login" type="checkbox">
+							<label for="remember-login">Remember Login Credentials</label>
+						</div>
+						<div id="login-button" class="btn btn-action blue login-button">Sign In</div>
+					</div>
+				</div>					
+				<div id="calls" class="frame">
+					<h2 class="frame-title">Calls</h2> 
+					<div id="call-list" class="frame-content"></div>
+				</div>	
+				<div id="call" class="frame">
+					<h2 class="frame-title">Call</h2> 
+					<span id="call-back" class="frame-subtitle link back-link">Back</span>
+					<div id="call-info" class="frame-content info">
+						<span class="name">First Last</span>
+						<span class="date">Jan 1</span>
+						<span class="time">12:00 am</span>
+						<img class="contact-image" src="img/contact-image.png" />
+						<div class="action-buttons">
+							<div class="btn btn-action blue edit-button">Edit</div>	
+							<div class="btn btn-action black delete-button">Delete</div>
+							<div class="btn btn-action blue call-button">Call</div>
+							<div class="btn btn-action blue text-button">Text</div>
+						</div>				
+					</div>
+				</div>					
+				<div id="contacts" class="frame">
+					<h2 class="frame-title">Contacts</h2> 
+					<div id="contact-list" class="frame-content"></div>
+				</div>	
+				<div id="contact" class="frame">
+					<h2 class="frame-title">Contact</h2> 
+					<span id="contact-back" class="frame-subtitle link back-link">Back</span>
+					<div id="contact-info" class="frame-content info">
+						<span class="name">First Last</span>
+						<span class="ringtone">Ringtone</span>
+						<img class="contact-image" src="img/contact-image.png" />
+						<div class="action-buttons">
+							<div class="btn btn-action blue edit-button">Edit</div>	
+							<div class="btn btn-action black delete-button">Delete</div>
+						</div>	
+						<div id="contact-numbers" class="numbers"></div>
+					</div>
+				</div>
+				<div id="contact-edit" class="frame">
+					<h2 class="frame-title">Edit Contact</h2> 
+					<span id="contact-edit-cancel" class="frame-subtitle link cancel-link">Cancel</span>
+					<div id="contact-edit-info" class="frame-content edit">
+						<img class="contact-image" src="img/contact-image.png" />
+						<input type="text" class="name first-name" value="First" placeholder="First Name"/>
+						<input type="text" class="name last-name" value="Last" placeholder="Last Name" />
+						<input type="text" class="name nick-name" value="" placeholder="Nickname" />
+						<span class="styled-select ringtone-select">
+							<select>
+								<option>Ringtone 1</option>
+								<option>Ringtone 2</option>
+								<option>Ringtone 3</option>
+								<option>Ringtone 4</option>								
+							</select>
+						</span>
+						<div class="btn btn-action blue save-button">Save</div>		
+						<div id="contact-edit-numbers" class="numbers"></div>
+						<!--div class="btn btn-action blue add-number-button">Add Number</div-->
+					</div>
+				</div>				
+				<div id="voicemails" class="frame">
+					<h2 class="frame-title">Voicemails</h2> 
+					<div id="voicemail-list" class="frame-content"></div>
+				</div>	
+				<div id="voicemail" class="frame">
+					<h2 class="frame-title">Voicemail</h2> 
+					<span id="voicemail-back" class="frame-subtitle link back-link">Back</span>
+					<div id="voicemail-info" class="frame-content info">
+						<span class="name">First Last</span>
+						<span class="date">Jan 1</span>
+						<span class="time">12:00 am</span>
+						<img class="contact-image" src="img/contact-image.png" />
+						<div class="action-buttons">
+							<div class="btn btn-action blue edit-button">Edit</div>	
+							<div class="btn btn-action black delete-button">Delete</div>
+							<div class="btn btn-action blue call-button">Call</div>
+							<div class="btn btn-action blue text-button">Text</div>
+						</div>							
+						<div class="transcript">
+							<span class="title">Transcript</span>
+							<p class="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel dapibus quam. Aenean orci turpis, varius at viverra sit amet, tempus eu eros. Morbi mi est, euismod eget placerat ac, luctus non ligula. Aliquam vehicula pellentesque consectetur. Aenean congue sodales quam. Mauris vitae interdum ipsum. Integer vitae lorem leo. Aenean vel leo bibendum, placerat eros ac, imperdiet metus. Mauris rhoncus metus eget feugiat pharetra. Suspendisse blandit augue at pretium adipiscing. Sed in tincidunt elit, vulputate porttitor augue. Vestibulum dictum cursus convallis. Nam tempor metus eu fermentum sagittis. In id lectus sit amet neque vulputate commodo. Mauris eget mi vel libero varius varius nec quis ligula.</p>					
+						</div>	
+					</div>
+				</div>								
+				<div id="sms-conversations" class="frame">
+					<h2 class="frame-title">SMS Conversations</h2> 
+					<div id="conversation-list" class="frame-content"></div>
+				</div>		
+				<div id="sms-conversation" class="frame">
+					<h2 class="frame-title">SMS Conversation</h2> 
+					<span id="sms-back" class="frame-subtitle link back-link">Back</span>
+					<div id="message-list" class="frame-content"></div>
+					<!--div class="new-message-bar"><span>0/160</span><textarea class="new-message-content" rows="1" placeholder="Message"></textarea><span>Send</span></div-->
+				</div>
+				<div id="settings" class="frame">
+					<h2 class="frame-title">Settings</h2> 
+					<div id="settings-content" class="frame-content"></div>
+				</div>																			
+			</div>	
+			<div id="app-footer" class="app-footer">
+				<div class="my-location">
+					<span>My Location: </span>
+					<span class="styled-select my-location-select">
+						<select>
+							<option>123-456-7890</option>
+							<option>Work</option>
+						</select>
+					</span>
+				</div>
+				<div id="collapse-link" class="link collapse-link">Collapse</div>
+			</div>	
+		</div>
+		<div id="templates" style="display:none;">
+			<div class="list-item call">
+				<span class="name">First Last</span>
+				<span class="date">Jan 1</span>
+				<span class="time">12:00 am</span>
+			</div>
+			<div class="list-item contact">
+				<span class="name">First Last</span>
+			</div>
+			<div class="list-item voicemail">
+				<span class="name">First Last</span>
+				<span class="date">Jan 1</span>
+				<span class="time">12:00 am</span>
+			</div>			
+			<div class="list-item conversation">
+				<span class="name">First Last</span>
+				<span class="date">Jan 1</span>
+				<span class="time">12:00 am</span>	
+				<div class="copy truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce.</div>																		
+			</div>	
+			<div class="message">
+				<span class="name truncate">First Last</span>
+				<div class="datetime">
+					<span class="date">Jan 1</span>
+					<span class="time">12:00 am</span>		
+				</div>
+				<div class="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce.</div>																		
+			</div>
+			<div class="contact-number">
+				<span class="number-label">Label</span>
+				<span class="number">000-000-0000</span>
+				<div class="number-buttons">
+					<div class="btn btn-number blue call-button">Call</div>
+					<div class="btn btn-number blue text-button">Text</div>
+				</div>
+			</div>	
+			<div class="edit-contact-number">
+				<input type="text" class="number-label" value="" placeholder="Label" />
+				<input type="text" class="number" value="" placeholder="Number" />
+			</div>											
+		</div>
+    </body>
+</html>
