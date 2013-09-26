@@ -2,15 +2,23 @@
 /*--App------------------------------------------------*/
 
 var App = {
+ "info" : {
+ 	"name" : {
+		"residential" : "VoiceZone Connect",
+		"commercial" : "Voice Manager"
+	},
+	"version" : "2.0.0"
+ },
  "frames" : {
  	"current" : null,
 	"previous" : null,
- 	"start" : "sms-conversation"
+ 	"start" : "calls"
  },
  "states" : {
  	"loggedIn" : false,
 	"collapsed" : false,
-	"muted" : false
+	"muted" : false,
+	"commercial" : false
  },
  "elements" : {
   "app" : "#app",
@@ -79,6 +87,10 @@ App.log = function(message){
 App.initialize = function() {		
 	//load data
 	this.loadData();
+	//init plugins
+	this.initPlugins();
+	//init GUI
+	this.initGUI();
 	//show default
 	this.navigate("login");	
 }
@@ -91,10 +103,34 @@ App.minimize = function(){
 
 }
 
+App.initGUI = function(){
+	$('.app-name').html(this.info.name.residential);
+	$('.app-version').html(this.info.version);	
+}
+
+App.initPlugins = function(){
+	audiojs.events.ready(function() {
+    	var as = audiojs.createAll();
+  	});
+}
+
+App.enableCommercial = function(){
+	this.states.commercial = true;
+	$(this.elements.app).addClass("commercial");
+	$('.app-name').html(this.info.name.commercial);		
+}
+
+App.disableCommercial = function(){
+	this.states.commercial = false;
+	$(this.elements.app).removeClass("commercial");	
+	$('.app-name').html(this.info.name.residential);				
+}
+
 App.login = function(){
 	this.states.loggedIn = true;
 	$(this.elements.app).addClass("logged-in");		
-	this.navigate(this.frames.start);
+	//this.navigate(this.frames.start);
+	this.collapse();
 }
 
 App.logout = function(){

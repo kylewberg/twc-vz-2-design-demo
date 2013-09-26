@@ -6,13 +6,14 @@
 		<link type="text/css" href="css/states.css" rel="stylesheet" />
         <script type="text/javascript" src="lib/jquery/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="lib/air/AIRAliases.js"></script>
-        <script type="text/javascript" src="lib/air/AIRIntrospector.js"></script>		
+        <script type="text/javascript" src="lib/air/AIRIntrospector.js"></script>
+		<script type="text/javascript" src="plugins/audiojs/audio.min.js"></script>		
         <script type="text/javascript" src="js/script.js"></script>
 	</head>
     <body>
     	<div id="app" class="app">
     		<div id="app-top" class="app-top">
-    			<h1 class="app-title">VoiceZone</h1>
+    			<h1 class="app-title app-name">VoiceZone</h1>
 	    		<div id="close-minimize" class="btn btn-app app-minimize">-</div>
 	    		<div id="close-button" class="btn btn-app app-close">x</div>				
     		</div>
@@ -47,6 +48,7 @@
 					<h2 class="frame-title">Sign In</h2> 
 					<span class="frame-subtitle version">Version 2.0.0</span>
 					<div id="login-form" class="frame-content">
+						<div class="splash app-name"></div>
 						<div class="login-username">
 							<label for="username" class="login-label">Username</label>
 							<input id="username" class="login-input" type="text" />
@@ -59,7 +61,7 @@
 						</div>
 						<div class="login-remember">
 							<input id="remember-login" type="checkbox">
-							<label for="remember-login">Remember Login Credentials</label>
+							<label for="remember-login">Remember me</label>
 						</div>
 						<div id="login-button" class="btn btn-action blue login-button">Sign In</div>
 					</div>
@@ -136,11 +138,12 @@
 						<span class="time">12:00 am</span>
 						<img class="contact-image" src="img/contact-image.png" />
 						<div class="action-buttons">
-							<div class="btn btn-action blue edit-button">Edit</div>	
+							<div class="btn btn-action blue edit-button">Listen</div>	
 							<div class="btn btn-action black delete-button">Delete</div>
 							<div class="btn btn-action blue call-button">Call</div>
 							<div class="btn btn-action blue text-button">Text</div>
-						</div>							
+						</div>	
+						<audio src="sounds/test.mp3" preload="auto"></audio>
 						<div class="transcript">
 							<span class="title">Transcript</span>
 							<p class="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel dapibus quam. Aenean orci turpis, varius at viverra sit amet, tempus eu eros. Morbi mi est, euismod eget placerat ac, luctus non ligula. Aliquam vehicula pellentesque consectetur. Aenean congue sodales quam. Mauris vitae interdum ipsum. Integer vitae lorem leo. Aenean vel leo bibendum, placerat eros ac, imperdiet metus. Mauris rhoncus metus eget feugiat pharetra. Suspendisse blandit augue at pretium adipiscing. Sed in tincidunt elit, vulputate porttitor augue. Vestibulum dictum cursus convallis. Nam tempor metus eu fermentum sagittis. In id lectus sit amet neque vulputate commodo. Mauris eget mi vel libero varius varius nec quis ligula.</p>					

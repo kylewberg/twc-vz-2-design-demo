@@ -58,15 +58,29 @@
 	color:#ffffff;
 }
 
+.commercial .app-header{
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cfd6dc), color-stop(100%, #ffffff));
+	color:#000000;
+}
+
 .app-menu{
 	overflow:hidden;
 	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4e4f53), color-stop(100%, #343436));		
 	color:#ffffff;
 }
 
+.app-menu{
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #cfd0d4));		
+	color:#000000;
+}
+
 .app-content{
 	padding:0;
 	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3d4d8), color-stop(100%, #f4f4f4));	
+}
+
+.commercial .app-content{
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e9eb), color-stop(100%, #ffffff));	
 }
 
 .app-footer{
@@ -75,6 +89,10 @@
 	color: #666666;
 	font-weight: bold;	
 	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%,rgba(211,211,212,1)), color-stop(3%,rgba(231,231,232,1)), color-stop(16%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));	
+}
+
+.commercial .app-footer{
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%,#f7f8fa), color-stop(3%,rgba(231,231,232,1)), color-stop(16%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));	
 }
 
 /** Scrollbars *****************************************/
@@ -226,7 +244,7 @@ input[type=text]{
 	width:204px;
 	height:35px;
 	background-size:contain;
-	background-image:url('../img/logo-twc-enjoy-better.png');
+	background-image:url('../img/twc-logo-white.png');
 	background-position:0 0;
 	background-repeat:no-repeat;
 }
@@ -255,21 +273,10 @@ input[type=text]{
 	font-size: 14px;		
 }
 
-.btn-action:after{
-	content:url('../img/arrow-large-white-right.png');
-	padding-left:7px;
-	vertical-align:-2px;
-}
-
 .btn-number{
 	min-width:80px;	
 	padding: 10px 14px;	
 	font-size: 12px;	
-}
-
-.btn-number:after{
-	content:url('../img/arrow-white-right.png');
-	padding-left:5px;
 }
 
 .btn.blue{
@@ -439,7 +446,7 @@ input[type=text]{
 	height:40px;
 	border: 1px solid #E6E8EB;
 	margin-bottom: 2px;
-	background: url('../img/arrow-large-gray-right.png') 97% 55% no-repeat, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e0e6e9), color-stop(100%, #f2f4f5));
+	background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e0e6e9), color-stop(100%, #f2f4f5));
 	cursor:pointer;
 }
 
@@ -448,7 +455,7 @@ input[type=text]{
 }
 
 .list-item:hover{
-	background: url('../img/arrow-large-gray-right.png') 97% 55% no-repeat, #afc7d9;	
+	background:#afc7d9;	
 }
 
 .list-item .name{
@@ -612,9 +619,15 @@ input[type=text]{
 	right:0;
 }
 
-.info .transcript{
+.info .audiojs{
 	position:absolute;
 	top:165px;
+	left:15px;
+}
+
+.info .transcript{
+	position:absolute;
+	top:195px;
 	left:15px;
 	width:355px;
 }
