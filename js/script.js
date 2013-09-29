@@ -11,8 +11,7 @@ var App = {
  },
  "frames" : {
  	"current" : null,
-	"previous" : null,
- 	"start" : "calls"
+	"previous" : null
  },
  "states" : {
  	"loggedIn" : false,
@@ -23,8 +22,6 @@ var App = {
  "elements" : {
   "app" : "#app",
   "top" : "#app-top",
-  "close" : "#close-button",
-  "minimize": "#minimize-button",
   "header" : "#app-header",
   "menu" : "#app-menu",
   "content" : "#app-content",
@@ -59,10 +56,10 @@ var App = {
   "footerLinks" : {
   	"collapse" : "#collapse-link"
   },
-  "cancelLink" : ".cancel-link",
   "backLinks" : {
   	"call" : "#call-back",
 	"contact" : "#contact-back",
+	"contactEdit" : "#contact-edit-back",
 	"voicemail" : "#voicemail-back",
 	"sms" : "#sms-back"
   },
@@ -75,13 +72,19 @@ var App = {
   "buttons" : {
   	"login" : "#login-button",
   	"edit" : ".edit-button",
-  	"save" : ".save-button",	
+  	"save" : ".save-button",
+	"cancel" : ".cancel-button",
+	"close" : "#close-button",
+	"minimize": "#minimize-button"
+  },
+  "selectMenus" : {
+  	"activeNumber" : "#active-number"
   }
  }
 }
 
 App.log = function(message){
-	//console.log(message);
+	console.log(message);
 }
 
 App.initialize = function() {		
@@ -105,7 +108,7 @@ App.minimize = function(){
 
 App.initGUI = function(){
 	$('.app-name').html(this.info.name.residential);
-	$('.app-version').html(this.info.version);	
+	$('.app-version').html("Version "+this.info.version);	
 }
 
 App.initPlugins = function(){
@@ -126,10 +129,13 @@ App.disableCommercial = function(){
 	$('.app-name').html(this.info.name.residential);				
 }
 
+App.changeActiveNumber = function(){
+	this.login();
+}
+
 App.login = function(){
 	this.states.loggedIn = true;
 	$(this.elements.app).addClass("logged-in");		
-	//this.navigate(this.frames.start);
 	this.collapse();
 }
 
@@ -238,26 +244,35 @@ App.populateMessages = function(n){
 	};
 }
 
+App.loadRingtones = function(n){
+	for (var i = ((n) ? n : 10) - 1; i >= 0; i--){
+		$("select.ringtones").prepend('<option class="ringtone">Ringtone '+i+'</option>');
+	};	
+}
+
 App.loadData = function(){
 	this.populateContents(".call",50,"#call-list");
-	this.populateContents(".contact",10,"#contact-list");	
-	this.populateContents(".contact-number",5,"#contact-numbers");	
-	this.populateContents(".edit-contact-number",5,"#contact-edit-numbers");		
+	this.populateContents(".contact",10,"#contact-list");		
 	this.populateContents(".voicemail",5,"#voicemail-list");		
 	this.populateContents(".conversation",10,"#conversation-list");	
-	this.populateMessages(10);					
+	this.populateMessages(10);
+	this.loadRingtones(20);					
 }
 
 //initialize App and register events
 $(document).ready(function(){
 	App.initialize();
 	
+	//select dropdowns
+	$(App.elements.selectMenus.activeNumber).on("change", function(){App.changeActiveNumber();});	
+	
 	//buttons
-	$(App.elements.close).click(function(){App.close();});	
-	$(App.elements.minimize).click(function(){App.minimize();});
+	$(App.elements.buttons.close).click(function(){App.close();});	
+	$(App.elements.buttons.minimize).click(function(){App.minimize();});
 	$(App.elements.buttons.login).click(function(){App.login();});	
 	$(App.elements.buttons.edit).click(function(){App.navigate("contact-edit");});	
 	$(App.elements.buttons.save).click(function(){App.navigatePrevious();});
+	$(App.elements.buttons.cancel).click(function(){App.navigatePrevious();});	
 		
 	//utility links	
 	$(App.elements.utilityLinks.sound).click(function(){App.toggleSound();});
@@ -268,9 +283,9 @@ $(document).ready(function(){
 	//back links
 	$(App.elements.backLinks.call).click(function(){App.navigate("calls");});
 	$(App.elements.backLinks.contact).click(function(){App.navigate("contacts");});	
+	$(App.elements.backLinks.contactEdit).click(function(){App.navigate("contact");});	
 	$(App.elements.backLinks.voicemail).click(function(){App.navigate("voicemails");});	
 	$(App.elements.backLinks.sms).click(function(){App.navigate("sms-conversations");});
-	$(App.elements.cancelLink).click(function(){App.navigatePrevious();});
 		
 	//menu links
 	$(App.elements.menuLinks.calls).click(function(){App.navigate("calls");});

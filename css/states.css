@@ -1,3 +1,9 @@
+/** Development *****************************************/
+
+.app.development{
+	margin-top:10%;
+}
+
 /** Logged In Transformation *****************************************/
 
 .sound-control,
@@ -5,7 +11,8 @@
 .settings-link,
 .app-menu,
 .my-location,
-.collapse-link
+.collapse-link,
+.app-title
 {
 	display:none;
 }
@@ -15,7 +22,8 @@
 .logged-in .settings-link,
 .logged-in .app-menu,
 .logged-in .my-location,
-.logged-in .collapse-link
+.logged-in .collapse-link,
+.logged-in .app-title
 {
 	display:inherit;
 }
