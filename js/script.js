@@ -79,12 +79,13 @@ var App = {
   },
   "selectMenus" : {
   	"activeNumber" : "#active-number"
-  }
+  },
+  "expandableContainer" : ".expandable-container"
  }
 }
 
 App.log = function(message){
-	console.log(message);
+	//console.log(message);
 }
 
 App.initialize = function() {		
@@ -298,6 +299,9 @@ $(document).ready(function(){
 	$(App.elements.listItems.call).click(function(){App.navigate("call");});
 	$(App.elements.listItems.contact).click(function(){App.navigate("contact");});	
 	$(App.elements.listItems.voicemail).click(function(){App.navigate("voicemail");});	
-	$(App.elements.listItems.conversation).click(function(){App.navigate("sms-conversation");});	
+	$(App.elements.listItems.conversation).click(function(){App.navigate("sms-conversation");});
+	
+	//misc
+	$(".expand-title").click(function(){$(this).parent().toggleClass("open");});	
 })
 

@@ -130,16 +130,22 @@
 	height:76%;
 }
 
-.frame-content .audio-player{
+.frame-content .audiojs{
 	position:absolute;
-	top:165px;
-	left:15px;
+	top:47%;
+	left:5%;
+}
+
+.frame-content .mark-unread{
+	position:absolute;
+	top:60%;
+	right:5%;
 }
 
 .frame-content .transcript{
 	position:absolute;
-	top:50%;
-	left:15px;
+	top:65%;
+	left:5%;
 }
 
 .frame-content .numbers{

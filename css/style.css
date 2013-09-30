@@ -299,6 +299,14 @@ input[type=text]{
 	line-height: 18px;	
 }
 
+/** Checkboxes *****************************************/
+
+input[type="checkbox"] {
+	height: 15px;
+	width: 15px;
+}
+
+
 
 /** Logos *****************************************/
 
@@ -377,6 +385,100 @@ input[type=text]{
 	vertical-align:-2px;
 }
 
+/** Audio Players *****************************************/
+
+.audiojs {
+	width: 90%;
+	height: 29px;
+	background: #ffffff;
+	font-family: inherit;
+	background-image: none;
+	-webkit-box-shadow: none;
+}
+
+.audiojs .play-pause {
+	width: 10%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	overflow: hidden;
+	border-right: none;
+	text-align:center;
+	background:#aaaaaa;
+}
+
+.audiojs p {
+	display: none;
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	text-align:center;
+}
+
+.audiojs .play {
+	background: url("../plugins/audiojs/player-graphics.gif") 0px -1px no-repeat;
+}
+
+.audiojs .pause {
+	background: url("../plugins/audiojs/player-graphics.gif") 0px -91px no-repeat;
+}
+
+.audiojs .loading {
+	background: url("../plugins/audiojs/player-graphics.gif") 0px -31px no-repeat;
+}
+
+.audiojs .error {
+	background: url("../plugins/audiojs/player-graphics.gif") 0px -61px no-repeat;
+}
+
+.audiojs .scrubber {
+	width: 90%;
+	background: #cccccc;
+	height:100%;
+	margin: 0px;
+	border: none;
+}
+
+.audiojs .progress {
+	height: 100%;
+	background: #3e90d2;
+	background-image:none;
+}
+
+.audiojs .loaded {
+	display:none;
+	height: 100%;
+	background: #cccccc;
+	background-image:none;
+}
+
+.audiojs .time {
+	position:absolute;
+	z-index:5;
+	right:2%;
+	top:29%;
+	float: none;
+	height: auto;
+	line-height: inherit;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-left:none;
+	color: #ffffff;
+	text-shadow:none;
+	pointer-events: none;
+}
+
+.audiojs .time em {
+	color: inherit;
+}
+
+.audiojs .error-message {
+	position:absolute;	
+	top:29%;
+	right:40%;
+}
+
 
 /** Transcripts *****************************************/
 
@@ -442,6 +544,38 @@ input[type=text]{
 
 .number-buttons .text-button{
 	right:0;
+}
+
+/** Expandable Containers *****************************************/
+
+.expandable{
+	border-bottom: 1px dashed #C9CBCC;
+}
+
+.expandable.open{
+	padding-bottom:10px;
+}
+
+.expandable .expand-title{
+	cursor: pointer;
+	color:#2c77b3;	
+	margin: 5px 0px;
+	padding: 0px 0px 0px 32px;
+	font-size: 20px;
+	font-weight: bold;	
+	background:url('../img/icon-plus-minus.png') 5px 1px no-repeat;
+}
+
+.expandable.open .expand-title{
+	background-position: 5px -32px;
+}
+
+.expandable .expand-content{
+	display:none;
+}
+
+.expandable.open .expand-content{
+	display:block;
 }
 
 /** Images *****************************************/

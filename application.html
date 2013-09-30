@@ -242,6 +242,10 @@
 								<span class="time">12:00 am</span>
 							</div>	
 						</div>
+						<audio src="sounds/test.mp3" preload="auto"></audio>
+						<div class="mark-unread">
+							<input type="checkbox" id="mark-unread"><label for="mark-unread">Mark as unread</label>
+						</div>
 						<div class="transcript">
 							<span class="title">Transcript</span>
 							<p class="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel dapibus quam. Aenean orci turpis, varius at viverra sit amet, tempus eu eros. Morbi mi est, euismod eget placerat ac, luctus non ligula. Aliquam vehicula pellentesque consectetur. Aenean congue sodales quam. Mauris vitae interdum ipsum. Integer vitae lorem leo. Aenean vel leo bibendum, placerat eros ac, imperdiet metus. Mauris rhoncus metus eget feugiat pharetra. Suspendisse blandit augue at pretium adipiscing. Sed in tincidunt elit, vulputate porttitor augue. Vestibulum dictum cursus convallis. Nam tempor metus eu fermentum sagittis. In id lectus sit amet neque vulputate commodo. Mauris eget mi vel libero varius varius nec quis ligula.</p>					
@@ -282,13 +286,96 @@
 					</div>	
 				</div>
 				
+				<!-- New SMS Conversation -->		
+				<div id="sms-conversation-new" class="frame sms-conversation-new-frame">
+					<div class="frame-header">
+						<div class="frame-title">New Text</div> 
+						<span id="sms-back" class="frame-subtitle link back-link">Back</span>
+					</div>
+					<div class=""><span>+</span></div>
+					<div id="recipient-list" class="frame-content"></div>
+					<div class="frame-footer new-message">
+						<div class="btn btn-action edit-button">Edit</div>
+						<textarea class="new-message-content" rows="1" placeholder="Message"></textarea>
+						<span class="character-count">0/160</span>	
+						<div class="btn btn-action send-button">Send</div>
+					</div>	
+				</div>				
+				
 				<!-- Settings -->	
 				<div id="settings" class="frame settings-frame">
 					<div class="frame-header">
 						<div class="frame-title">Settings</div> 
 						<span class="frame-subtitle app-version"></span>
 					</div>
-					<div id="settings-content" class="frame-content"></div>
+					<div id="settings-content" class="frame-content">
+			
+						<div id="general-settings" class="expandable general-settings">
+							<div class="expand-title">General Settings</div>
+							<div class="expand-content">
+				                <div class="section">
+				                    <span class="title">On Startup</span>
+				                    <input type="checkbox" id="auto-start"><label for="auto-start">Open application on computer startup</label>
+				                    <input type="checkbox" id="remember-login-settings" class="remember-login"><label for="remember-login-settings">Remember login information</label>
+				                </div>
+				                <div class="section">
+				                    <span class="title">Desktop Setup</span>
+				                    <input type="checkbox" id="minSystemTray"><label>Minimize to system tray only</label>  
+				                </div>
+				                <div class="section">
+				                    <span class="title">Ringtone</span>
+				                    <label for="default-ringtone">Default Ringtone</label><select id="default-ringtone" class="ringtones"></select>
+				                </div>
+							</div>
+			            </div>
+						<!--
+			            <div id="callerid-settings" class="expandable-container callerid-settings">
+			            	<div class="title">Caller ID Settings</div>
+							<div class="content">	
+					             <div>
+					                <div>Caller ID on PC Notification</div>
+									<input type="checkbox" /><label>Display notification for incoming call</label>
+									<input type="checkbox" id="minimizedpopup"><label id="minimizedlabel">Also display when minimized</label>                
+					             </div>
+							 </div>
+			            </div>
+						
+						
+						<div id="voicemail-settings" class="expandable-container voicemail-settings">  
+							<div class="title">Voicemail Settings</div>
+							<div class="content">	             
+								 <div class="section">
+									<span class="title">Voicemail PIN</span>
+									<div id="mailboxSelect">
+										<select id="mailbox" class="voicemailbox" onchange="setVMPin('mailbox')"></select>
+										<input id="remember-vmbox" type="checkbox" /><span>Remember Mailbox</span>
+									</div>
+									<input type="password" class="num pin-entry" id="mailboxpin" placeholder="PIN" /><input id="remember-pin" type="checkbox" class="pin-entry" onclick="showPinWarning('remember-pin', 'settings-pin-warning');"/><span class="pin-entry">Remember PIN</span>
+									<p id="settings-pin-warning" class="pin-warning-message"></p>				
+								 </div>
+								 <div class="section">
+					                <span class="title">Voicemail Notification</span>
+									<label><input type="checkbox" id="showVMNotif" onchange="">Display notifications for Voicemails</label>
+									<label><input type="checkbox" id="playVMTone" onchange="transformVMToneStatus();">Play a Ringtone when a new voicemail is received</label>
+									<label id="vmTone">Ringtone: <select id="defaultVMTone" onchange="playRing(ringtoneURLs[this.value]);"></select></label>  
+					             </div>
+							 </div>
+						</div>
+						
+						<div class="tabcontent" id="locationSettings">               
+							  <div class="section">
+								<span class="title">My Location</span>
+								<p id="mldefault-label">Default</p>
+								<div><input id="default-mylocation-1" type="radio" name="mldefault" value="" checked="checked"><span id="mylocation-1">###-###-####</span></div>
+								<div><input id="default-mylocation-2" type="radio" name="mldefault" value=""><input id="mylocation-2" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" onkeyup="disableMLRadioButtons();"/><input id="myname-2" class="myname" type="text" maxlength="15" placeholder="friendly name" /></div>
+								<div><input id="default-mylocation-3" type="radio" name="mldefault" value=""><input id="mylocation-3" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" onkeyup="disableMLRadioButtons();"/><input id="myname-3" class="myname" type="text" maxlength="15" placeholder="friendly name" /></div>
+								<div><input id="default-mylocation-4" type="radio" name="mldefault" value=""><input id="mylocation-4" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" onkeyup="disableMLRadioButtons();"/><input id="myname-4" class="myname" type="text" maxlength="15" placeholder="friendly name" /></div>
+								<div><input id="default-mylocation-5" type="radio" name="mldefault" value=""><input id="mylocation-5" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" onkeyup="disableMLRadioButtons();"/><input id="myname-5" class="myname" type="text" maxlength="15" placeholder="friendly name" /></div>
+								<div><input id="default-mylocation-6" type="radio" name="mldefault" value=""><input id="mylocation-6" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" onkeyup="disableMLRadioButtons();"/><input id="myname-6" class="myname" type="text" maxlength="15" placeholder="friendly name" /></div>
+							 </div>
+						</div>
+						-->
+					</div>
 					<div class="frame-footer">
 						<div class="btn btn-action cancel-button">Cancel</div>
 						<div class="btn btn-action save-button">Save</div>	
