@@ -279,7 +279,8 @@ select.ringtone-select{
 /** Inputs and Labels *****************************************/
 
 input[type=text],
-input[type=password]
+input[type=password],
+textarea
 {
 	background-color: white;
 	border: 1px solid #cccccc;
@@ -305,6 +306,12 @@ input[type=password]
 	margin-bottom:9px;
 	font-size: 13px;
 	line-height: 18px;	
+}
+
+.message-content
+{
+	font-size:11px;
+	resize: none;	
 }
 
 /** Checkboxes *****************************************/
@@ -600,7 +607,7 @@ input[type="checkbox"] {
 	margin-left:21px;
 }
 
-/** tables *****************************************/
+/** Tables *****************************************/
 
 table{
 	font:inherit;
@@ -716,7 +723,15 @@ table{
 
 /** SMS Recipient *****************************************/
 
-.new-message-recipient{}
+.new-message-recipient .recipient-title{
+	font-size:16px;
+}
+
+.new-message-recipient .recipient-label{
+	font-size:16px;
+	font-weight:bold;
+	color:#3376b2;	
+}
 
 /** SMS Messages *****************************************/
 
@@ -933,4 +948,9 @@ table{
 .frame-content .number
 {
 	font-size:16px;
+}
+
+.character-count
+{
+	font-size:11px;
 }

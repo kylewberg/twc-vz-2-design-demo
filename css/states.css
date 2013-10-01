@@ -25,7 +25,7 @@
 .logged-in .collapse-link,
 .logged-in .app-title
 {
-	display:inherit;
+	display:block;
 }
 
 /** Collpased Transformation *****************************************/
@@ -44,7 +44,7 @@
 }
 
 .muted .sound-control .sound-off{
-	display:inherit;
+	display:block;
 }
 
 /** Delete Messages Transformation *****************************************/
@@ -54,7 +54,7 @@
 .sms-conversation-frame.delete-mode .delete-all-button,
 .sms-conversation-frame.delete-mode .delete-message
 {
-	display:inherit;
+	display:block;
 }
 
 .sms-conversation-frame.delete-mode .edit-conversation-button,
@@ -71,13 +71,16 @@
 
 /** Add Recipient Transformation *****************************************/
 
-.sms-conversation-new-frame.add-recipient .recipient-filter
+.sms-conversation-new-frame.add-recipient .recipient-filter,
+.sms-conversation-new-frame.add-recipient .cancel-recipient-button
 {
-	display:inline;
+	display:block;
 }
 
 .sms-conversation-new-frame .recipient-filter,
-.sms-conversation-new-frame.add-recipient .recipient-label
+.sms-conversation-new-frame .cancel-recipient-button,
+.sms-conversation-new-frame.add-recipient .recipient-label,
+.sms-conversation-new-frame.add-recipient .add-recipient-button
 {
 	display:none;
 }

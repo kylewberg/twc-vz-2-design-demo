@@ -235,10 +235,7 @@
 	top: 10%;
 	left: 19%;
 	width: 60%;
-	height: 80%;
-	font-size:11px;
-	resize: none;
-	border: solid 1px #aaaaaa;	
+	height: 80%;	
 }
 
 .frame-footer .character-count
@@ -246,7 +243,6 @@
 	position: absolute;
 	bottom: 5%;
 	left: 81%;
-	font-size:11px;
 }
 
 
@@ -336,3 +332,55 @@
 
 /**** New SMS Conversation ****/
 
+.new-message-recipient .recipient-title{
+	position:absolute;
+	left:3%;
+	top:28%;		
+}
+
+.new-message-recipient .recipient-label,
+.new-message-recipient .recipient-filter
+{
+	position:absolute;
+	left:25%;			
+}
+
+.new-message-recipient .recipient-label
+{
+	top:25%;			
+}
+
+.new-message-recipient .recipient-filter
+{
+	top:24%;	
+	width:45%;		
+}
+
+.new-message-recipient .add-recipient-button,
+.new-message-recipient .cancel-recipient-button
+{
+	position:absolute;
+	right:3%;
+	top:15%;	
+}
+
+.sms-conversation-new-frame .frame-footer .send-button
+{
+	right:1%;
+}
+
+.sms-conversation-new-frame .frame-footer .character-count
+{
+	left: 83%;
+}
+
+.sms-conversation-new-frame .frame-footer .message-content
+{
+	left: 21%;
+	width: 60%;
+}
+
+.sms-conversation-new-frame .frame-footer .cancel-new-message-button
+{
+	left: 1%;
+}

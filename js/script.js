@@ -261,7 +261,7 @@ App.populateContents = function(source,n,destination){
 App.populateMessages = function(n){
 	var state, length, clone;
 	var content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce."
-	for (var i = ((n) ? n : 10) - 1; i >= 0; i--){
+	for (var i = n - 1; i >= 0; i--){
 		state = (Math.random() > 0.5) ? "incoming" : "outgoing";
 		length = Math.floor((Math.random()*162)+1);
 		clone = $('#templates .message').clone();
@@ -440,7 +440,8 @@ App.newConversation = {
 	"buttons" : {
 		"cancel" : "#cancel-new-message-button",
 		"send" : "#send-new-message-button",
-		"add" : "#add-recipient-button"
+		"add" : "#add-recipient-button",
+		"cancelRecipient" :  "#cancel-recipient-button"
 	},
 	"inputs" : {
 		"messageContent" : "#new-message-content",
@@ -486,7 +487,7 @@ App.newConversation.sendMessage = function(){
 
 App.newConversation.enableAddRecipient = function(n){
 	$(this.frame).addClass("add-recipient");
-	this.loadRecipients(10);
+	this.loadRecipients(5);
 }
 
 App.newConversation.loadRecipients = function(n){
@@ -498,7 +499,7 @@ App.newConversation.filterRecipients = function(){
 	this.removeRecipients();
 	var filter = $(this.inputs.recipientFilter).val();
 	var length = filter.length;
-	var n = (length <= 10) ? 10 - length : 0;
+	var n = (length <= 5) ? 5 - length : 0;
 	App.populateContents(this.listItem,n,this.outputs.list);
 }
 
@@ -526,6 +527,7 @@ App.newConversation.removeRecipients = function(){
 $(document).ready(function(){
 	$(App.newConversation.backLink).click(function(){App.newConversation.back();});	
 	$(App.newConversation.buttons.add).click(function(){App.newConversation.enableAddRecipient();});
+	$(App.newConversation.buttons.cancelRecipient).click(function(){App.newConversation.resetAddRecipient();});	
 	$(App.newConversation.buttons.send).click(function(){App.newConversation.sendMessage();});
 	$(App.newConversation.buttons.cancel).click(function(){App.newConversation.cancel();});
 	$(document).on("click", App.newConversation.listItem, function(){App.newConversation.addRecipient();});
