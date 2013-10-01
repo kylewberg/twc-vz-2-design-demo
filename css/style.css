@@ -656,69 +656,13 @@ table{
 }
 
 .list-item .image{
-	position:absolute;	
 	max-width:30px;
-	max-height:30px;
-	left:3%;
-	top:12%;	
-}
-
-.list-item.conversation .image{
-	top:18%;	
-}
-
-.list-item .name{
-	position:absolute;	
-	left:16%;
-	top:27%;	
-}
-
-.list-item.conversation .name{
-	top:17%;	
-}
-
-.list-item .date,
-.list-item .time
-{
-	position:absolute;	
-	top:34%;		
-}
-
-.list-item.conversation .date,
-.list-item.conversation .time
-{
-	top:24%;	
-}
-
-.list-item .date{		
-	text-align:right;
-	right:25%;	
-}
-
-.list-item .time{	
-	text-align:right;
-	right:5%;	
+	max-height:30px;	
 }
 
 .list-item.conversation .copy{
-	position: absolute;
-	width: 79%;
-	left: 16%;
-	bottom: 15%;
 	font-size: 11px;
 	color: #666666;
-}
-
-.list-item.unread{
-	
-}
-
-.list-item.confidential{
-	
-}
-
-.list-item.urgent{
-	
 }
 
 /** SMS Recipient *****************************************/
@@ -919,6 +863,10 @@ table{
 
 .sound-control{
 	cursor:pointer;
+	width:20px;
+	height:20px;
+	background-image:url('../img/icon-volume-white.png');
+	background-repeat:no-repeat;	
 }
 
 .forgot-link{
@@ -930,6 +878,26 @@ table{
 .forgot-link:hover{
 	text-decoration:none;
 }	
+
+/** Voicemail Icons *****************************************/
+
+.voicemail.unread .icon-unread{
+	width:11px;
+	height:11px;	
+	background:url('../img/icon-dot-green.png') 0 0 no-repeat;
+}
+
+.voicemail.urgent .icon-urgent{
+	width:16px;
+	height:16px;	
+	background:url('../img/icon-exclamation.png') 0 0 no-repeat;
+}
+
+.voicemail.confidential .icon-confidential{
+	width:16px;
+	height:16px;
+	background:url('../img/icon-lock.png') 0 0 no-repeat;
+}
 
 /** Misc *****************************************/
 

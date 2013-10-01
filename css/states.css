@@ -37,14 +37,13 @@
 }
 
 /** Muted Transformation *****************************************/
-.sound-control .sound-off,
-.muted .sound-control .sound-on
+.sound-control
 {
-	display:none;
+	background-position:left top;
 }
 
-.muted .sound-control .sound-off{
-	display:block;
+.muted .sound-control{
+	background-position:left bottom;
 }
 
 /** Delete Messages Transformation *****************************************/

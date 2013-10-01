@@ -42,7 +42,7 @@
 
 .sound-control{
 	position:absolute;
-	top:10px;
+	top:6px;
 	right:5px;
 }
 
@@ -267,6 +267,58 @@
 	top:5px;
 }
 
+/** List Items *****************************************/
+
+.list-item .image{
+	position:absolute;	
+	left:3%;
+	top:12%;	
+}
+
+.list-item.conversation .image{
+	top:18%;	
+}
+
+.list-item .name{
+	position:absolute;	
+	left:16%;
+	top:27%;	
+}
+
+.list-item.conversation .name{
+	top:17%;	
+}
+
+.list-item .date,
+.list-item .time
+{
+	position:absolute;	
+	top:34%;		
+}
+
+.list-item.conversation .date,
+.list-item.conversation .time
+{
+	top:24%;	
+}
+
+.list-item .date{		
+	text-align:right;
+	right:25%;	
+}
+
+.list-item .time{	
+	text-align:right;
+	right:5%;	
+}
+
+.list-item.conversation .copy{
+	position: absolute;
+	width: 79%;
+	left: 16%;
+	bottom: 15%;
+}
+
 /** Individual Frames *****************************************/
 
 /**** Login ****/
@@ -317,6 +369,30 @@
 /**** Contact Edit ****/
 
 /**** Voicemails ****/
+
+.voicemail .icon-unread{
+	position:absolute;
+	left:1%;
+	top:36%;
+}
+
+.voicemail .icon-urgent,
+.voicemail .icon-confidential
+{
+	position:absolute;
+	top:30%;
+}
+
+.voicemail .icon-urgent{
+	left:4%;
+}
+
+.voicemail .icon-confidential{
+	left:8%;
+}
+
+.voicemail .image{left:15%;}
+.voicemail .name{left:28%;}
 
 /**** Voicemail ****/
 
