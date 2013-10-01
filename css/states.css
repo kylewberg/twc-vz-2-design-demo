@@ -83,3 +83,13 @@
 {
 	display:none;
 }
+
+/** Modal Transformation *****************************************/
+
+.app-modal{
+	display:none;
+}
+
+.modal .app-modal{
+	display:block;
+}

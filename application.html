@@ -37,7 +37,7 @@
 				<div id="calls-link" class="nav-link first">Recents</div>
 				<div id="contacts-link" class="nav-link">Contacts</div>
 				<div id="voicemails-link" class="nav-link">Voicemail</div>
-				<div id="sms-link" class="nav-link sms-link">Texts</div>
+				<div id="sms-link" class="nav-link last">Texts</div>
 			</div><!-- /#app-menu -->	
 			<div id="app-content" class="app-content">
 				
@@ -52,12 +52,12 @@
 						<div class="login-username">
 							<label for="username" class="login-label">Username</label>
 							<input id="username" class="login-input" type="text"  placeholder="Enter TWC ID Username" />
-							<span class="link forgot-link">Forgot Username?</span>
+							<span id="forgot-username" class="link forgot-link">Forgot Username?</span>
 						</div>
 						<div class="login-password">
 							<label for="password" class="login-label">Password</label>
 							<input id="password" class="login-input" type="text" placeholder="Enter TWC ID Password" />
-							<span class="link forgot-link">Forgot Password?</span>
+							<span id="forgot-password" class="link forgot-link">Forgot Password?</span>
 						</div>
 						<div class="login-remember">
 							<input id="remember-login" type="checkbox">
@@ -432,6 +432,23 @@
 				</div>
 				<div id="collapse-link" class="link collapse-link">Collapse</div>
 			</div><!-- /#app-footer -->	
+			
+			<div id="app-modal" class="app-modal">
+				<div class="modal-container">
+					<div class="modal-header">										
+						<div id="modal-title" class="modal-title"></div>
+						<div id="modal-close" class="modal-close">Close <span class="icon-close"> &#x2716;</span></div>
+					</div>
+					<div class="modal-content">
+						<div id="modal-message" class="modal-message"></div>
+					</div>
+					<div class="modal-footer">
+						<div class="btn btn-login">OK</div>
+						<div class="btn btn-login">Cancel</div>
+					</div>
+				</div>
+			</div><!-- /#app-modal -->	
+			
 		</div><!-- /#app -->	
 		
 		<div id="templates" style="display:none;">

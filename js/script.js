@@ -5,7 +5,7 @@ var App = {
  "info" : {
  	"name" : {
 		"residential" : "VoiceZone Connect",
-		"commercial" : "Voice Manager"
+		"commercial" : "Voice Manager Connect"
 	},
 	"version" : "2.0.0"
  },
@@ -63,6 +63,10 @@ var App = {
 	"contactEdit" : "#contact-edit-back",
 	"voicemail" : "#voicemail-back"
   },
+  "otherLinks" : {
+  	"forgotUsername" : "#forgot-username",
+	"forgotPassword" : "#forgot-password"
+  },
   "listItems" : {
   	"call" : ".call",
 	"contact" : ".contact",
@@ -87,7 +91,7 @@ var App = {
 }
 
 App.log = function(message){
-	console.log(message);
+	//console.log(message);
 }
 
 App.initialize = function() {		
@@ -97,6 +101,7 @@ App.initialize = function() {
 	this.initPlugins();
 	//init GUI
 	this.initGUI();
+	this.enableCommercial();	
 	//show default
 	this.navigate("login");	
 }
@@ -118,6 +123,15 @@ App.collapse = function(){
 App.expand = function(){
 	this.states.loggedIn = false;	
 	$(this.elements.app).removeClass("collapsed");				
+}
+
+App.showModal = function(id){
+	Modal.init(id);
+	$(this.elements.app).addClass("modal");	
+}
+
+App.hideModal = function(){
+	$(this.elements.app).removeClass("modal");	
 }
 
 /*--GUI------------*/
@@ -300,6 +314,9 @@ $(document).ready(function(){
 	$(App.elements.buttons.edit).click(function(){App.navigate("contact-edit");});	
 	$(App.elements.buttons.save).click(function(){App.navigatePrevious();});
 	$(App.elements.buttons.cancel).click(function(){App.navigatePrevious();});	
+		
+	//misc links
+	$(App.elements.otherLinks.forgotUsername).click(function(){App.showModal(0);});
 		
 	//utility links	
 	$(App.elements.utilityLinks.sound).click(function(){App.toggleSound();});
@@ -535,4 +552,35 @@ $(document).ready(function(){
 	$(App.newConversation.inputs.recipientFilter).on("input propertychange", function(){App.newConversation.filterRecipients();});
 });
 
+/*--Modals------------*/
 
+var Modal = {
+	"title" : "#modal-title",
+	"message" : "#modal-message",
+	"buttons" : {
+		"close" : "#modal-close"
+	}
+}
+
+Modal.init = function(id){
+	var title, message;
+	switch(id) {	
+		case 0:
+		    title = "Forgot Username";
+			message = "Click below to retrieve username";
+			break;							
+		default: 
+			title = "Notice";	
+			message = "";
+	}	
+	$(this.title).html(title);
+	$(this.message).html(message);
+}
+
+Modal.close = function(){
+	App.hideModal();
+}
+
+$(document).ready(function(){
+	$(Modal.buttons.close).click(function(){Modal.close();});	
+});

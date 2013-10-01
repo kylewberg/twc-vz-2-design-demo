@@ -62,6 +62,10 @@
 	height:49px;
 }
 
+.commercial .app-menu{
+	margin-bottom:3px;
+	height:46px;
+}
 
 /** App Content *****************************************/
 
@@ -98,11 +102,21 @@
 	margin:0;
 }
 
+.commercial .frame-title{
+	left:0px;
+	top:4px;
+}
+
 .frame-subtitle{
 	position:absolute;
 	text-align:right;
 	right:15px;
 	top:12px;
+}
+
+.commercial .frame-subtitle{
+	right:0px;
+	top:11px;
 }
 
 /**** Frame Top Bar ****/
@@ -196,14 +210,33 @@
 	left:3%;
 }
 
+.commercial .frame-footer .edit-button,
+.commercial .frame-footer .add-button,
+.commercial .frame-footer .new-button,
+.commercial .frame-footer .save-button,
+.commercial .frame-footer .edit-conversation-button,
+.commercial .frame-footer .cancel-delete-button
+{
+	left:0%;
+}
+
 .frame-footer .cancel-button
 {
 	left:23%;
 }
 
+.commercial .frame-footer .cancel-button {
+	left: 21%;
+}
+
 .frame-footer .delete-button
 {
 	left:41%;
+}
+
+.commercial .frame-footer .delete-button
+{
+	left:37%;
 }
 
 .frame-footer .delete-selected-button
@@ -216,9 +249,19 @@
 	right:22%;
 }
 
+.commercial .frame-footer .call-button
+{
+	right:20%;
+}
+
 .frame-footer .import-button
 {
 	right:23%;
+}
+
+.commercial .frame-footer .import-button
+{
+	right:25%;
 }
 
 .frame-footer .text-button,
@@ -227,6 +270,14 @@
 .frame-footer .delete-all-button
 {
 	right:3%;
+}
+
+.commercial .frame-footer .text-button,
+.commercial .frame-footer .send-button,
+.commercial .frame-footer .export-button,
+.commercial .frame-footer .delete-all-button
+{
+	right:0%;
 }
 
 .frame-footer .message-content
@@ -243,6 +294,12 @@
 	position: absolute;
 	bottom: 5%;
 	left: 81%;
+}
+
+.commercial .frame-footer .character-count
+{
+	bottom: 0%;
+	left: 82%;	
 }
 
 
@@ -265,6 +322,46 @@
 	position:absolute;
 	right:5px;
 	top:5px;
+}
+
+/** App Modal *****************************************/
+
+.app-modal{
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:100;
+	top:0;
+	left:0;
+}
+
+.app-modal .modal-container{
+	width:90%;
+	position:absolute;
+	top:30%;
+	left:5%;
+}
+
+.modal-container .modal-header{
+	position:relative;
+	width:100%;
+}
+
+.modal-container .modal-title{
+	position:absolute;
+	width:50%;
+	top:13%;
+	left:4%;
+}
+
+.modal-container .modal-close{
+	position:absolute;
+	top:17%;
+	right:3%;
+}
+
+.modal-container .modal-content{
+	min-height:100px;
 }
 
 /** List Items *****************************************/
@@ -365,6 +462,15 @@
 
 /**** Contact ****/
 
+.contact-frame .frame-footer .delete-button
+{
+	left:23%;
+}
+
+.commercial .contact-frame .frame-footer .delete-button
+{
+	left:20%;
+}
 
 /**** Contact Edit ****/
 
@@ -426,6 +532,11 @@
 	top:25%;			
 }
 
+.commercial .new-message-recipient .recipient-label
+{
+	top:29%;			
+}
+
 .new-message-recipient .recipient-filter
 {
 	top:24%;	
@@ -440,14 +551,31 @@
 	top:15%;	
 }
 
+.commercial .new-message-recipient .add-recipient-button,
+.commercial .new-message-recipient .cancel-recipient-button
+{
+	top:9%;	
+}
+
 .sms-conversation-new-frame .frame-footer .send-button
 {
 	right:1%;
 }
 
+.commercial .sms-conversation-new-frame .frame-footer .send-button
+{
+	right:0%;
+}
+
 .sms-conversation-new-frame .frame-footer .character-count
 {
 	left: 83%;
+}
+
+.commercial .sms-conversation-new-frame .frame-footer .character-count
+{
+	left: 82%;
+	bottom:1%;
 }
 
 .sms-conversation-new-frame .frame-footer .message-content
@@ -456,7 +584,17 @@
 	width: 60%;
 }
 
+.commercial .sms-conversation-new-frame .frame-footer .message-content {
+	left: 24%;
+	width: 56%;
+}
+
 .sms-conversation-new-frame .frame-footer .cancel-new-message-button
 {
 	left: 1%;
+}
+
+.commercial .sms-conversation-new-frame .frame-footer .cancel-new-message-button
+{
+	left: 0%;
 }
