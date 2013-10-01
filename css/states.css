@@ -46,3 +46,38 @@
 .muted .sound-control .sound-off{
 	display:inherit;
 }
+
+/** Delete Messages Transformation *****************************************/
+
+.sms-conversation-frame.delete-mode .cancel-delete-button,
+.sms-conversation-frame.delete-mode .delete-selected-button,
+.sms-conversation-frame.delete-mode .delete-all-button,
+.sms-conversation-frame.delete-mode .delete-message
+{
+	display:inherit;
+}
+
+.sms-conversation-frame.delete-mode .edit-conversation-button,
+.sms-conversation-frame.delete-mode .message-content,
+.sms-conversation-frame.delete-mode .character-count,
+.sms-conversation-frame.delete-mode .send-button,
+.sms-conversation-frame .cancel-delete-button,
+.sms-conversation-frame .delete-selected-button,
+.sms-conversation-frame .delete-all-button,
+.sms-conversation-frame .delete-message
+{
+	display:none;
+}
+
+/** Add Recipient Transformation *****************************************/
+
+.sms-conversation-new-frame.add-recipient .recipient-filter
+{
+	display:inline;
+}
+
+.sms-conversation-new-frame .recipient-filter,
+.sms-conversation-new-frame.add-recipient .recipient-label
+{
+	display:none;
+}

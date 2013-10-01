@@ -266,8 +266,7 @@
 					</div>
 					<div id="conversation-list" class="frame-content"></div>
 					<div class="frame-footer">
-						<div class="btn btn-action edit-button">Edit</div>	
-						<div class="btn btn-action new-button">New Text</div>
+						<div id="new-sms-button" class="btn btn-action new-button">New Text</div>
 					</div>						
 				</div>	
 				
@@ -279,10 +278,13 @@
 					</div>
 					<div id="message-list" class="frame-content"></div>
 					<div class="frame-footer new-message">
-						<div class="btn btn-action edit-button">Edit</div>
-						<textarea class="new-message-content" rows="1" placeholder="Message"></textarea>
-						<span class="character-count">0/160</span>	
-						<div class="btn btn-action send-button">Send</div>
+						<div id="edit-conversation-button" class="btn btn-action edit-conversation-button">Edit</div>
+						<div id="delete-selected-button" class="btn btn-action delete-selected-button">Delete Selected</div>
+						<div id="delete-all-button" class="btn btn-action delete-all-button">Delete All</div>
+						<div id="cancel-delete-button" class="btn btn-action cancel-delete-button">Cancel</div>
+						<textarea id="message-content" class="message-content" placeholder="Message"></textarea>
+						<span id="character-count" class="character-count">0/160</span>	
+						<div id="send-message-button" class="btn btn-action send-button">Send</div>
 					</div>	
 				</div>
 				
@@ -290,15 +292,20 @@
 				<div id="sms-conversation-new" class="frame sms-conversation-new-frame">
 					<div class="frame-header">
 						<div class="frame-title">New Text</div> 
-						<span id="sms-back" class="frame-subtitle link back-link">Back</span>
+						<span id="sms-new-back" class="frame-subtitle link back-link">Back</span>
 					</div>
-					<div class=""><span>+</span></div>
+					<div id="new-message-recipient" class="frame-topbar new-message-recipient">
+						<span>Recipient: </span>
+						<span id="recipient-label" class="recipient-label"></span>
+						<input type="text" id="recipient-filter" class="recipient-filter" />
+						<span id="add-recipient-button" class="btn btn-action add-recipient-button">Add</span>
+					</div>
 					<div id="recipient-list" class="frame-content"></div>
 					<div class="frame-footer new-message">
-						<div class="btn btn-action edit-button">Edit</div>
-						<textarea class="new-message-content" rows="1" placeholder="Message"></textarea>
-						<span class="character-count">0/160</span>	
-						<div class="btn btn-action send-button">Send</div>
+						<div id="cancel-new-message-button" class="btn btn-action cancel-new-message-button">Cancel</div>
+						<textarea id="new-message-content" class="message-content" placeholder="Message"></textarea>
+						<span id="new-character-count" class="character-count">0/160</span>	
+						<div id="send-new-message-button" class="btn btn-action send-button">Send</div>
 					</div>	
 				</div>				
 				
@@ -440,9 +447,16 @@
 				<img class="image" src="img/contact-image.png" />
 				<span class="name">First Last</span>
 			</div>
-			<div class="list-item voicemail">
+			<div class="list-item recipient">
 				<img class="image" src="img/contact-image.png" />
 				<span class="name">First Last</span>
+			</div>
+			<div class="list-item voicemail">
+				<span class="icon-unread"></span>
+				<img class="image" src="img/contact-image.png" />
+				<span class="name">First Last</span>
+				<span class="icon-urgent"></span>
+				<span class="icon-confidential"></span>
 				<span class="date">Jan 1</span>
 				<span class="time">12:00 am</span>
 			</div>			
@@ -454,12 +468,13 @@
 				<div class="copy truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce.</div>																		
 			</div>	
 			<div class="message">
+				<input type="checkbox" class="delete-message" />
 				<span class="name truncate">First Last</span>
 				<div class="datetime">
 					<span class="date">Jan 1</span>
 					<span class="time">12:00 am</span>		
 				</div>
-				<div class="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce.</div>																		
+				<div class="copy"></div>																		
 			</div>									
 		</div><!-- /#templates -->
     </body>

@@ -105,6 +105,15 @@
 	top:12px;
 }
 
+/**** Frame Top Bar ****/
+
+.frame-topbar{
+	position:absolute;
+	top:10%;
+	width:100%;
+	height:10%;		
+}
+
 /**** Frame Content ****/
 
 .frame-content{
@@ -128,6 +137,11 @@
 .frame.sms-conversation-frame .frame-content
 {
 	height:76%;
+}
+
+.frame.sms-conversation-new-frame .frame-content{
+	top:20%;
+	height:66%;
 }
 
 .frame-content .audiojs{
@@ -169,24 +183,39 @@
 
 .frame-footer .btn-action{
 	position:absolute;
-	top:4px;
+	top:14%;
 }
 
 .frame-footer .edit-button,
 .frame-footer .add-button,
 .frame-footer .new-button,
-.frame-footer .save-button
+.frame-footer .save-button,
+.frame-footer .edit-conversation-button,
+.frame-footer .cancel-delete-button
 {
 	left:3%;
 }
 
-.frame-footer .delete-button,
 .frame-footer .cancel-button
 {
 	left:23%;
 }
 
-.frame-footer .call-button,
+.frame-footer .delete-button
+{
+	left:41%;
+}
+
+.frame-footer .delete-selected-button
+{
+	right:28%;
+}
+
+.frame-footer .call-button
+{
+	right:22%;
+}
+
 .frame-footer .import-button
 {
 	right:23%;
@@ -194,12 +223,13 @@
 
 .frame-footer .text-button,
 .frame-footer .send-button,
-.frame-footer .export-button
+.frame-footer .export-button,
+.frame-footer .delete-all-button
 {
 	right:3%;
 }
 
-.frame-footer .new-message-content
+.frame-footer .message-content
 {
 	position: absolute;
 	top: 10%;
@@ -214,8 +244,8 @@
 .frame-footer .character-count
 {
 	position: absolute;
-	bottom: 10%;
-	right: 11%;
+	bottom: 5%;
+	left: 81%;
 	font-size:11px;
 }
 
@@ -302,3 +332,7 @@
 	position:absolute;
 	bottom:20px;
 }
+
+
+/**** New SMS Conversation ****/
+

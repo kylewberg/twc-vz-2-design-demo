@@ -136,6 +136,12 @@
 	color:#ffffff;
 }
 
+.frame-topbar{
+	-webkit-box-sizing: border-box;		
+	border-bottom: 1px #dddddd solid;
+	background:#ffffff;	
+}
+
 .frame-content{
 	-webkit-box-sizing: border-box;		
 	overflow-x:hidden;
@@ -564,8 +570,7 @@ input[type="checkbox"] {
 	color:#2c77b3;	
 	margin: 5px 0px;
 	padding: 0px 0px 0px 33px;
-	font-size: 20px;
-	font-weight: bold;	
+	font-size: 20px;	
 	background:url('../img/icon-plus-minus.png') 5px 1px no-repeat;
 }
 
@@ -697,9 +702,26 @@ table{
 	color: #666666;
 }
 
+.list-item.unread{
+	
+}
+
+.list-item.confidential{
+	
+}
+
+.list-item.urgent{
+	
+}
+
+/** SMS Recipient *****************************************/
+
+.new-message-recipient{}
+
 /** SMS Messages *****************************************/
 
 .message{
+	position:relative;
 	max-width:80%;
 	min-width:60%;
 	margin:5px 10px;
@@ -732,6 +754,12 @@ table{
 	padding-top:5px;
 }
 
+.message .delete-message{
+	position:absolute;
+	top: 50%;
+	margin-top: -8px;
+}
+
 .message.incoming{
 	float:left;
 	background:#f8f8fa;	
@@ -743,6 +771,10 @@ table{
 
 .message.incoming .datetime{
 	float:right;
+}
+
+.message.incoming .delete-message{
+	right:-30px;
 }
 
 .message.outgoing{
@@ -757,6 +789,10 @@ table{
 
 .message.outgoing .datetime{
 	float:left;
+}
+
+.message.outgoing .delete-message{
+	left:-30px;
 }
 
 /** Info Cards *****************************************/
