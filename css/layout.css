@@ -1,3 +1,10 @@
+/** General Info ****************************************
+ * Original App expanded 372 X 478
+ * Original App collapsed 372 X 117
+ * Original App window was 380 X 520
+ * New App expanded 372 X 484
+ * New App window was 384 X 496 (+6px on each side for drop shadow)
+ */
 
 /** App Top *****************************************/
 
@@ -53,6 +60,23 @@
 	margin:0;	
 }
 
+/** App Splash *****************************************/
+
+.app-splash{
+	position:relative;
+	width:100%;
+	height:49px;
+}
+
+.app-splash .app-name{
+	position:absolute;
+	top:15%;
+	left:3%;	
+}
+
+.commercial .app-splash .app-name{
+	left:2%;	
+}
 
 /** App Menu *****************************************/
 
@@ -72,7 +96,7 @@
 .app-content{
 	position:relative;
 	width:100%;
-	height:350px;
+	height:325px;
 	margin:0;
 	padding:2% 0 0 0;
 }
@@ -420,7 +444,6 @@
 
 /**** Login ****/
 
-.login-splash, 
 .login-username,
 .login-password,
 .login-remember
@@ -428,26 +451,22 @@
 	position:absolute;
 	left:10%;		
 }
-
-.login-splash{
-	top:6%;
-}
  
 .login-username{
-	top:22%;
+	top:10%;
 }
 
 .login-password{
-	top:51%;
+	top:45%;
 }
 
 .login-remember{
-	top:84%;
+	top:82%;
 }
 
 .login-button{
 	position:absolute;	
-	top:81%;
+	top:78%;
 	left:65%;
 }
 

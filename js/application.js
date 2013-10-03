@@ -7,7 +7,10 @@ var App = {
 		"residential" : "VoiceZone Connect",
 		"commercial" : "Voice Manager Connect"
 	},
-	"version" : "2.0.0"
+	"version" : {
+		"partial" : "2.0.0",
+		"full" : "2.0.0.0"
+	}
  },
  "frames" : {
  	"current" : null,
@@ -17,7 +20,8 @@ var App = {
  	"loggedIn" : false,
 	"collapsed" : false,
 	"muted" : false,
-	"commercial" : false
+	"commercial" : false,
+	"development" : false
  },
  "elements" : {
   "app" : "#app",
@@ -90,28 +94,40 @@ var App = {
  }
 }
 
-App.log = function(message){
-	//console.log(message);
-}
+/*--Init------------*/
 
 App.initialize = function() {		
 	//load data
 	this.loadData();
+	
 	//init plugins
 	this.initPlugins();
+	
 	//init GUI
 	this.initGUI();
-	this.enableCommercial();	
-	//show default
+	
+	//enable modes
+	//this.enableDevelopment();
+	//this.enableCommercial();	
+	
+	//navigate to start frame
 	this.navigate("login");	
 }
 
+App.log = function(message){
+	//console.log(message);
+}
+
+App.move = function(){
+	window.nativeWindow.startMove();
+}
+
 App.close = function(){
-	this.logout();
+	air.NativeApplication.nativeApplication.exit();   
 }
 
 App.minimize = function(){
-
+	window.nativeWindow.minimize();
 }
 
 App.collapse = function(){
@@ -138,7 +154,8 @@ App.hideModal = function(){
 
 App.initGUI = function(){
 	$('.app-name').html(this.info.name.residential);
-	$('.app-version').html("Version "+this.info.version);	
+	$('#login-version').html("Version "+this.info.version.partial);	
+	$('#settings-version').html("Version "+this.info.version.full);
 }
 
 /*--Plugins------------*/
@@ -147,6 +164,18 @@ App.initPlugins = function(){
 	audiojs.events.ready(function() {
     	var as = audiojs.createAll();
   	});
+}
+
+/*--Development Mode------------*/
+
+App.enableDevelopment = function(){
+	this.states.development = true;
+	$(this.elements.app).addClass("development");	
+}
+
+App.disableDevelopment = function(){
+	this.states.commercial = false;
+	$(this.elements.app).removeClass("development");					
 }
 
 /*--Commercial Mode------------*/
@@ -265,26 +294,6 @@ App.showFrame = function(frame){
 
 /*--Data------------*/
 
-App.populateContents = function(source,n,destination){
-	this.log("populate contents for "+destination+", with "+source);
-	for (var i = ((n) ? n : 10) - 1; i >= 0; i--){
-		$(destination).append($('#templates '+source).clone());
-	};
-}
-
-App.populateMessages = function(n){
-	var state, length, clone;
-	var content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce."
-	for (var i = n - 1; i >= 0; i--){
-		state = (Math.random() > 0.5) ? "incoming" : "outgoing";
-		length = Math.floor((Math.random()*162)+1);
-		clone = $('#templates .message').clone();
-		clone.addClass(state);
-		clone.find('.copy').html(content.substring(0, length));
-		$("#message-list").append(clone);
-	};
-}
-
 App.loadRingtones = function(n){
 	for (var i = ((n) ? n : 10) - 1; i >= 0; i--){
 		$("select.ringtones").prepend('<option class="ringtone">Ringtone '+i+'</option>');
@@ -292,17 +301,22 @@ App.loadRingtones = function(n){
 }
 
 App.loadData = function(){
-	this.populateContents(".call",50,"#call-list");
-	this.populateContents(".contact",10,"#contact-list");		
-	this.populateContents(".voicemail",5,"#voicemail-list");		
-	this.populateContents(".conversation",10,"#conversation-list");	
-	this.populateMessages(10);
+	Calls.load(50);
+	Contacts.load(10);		
+	Voicemails.load(5);
+	Conversations.load(10);
+	Messages.load(10);
 	this.loadRingtones(20);					
 }
+
+
 
 /*--App Event Registration------------*/
 $(document).ready(function(){
 	App.initialize();
+	
+	//app functionality
+	$(App.elements.top).onmousedown = function(event) {App.move();}
 	
 	//select dropdowns
 	$(App.elements.selectMenus.activeNumber).on("change", function(){App.changeActiveNumber();});	
@@ -346,6 +360,7 @@ $(document).ready(function(){
 	//expandable containers
 	$(App.elements.expandableContainer.title).click(function(){$(this).parent().toggleClass("open");});	
 });
+
 
 
 /*--SMS Conversations Frame------------*/
@@ -432,7 +447,7 @@ App.conversation.resetSendMessage = function(){
 App.conversation.sendMessage = function(){
 	var n = $(this.inputs.messageContent).val().length;	
 	if(n > 0){
-		App.populateMessages(1);
+		Messages.load(1);
 		this.resetSendMessage();
 	}
 }
@@ -509,7 +524,7 @@ App.newConversation.enableAddRecipient = function(n){
 
 App.newConversation.loadRecipients = function(n){
 	this.removeRecipients();
-	App.populateContents(this.listItem,n,this.outputs.list);
+	Recipients.load(n);
 }
 
 App.newConversation.filterRecipients = function(){
@@ -517,7 +532,7 @@ App.newConversation.filterRecipients = function(){
 	var filter = $(this.inputs.recipientFilter).val();
 	var length = filter.length;
 	var n = (length <= 5) ? 5 - length : 0;
-	App.populateContents(this.listItem,n,this.outputs.list);
+	Recipients.load(n);
 }
 
 App.newConversation.addRecipient = function(){
@@ -552,7 +567,7 @@ $(document).ready(function(){
 	$(App.newConversation.inputs.recipientFilter).on("input propertychange", function(){App.newConversation.filterRecipients();});
 });
 
-/*--Modals------------*/
+/*--Modal------------*/
 
 var Modal = {
 	"title" : "#modal-title",

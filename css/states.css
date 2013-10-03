@@ -12,7 +12,8 @@
 .app-menu,
 .my-location,
 .collapse-link,
-.app-title
+.app-title,
+.logged-in .app-splash
 {
 	display:none;
 }
