@@ -34,7 +34,7 @@
 	-webkit-box-sizing: border-box;		
 	padding:0;	
 	background-color: #ffffff;
-	-webkit-box-shadow: 0 2px 6px #acacac;
+	-webkit-box-shadow: 0 2px 6px #666666;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	color: #333333;		
@@ -843,20 +843,12 @@ table{
 
 .list-item{
 	-webkit-box-sizing: border-box;	
-	float:left;
-	position:relative;
-	width:100%;
-	height:40px;
 	border-bottom: 1px dotted #ddd;
 	cursor:pointer;
 }
 
 .commercial .list-item{
 	border-bottom-style:solid;
-}
-
-.list-item.conversation{
-	height:47px;	
 }
 
 .list-item:hover{
@@ -867,14 +859,38 @@ table{
 	background:#c8ccd2;	
 }
 
-.list-item .image{
-	max-width:30px;
-	max-height:30px;	
+.list-item .name{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
 }
 
-.list-item.conversation .copy{
-	font-size: 11px;
+.list-item .number{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+}
+
+.list-item .number,
+.list-item .date,
+.list-item .time
+{
+	font-size:11px;
+}
+
+.list-item .date,
+.list-item .time
+{	
+	text-align:right;	
+}
+
+
+.list-item .copy{
+	font-size: 10px;
 	color: #666666;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
 }
 
 .commercial .list-item.conversation .copy{
@@ -921,16 +937,21 @@ table{
 
 .message .name{
 	max-width:65%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
 }
 
 .message .datetime{
-	padding-top:3px;
+	padding-top:2px;
+	font-size:11px;	
 }
 
 .message .copy{
 	clear:both;
 	color:#666666;
 	padding-top:5px;
+	font-size:12px;
 }
 
 .commercial .message .copy{
@@ -1137,28 +1158,6 @@ table{
 
 /** Voicemail Icons *****************************************/
 
-.voicemail.unread .icon-unread{
-	width:11px;
-	height:11px;	
-	background:url('../img/icon-dot-green.png') 0 0 no-repeat;
-}
-
-.commercial .voicemail.unread .icon-unread{	
-	background-image:url('../img/icon-dot-yellow.png');
-}
-
-.voicemail.urgent .icon-urgent{
-	width:16px;
-	height:16px;	
-	background:url('../img/icon-exclamation.png') 0 0 no-repeat;
-}
-
-.voicemail.confidential .icon-confidential{
-	width:16px;
-	height:16px;
-	background:url('../img/icon-lock.png') 0 0 no-repeat;
-}
-
 
 /** Splash *****************************************/
 
@@ -1175,18 +1174,7 @@ table{
 /** Misc *****************************************/
 
 .truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.frame-content .name,
-.frame-content .number
-{
-	font-size:16px;
-}
-
-.character-count
-{
-	font-size:11px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

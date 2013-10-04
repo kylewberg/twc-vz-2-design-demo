@@ -59,7 +59,6 @@
 
 .sms-conversation-frame.delete-mode .edit-conversation-button,
 .sms-conversation-frame.delete-mode .message-content,
-.sms-conversation-frame.delete-mode .character-count,
 .sms-conversation-frame.delete-mode .send-button,
 .sms-conversation-frame .cancel-delete-button,
 .sms-conversation-frame .delete-selected-button,
@@ -94,3 +93,77 @@
 .modal .app-modal{
 	display:block;
 }
+
+/** Voicemail Icons *****************************************/
+
+.list-item .icon-unread,
+.list-item .icon-urgent,
+.list-item .icon-confidential
+{
+	display:none;
+	float:left;
+	margin-top:5%;	
+}
+
+.list-item.unread .icon-unread,
+.list-item.urgent .icon-urgent,
+.list-item.confidential .icon-confidential
+{
+	display:block;
+}
+
+.list-item .icon-unread{
+	width:16px;
+	height:16px;	
+	background:url('../img/icon-dot-green.png') 2px 3px no-repeat;
+}
+
+.commercial .list-item .icon-unread{	
+	background-image:url('../img/icon-dot-yellow.png');
+}
+
+.list-item .icon-urgent{
+	width:16px;
+	height:16px;	
+	background:url('../img/icon-exclamation.png') 0 0 no-repeat;
+}
+
+.list-item .icon-confidential{
+	width:16px;
+	height:16px;
+	background:url('../img/icon-lock.png') 0 0 no-repeat;
+}
+
+.list-item.unread .image,
+.list-item.urgent .image,
+.list-item.confidential .image
+{left:5%;}
+
+.list-item.unread .name,
+.list-item.urgent .name,
+.list-item.confidential .name
+{left:16%;width:33%;}
+
+.list-item.unread .copy,
+.list-item.urgent .copy,
+.list-item.confidential .copy
+{left:16%;width:82%;}
+
+.list-item.unread.urgent .image,
+.list-item.unread.confidential .image,
+.list-item.urgent.confidential .image
+{left:10%;}
+
+.list-item.unread.urgent .name,
+.list-item.unread.confidential .name,
+.list-item.urgent.confidential .name
+{left:21%;width:30%;}
+
+.list-item.unread.urgent .copy,
+.list-item.unread.confidential .copy,
+.list-item.urgent.confidential .copy
+{left:21%;width:77%;}
+
+.list-item.unread.urgent.confidential .image{left:15%;}
+.list-item.unread.urgent.confidential .name{left:26%;width:26%;}
+.list-item.unread.urgent.confidential .copy{left:26%;width:72%;}

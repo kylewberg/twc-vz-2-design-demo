@@ -8,8 +8,8 @@
         <script type="text/javascript" src="lib/air/AIRAliases.js"></script>
         <script type="text/javascript" src="lib/air/AIRIntrospector.js"></script>
 		<script type="text/javascript" src="plugins/audiojs/audio.min.js"></script>	
-		<script type="text/javascript" src="js/models.js"></script>	
         <script type="text/javascript" src="js/application.js"></script>
+		<script type="text/javascript" src="js/controllers.js"></script>			
 	</head>
     <body>
     	<div id="app" class="app">
@@ -281,11 +281,10 @@
 					<div id="message-list" class="frame-content"></div>
 					<div class="frame-footer new-message">
 						<div id="edit-conversation-button" class="btn btn-action edit-conversation-button">Edit</div>
-						<div id="delete-selected-button" class="btn btn-action delete-selected-button">Delete Selected</div>
+						<div id="delete-selected-button" class="btn btn-action delete-selected-button">Delete Selected (<span id="delete-selected-count"></span>)</div>
 						<div id="delete-all-button" class="btn btn-action delete-all-button">Delete All</div>
 						<div id="cancel-delete-button" class="btn btn-action cancel-delete-button">Cancel</div>
 						<textarea id="message-content" class="message-content" placeholder="Message"></textarea>
-						<span id="character-count" class="character-count">0/160</span>	
 						<div id="send-message-button" class="btn btn-action send-button">Send</div>
 					</div>	
 				</div>
@@ -307,7 +306,6 @@
 					<div class="frame-footer new-message">
 						<div id="cancel-new-message-button" class="btn btn-action cancel-new-message-button">Cancel</div>
 						<textarea id="new-message-content" class="message-content" placeholder="Message"></textarea>
-						<span id="new-character-count" class="character-count">0/160</span>	
 						<div id="send-new-message-button" class="btn btn-action send-button">Send</div>
 					</div>	
 				</div>				
@@ -463,40 +461,43 @@
 		<div id="templates" style="display:none;">
 			<div class="list-item call">
 				<img class="image" src="img/contact-image.png" />
-				<span class="name">000-000-0000</span>
+				<span class="name"></span>
+				<span class="number"></span>
 				<span class="date">Jan 1</span>
 				<span class="time">12:00 am</span>
 			</div>
 			<div class="list-item contact">
 				<img class="image" src="img/contact-image.png" />
-				<span class="name">First Last</span>
+				<span class="name"></span>
 			</div>
 			<div class="list-item recipient">
 				<img class="image" src="img/contact-image.png" />
-				<span class="number">000-000-0000</span>
-				<span class="name">First Last</span>
-				<span class="type">Number Type</span>
+				<span class="name"></span>				
+				<span class="number"></span>
+				<span class="type"></span>
 			</div>
 			<div class="list-item voicemail">
 				<span class="icon-unread"></span>
 				<span class="icon-urgent"></span>		
 				<span class="icon-confidential"></span>		
 				<img class="image" src="img/contact-image.png" />
-				<span class="name">000-000-0000</span>
+				<span class="name"></span>
+				<span class="number"></span>
 				<span class="date">Jan 1</span>
 				<span class="time">12:00 am</span>
-				<div class="copy truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce.</div>																						
+				<div class="copy truncate"></div>																						
 			</div>			
-			<div class="list-item conversation">
+			<div class="list-item has-copy conversation">
 				<img class="image" src="img/contact-image.png" />
-				<span class="name">000-000-0000</span>
+				<span class="name"></span>
+				<span class="number"></span>
 				<span class="date">Jan 1</span>
 				<span class="time">12:00 am</span>	
-				<div class="copy truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce.</div>																		
+				<div class="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce.</div>																		
 			</div>	
 			<div class="message">
 				<input type="checkbox" class="delete-message" />
-				<span class="name truncate">000-000-0000</span>
+				<span class="name">000-000-0000</span>
 				<div class="datetime">
 					<span class="date">Jan 1</span>
 					<span class="time">12:00 am</span>		
