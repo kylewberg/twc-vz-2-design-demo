@@ -2,6 +2,9 @@
 /*--App------------------------------------------------*/
 
 var App = {
+ "account" : {
+ 	"numbers" : ["123-456-7890", "098-765-4321"]
+ },
  "info" : {
  	"name" : {
 		"residential" : "VoiceZone Connect",
@@ -105,7 +108,7 @@ App.initialize = function() {
 	
 	//enable modes
 	//this.enableDevelopment();
-	//this.enableCommercial();	
+	this.enableCommercial();	
 	
 	//data
 	this.loadData();
@@ -156,6 +159,16 @@ App.initGUI = function(){
 	$('.app-name').html(this.info.name.residential);
 	$('#login-version').html("Version "+this.info.version.partial);	
 	$('#settings-version').html("Version "+this.info.version.full);
+}
+
+App.loadAccountNumbers = function(){
+	if(this.account.numbers.length > 1){
+		for (var i = 0; i < this.account.numbers.length; i++) {
+			Things[i]
+		};		
+	}else if(this.account.numbers.length > 0){
+
+	}
 }
 
 /*--Plugins------------*/
@@ -326,8 +339,9 @@ $(document).ready(function(){
 	$(App.elements.buttons.save).click(function(){App.navigatePrevious();});
 	$(App.elements.buttons.cancel).click(function(){App.navigatePrevious();});	
 		
-	//misc links
+	//login links
 	$(App.elements.otherLinks.forgotUsername).click(function(){App.showModal(0);});
+	$(App.elements.otherLinks.forgotPassword).click(function(){App.showModal(1);});
 		
 	//utility links	
 	$(App.elements.utilityLinks.sound).click(function(){App.toggleSound();});
@@ -344,7 +358,7 @@ $(document).ready(function(){
 	//menu links
 	$(App.elements.menuLinks.calls).click(function(){App.navigate("calls");});
 	$(App.elements.menuLinks.contacts).click(function(){App.navigate("contacts");});	
-	$(App.elements.menuLinks.voicemails).click(function(){App.navigate("voicemails");});		
+	$(App.elements.menuLinks.voicemails).click(function(){App.showModal(2)});		
 	$(App.elements.menuLinks.sms).click(function(){App.navigate("sms-conversations");});
 	$(App.elements.utilityLinks.settings).click(function(){App.navigate("settings");});	
 	
@@ -359,37 +373,4 @@ $(document).ready(function(){
 	
 	//app functionality
 	$(App.elements.top).on("mousedown", function(){App.move();});		
-});
-
-/*--Modal------------*/
-
-var Modal = {
-	"title" : "#modal-title",
-	"message" : "#modal-message",
-	"buttons" : {
-		"close" : "#modal-close"
-	}
-}
-
-Modal.init = function(id){
-	var title, message;
-	switch(id) {	
-		case 0:
-		    title = "Forgot Username";
-			message = "Click below to retrieve username";
-			break;							
-		default: 
-			title = "Notice";	
-			message = "";
-	}	
-	$(this.title).html(title);
-	$(this.message).html(message);
-}
-
-Modal.close = function(){
-	App.hideModal();
-}
-
-$(document).ready(function(){
-	$(Modal.buttons.close).click(function(){Modal.close();});	
 });

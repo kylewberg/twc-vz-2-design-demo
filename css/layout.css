@@ -6,6 +6,14 @@
  * New App window was 384 X 496 (+6px on each side for drop shadow)
  */
 
+
+.app {
+	position:relative;
+	width:372px;
+	height:auto;/*target 472px total*/
+	overflow: visible;
+}
+
 /** App Top *****************************************/
 
 .app-top{
@@ -354,24 +362,32 @@
 
 .modal-container .modal-header{
 	position:relative;
-	width:100%;
 }
 
 .modal-container .modal-title{
 	position:absolute;
 	width:50%;
-	top:13%;
+	top:17%;
 	left:4%;
 }
 
 .modal-container .modal-close{
 	position:absolute;
-	top:17%;
+	top:21%;
 	right:3%;
 }
 
-.modal-container .modal-content{
-	min-height:100px;
+.modal-container .modal-footer{
+	overflow:hidden;
+}
+
+.modal-container .modal-content .modal-input{
+	margin-top:3%;
+}
+
+.modal-container .modal-footer .btn-modal{
+	float:right;
+	margin-left:3%;
 }
 
 /** List Items *****************************************/

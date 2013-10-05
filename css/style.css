@@ -27,9 +27,6 @@
 /** App Sections *****************************************/
 
 .app {
-	position:relative;
-	width:372px;
-	height:auto;/*target 472px total*/
 	margin:6px;	
 	-webkit-box-sizing: border-box;		
 	padding:0;	
@@ -38,7 +35,6 @@
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	color: #333333;		
-	overflow: hidden;
 }
 
 .app.commercial{
@@ -114,14 +110,15 @@
 	color:#1f1f1f;
 }
 
+/** Modal *****************************************/
+
 .app-modal{
 	background:url('../img/background-gray-transparent.png') 0 0 repeat;
 }
 
-/** Modal *****************************************/
-
 .modal-container{
 	background:#ffffff;
+	-webkit-box-shadow: 0 2px 6px #666666;
 }
 
 .modal-header{
@@ -147,6 +144,19 @@
 
 .modal-close .icon-close{
 	font-size:15px;
+}
+
+.modal-container .modal-content{
+	padding:5% 8%;	
+}
+
+.modal-container .modal-content .modal-input{
+	background: #eaf1f6;
+	padding:4%;	
+}
+
+.modal-container .modal-footer{
+	padding:4% 10%;
 }
 
 /** Frames *****************************************/
@@ -515,7 +525,7 @@ input[type="checkbox"] {
 	text-transform:uppercase;
 	border-radius: 4px;
 	font-family: inherit;
-	padding: 8px 12px;
+	padding: 7px 12px;
 	font-weight: bold;
 	font-size: 11px;
 	color: #ffffff;
@@ -525,6 +535,7 @@ input[type="checkbox"] {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e90d2),color-stop(21%, #3b89c8),color-stop(79%, #2f6c9d),color-stop(100%, #2b6492));
 }
 
+/*
 .commercial .btn-action:after,
 .commercial .btn-number:after
 {
@@ -532,6 +543,7 @@ input[type="checkbox"] {
 	padding-left:7px;
 	vertical-align:0px;
 }
+*/
 
 .btn-action:hover,
 .btn-number:hover
@@ -573,6 +585,20 @@ input[type="checkbox"] {
 	content:url('../img/arrow-large-white-right.png');
 	padding-left:7px;
 	vertical-align:-2px;
+}
+
+.btn-modal{
+	border: 0px;	
+	border-radius: 4px;	
+	font-family:"TWC-Round-Book";	
+	font-size: 13px;				
+	color: #ffffff;		
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #387ab4), color-stop(100%, #01437d));
+	padding: 4px 14px;	
+}
+
+.btn-modal:hover{
+	  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #255981), color-stop(100%, #1c4362));
 }
 
 /** Audio Players *****************************************/
@@ -1155,9 +1181,6 @@ table{
 .forgot-link:hover{
 	text-decoration:none;
 }	
-
-/** Voicemail Icons *****************************************/
-
 
 /** Splash *****************************************/
 

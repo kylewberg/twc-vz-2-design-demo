@@ -9,6 +9,7 @@
         <script type="text/javascript" src="lib/air/AIRIntrospector.js"></script>
 		<script type="text/javascript" src="plugins/audiojs/audio.min.js"></script>	
         <script type="text/javascript" src="js/application.js"></script>
+        <script type="text/javascript" src="js/modal.js"></script>
 		<script type="text/javascript" src="js/controllers.js"></script>			
 	</head>
     <body>
@@ -413,7 +414,7 @@
 											<td><input id="default-mylocation-6" type="radio" name="mldefault" value=""></td>
 											<td><input id="mylocation-6" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" /></td>
 											<td><input id="myname-6" class="myname" type="text" maxlength="15" placeholder="friendly name" /></td>
-										</tr>																																																												
+										</tr>																																	
 									</table>
 								 </div>
 							</div>	 
@@ -446,12 +447,10 @@
 						<div id="modal-title" class="modal-title"></div>
 						<div id="modal-close" class="modal-close">Close <span class="icon-close"> &#x2716;</span></div>
 					</div>
-					<div class="modal-content">
-						<div id="modal-message" class="modal-message"></div>
-					</div>
+					<div id="modal-content" class="modal-content"></div>
 					<div class="modal-footer">
-						<div class="btn btn-login">OK</div>
-						<div class="btn btn-login">Cancel</div>
+						<div id="modal-confirm-button" class="btn btn-modal modal-confirm-button">OK</div>
+						<div id="modal-deny-button" class="btn btn-modal modal-deny-button">Cancel</div>					
 					</div>
 				</div>
 			</div><!-- /#app-modal -->	
@@ -505,5 +504,19 @@
 				<div class="copy"></div>																		
 			</div>									
 		</div><!-- /#templates -->
+		
+		<div id="modals" style="display:none;">
+
+			<div id="default-modal" class="modal-message"></div>
+
+			<div id="enter-pin-modal" class="modal-message">
+				<div class="modal-input">
+					<label for="voicemail-pin-entry">Enter PIN</label><input id="voicemail-pin-entry" type="password" placeholder="PIN" /><br/>
+					<input id="remember-voicemail-pin" type="checkbox" /><label for="remember-voicemail-pin">Remember PIN</label>
+				</div>
+			</div>
+
+		</div><!--/#modals -->
+		
     </body>
 </html>
