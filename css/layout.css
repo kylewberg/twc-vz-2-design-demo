@@ -63,9 +63,21 @@
 
 .utility-links{
 	position:absolute;
-	bottom:10px;
+	top:32px;
 	right:5px;
 	margin:0;	
+}
+
+.active-number{
+	height:14px;
+}
+
+.options.account-numbers{
+	max-height:320px;
+}
+
+.collapsed .options.account-numbers{
+	max-height:72px;
 }
 
 /** App Splash *****************************************/
@@ -372,7 +384,15 @@
 .my-location{
 	position:absolute;
 	left:5px;
-	top:5px;
+	bottom:4px;
+}
+
+.my-location .options.my-locations{
+	max-height:160px;
+}
+
+.collapsed .my-location .options.my-locations{
+	max-height:120px;
 }
 
 .collapse-link{
@@ -590,6 +610,11 @@
 /**** Contact ****/
 
 /**** Contact Edit ****/
+
+
+.contact-edit-frame .select-menu.ringtone .options{
+	max-height:120px;
+}
 
 /**** Voicemails ****/
 

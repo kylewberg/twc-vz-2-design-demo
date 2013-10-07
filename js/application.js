@@ -3,7 +3,8 @@
 
 var App = {
  "account" : {
- 	"numbers" : ["123-456-7890", "098-765-4321"]
+ 	"numbers" : ["123-456-7890", "098-765-4321","111-111-1111", "222-222-2222", "333-333-3333", "444-444-4444", "555-555-5555","111-111-1111", "222-222-2222", "333-333-3333","444-444-4444","555-555-5555"],
+ 	"mylocations" : ["123-456-7890", "111-111-1111", "222-222-2222", "333-333-3333", "444-444-4444", "555-555-5555"]
  },
  "info" : {
  	"name" : {
@@ -161,16 +162,6 @@ App.initGUI = function(){
 	$('#settings-version').html("Version "+this.info.version.full);
 }
 
-App.loadAccountNumbers = function(){
-	if(this.account.numbers.length > 1){
-		for (var i = 0; i < this.account.numbers.length; i++) {
-			Things[i]
-		};		
-	}else if(this.account.numbers.length > 0){
-
-	}
-}
-
 /*--Plugins------------*/
 
 App.initPlugins = function(){
@@ -308,10 +299,22 @@ App.showFrame = function(frameReference){
 /*--Data------------*/
 
 App.loadRingtones = function(n){
-	for (var i = ((n) ? n : 10) - 1; i >= 0; i--){
-		$("select.ringtones").prepend('<option>Ringtone '+i+'</option>');
-		$("ul.options.ringtones").prepend('<li data-value="'+i+'">Ringtone '+i+'</li>');
+	for (var i = 0; i < ((n) ? n : 10); i++) {
+		$("select.ringtones").append('<option>Ringtone '+i+'</option>');
+		$("ul.options.ringtones").append('<li data-value="'+i+'">Ringtone '+i+'</li>');
 	};	
+}
+
+App.loadAccountNumbers = function(){
+	for (var i = 0; i < this.account.numbers.length; i++) {
+		$("ul#account-numbers").append('<li data-value="'+i+'">'+this.account.numbers[i]+'</li>');
+	};
+}
+
+App.loadMyLocations = function(){
+	for (var i = 0; i < this.account.mylocations.length; i++) {
+		$("ul#my-locations").append('<li data-value="'+i+'">'+this.account.mylocations[i]+'</li>');
+	};			
 }
 
 App.loadData = function(){
@@ -320,7 +323,9 @@ App.loadData = function(){
 	Voicemails.load(50);
 	Conversations.load(10);
 	Messages.load(10);
-	this.loadRingtones(20);					
+	this.loadRingtones(20);	
+	this.loadAccountNumbers();
+	this.loadMyLocations();				
 }
 
 

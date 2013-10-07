@@ -14,22 +14,22 @@
 	</head>
     <body>
     	<div id="app" class="app">
+
     		<div id="app-top" class="app-top">
     			<div class="app-title app-name">VoiceZone</div>
 	    		<div id="close-minimize" class="btn btn-app app-minimize">-</div>
 	    		<div id="close-button" class="btn btn-app app-close">x</div>				
-    		</div><!-- /#app-top -->	
+    		</div><!-- /#app-top -->
+
 	    	<div id="app-header" class="app-header">
 	    		<div class="logo logo-twc"></div>
 				<div id="sound-control" class="sound-control"></div>
 				<ul class="utility-links">
 					<li class="active-number">
-						<span class="styled-select">
-							<select id="active-number" class="active-number-select">
-								<option>123-456-7890</option>
-								<option>098-765-4321</option>
-							</select>
-						</span>
+						<div class="select-menu right active-number-select">
+							<div class="selected">123-456-7890</div>
+							<ul id="account-numbers" class="options account-numbers"></ul>
+						</div>	
 					</li>
 					<li id="settings-link" class="link settings-link">Settings</li>
 					<li id="help-link" class="last help-link">Help</li>
@@ -46,6 +46,7 @@
 				<div id="voicemails-link" class="nav-link">Voicemail</div>
 				<div id="sms-link" class="nav-link last">Texts</div>
 			</div><!-- /#app-menu -->	
+
 			<div id="app-content" class="app-content">
 				
 				<!-- Login -->
@@ -193,16 +194,10 @@
 							<input type="text" class="name first-name" value="First" placeholder="First Name"/>
 							<input type="text" class="name last-name" value="Last" placeholder="Last Name" />
 							<input type="text" class="name nick-name" value="" placeholder="Nickname" />
-							<!--span class="styled-select ringtone">
-								<select class="ringtones ringtone-select"></select>
-							</span-->
-
 							<div class="select-menu ringtone">
-								<div class="btn btn-action selected">Ringtone 1</div>
-								<ul class="options ringtones">
-								</ul>
-							</div>
-								
+								<div class="selected">Ringtone 1</div>
+								<ul class="options ringtones"></ul>
+							</div>		
 						</div>
 						<div id="contact-edit-numbers" class="numbers">
 							<div class="contact-number home">
@@ -442,12 +437,10 @@
 			<div id="app-footer" class="app-footer">
 				<div class="my-location">
 					<span>My Location: </span>
-					<span class="styled-select my-location-select">
-						<select>
-							<option>123-456-7890</option>
-							<option>Work</option>
-						</select>
-					</span>
+					<div class="select-menu my-location-select">
+						<ul id="my-locations" class="options my-locations"></ul>
+						<div class="selected">123-456-7890</div>
+					</div>
 				</div>
 				<div id="collapse-link" class="link collapse-link">Collapse</div>
 			</div><!-- /#app-footer -->	

@@ -390,47 +390,65 @@
 	color:inherit;
 }
 
-select.active-number-select{
-	padding-right:13px;
+.select-menu{
+	display: inline-block;
+}
+
+.select-menu .selected{
+	cursor: pointer;
+}
+
+.select-menu.active-number-select{
+	padding-left:13px;
+}
+
+.select-menu.active-number-select .selected{
+	padding:0 13px 0 13px;
 	background-image: url('../img/arrow-white-down.png');	
 	background-position:right center;
 	background-repeat:no-repeat;
 }
 
-.commercial select.active-number-select{
+.commercial .select-menu.active-number-select .selected{
 	background-image: url('../img/arrow-black-down.png');	
 }
 
-.my-location-select select{
+.select-menu.ringtone .selected{
+	padding:3px 28px 3px 3px;	
+	background-image:url('../img/icon-updown-blue.png');
+	background-position: 95% 4px;
+	background-repeat: no-repeat;
+	border: 1px solid #cccccc;			
+}
+
+.select-menu.ringtone.open .selected{
+	background-image:url('../img/icon-updown-gray.png');		
+}
+
+.select-menu.my-location-select .selected{
+	padding-right:26px;		
 	color:#3376b2;
-	padding-right:13px;	
-	background-image:url('../img/arrow-blue-down.png');
-	background-position:right center;
-	background-repeat:no-repeat;
+	background-image: url('../img/arrow-blue-down.png');	
+	background-position:86% 5px;
+	background-repeat:no-repeat;	
 }
 
-.commercial .my-location-select select{
+.commercial .select-menu.my-location-select .selected{
 	color:#336699;
-	background-image:url('../img/arrow-black-down.png');	
-}
-
-select.ringtone-select{
-	padding-right:13px;	
-	background:url('../img/arrow-gray-down.png') right center no-repeat;
-}
-
-.select-menu{
-
+	background-image: url('../img/arrow-black-down.png');	
 }
 
 .select-menu .options{
 	display: none;
 	position: relative;
 	list-style-type: none;
-	margin:3px 0 0 0;
+	margin:3px 0;
 	padding:0;
-	z-index: 100;
+	z-index: 1000;
 	background:#ffffff;
+	overflow-y:auto;
+	-webkit-box-sizing: border-box;		
+	border:solid 1px #cccccc;
 }
 
 .select-menu.open .options{
@@ -441,6 +459,10 @@ select.ringtone-select{
 	padding:6px 6px;
 	cursor: pointer;
 	color:#3376b2;
+}
+
+.select-menu.right .options li{
+	text-align: right;
 }
 
 .select-menu .options li:nth-child(even){
