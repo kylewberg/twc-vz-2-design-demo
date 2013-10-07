@@ -184,7 +184,7 @@
 .frame.call-frame .frame-content,
 .frame.contacts-frame .frame-content,
 .frame.contact-frame .frame-content,
-.frame.contact-edit-frame .frame-content,
+.frame.contact-change-frame .frame-content,
 .frame.voicemail-frame .frame-content,
 .frame.sms-conversations-frame .frame-content,
 .frame.settings-frame .frame-content
@@ -321,7 +321,7 @@
 
 .frame-content .numbers{
 	position:absolute;
-	top:46%;
+	top:51%;
 	left:5%;
 }
 
@@ -612,7 +612,7 @@
 /**** Contact Edit ****/
 
 
-.contact-edit-frame .select-menu.ringtone .options{
+.contact-change-frame .select-menu.ringtone .options{
 	max-height:120px;
 }
 

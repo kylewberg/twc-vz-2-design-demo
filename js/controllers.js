@@ -53,6 +53,44 @@ Contacts.load = function(n){
 	};	
 }
 
+/*--Change Contact------------*/
+
+var ChangeContactFrame = {
+	"el" : "#contact-change",
+	"title" : "#contact-change-title",
+	"buttons" : {
+		"addImage" : "#add-image-button",
+		"removeImage" : "#remove-image-button",
+		"changeImage" : "#change-image-button"
+	},
+	"inputs" : {
+		"number" : "input.number",
+		"firstName" : "#first-name",
+		"lastName" : "#last-name",
+		"nickName" : "#nick-name"
+	}
+};
+
+ChangeContactFrame.modify = function(mode){
+	if(mode == "add"){
+		$(this.title).html("Add Contact");
+		$(this.buttons.addImage).show();
+		$(this.buttons.removeImage).hide();
+		$(this.buttons.changeImage).hide();
+		$(this.inputs.number).val("");
+		$(this.inputs.firstName).val("");
+		$(this.inputs.lastName).val("");
+	}else{ //default is edit
+		$(this.title).html("Edit Contact");
+		$(this.buttons.addImage).hide();
+		$(this.buttons.removeImage).show();
+		$(this.buttons.changeImage).show();
+		$(this.inputs.number).val("000-000-0000");
+		$(this.inputs.firstName).val("First");
+		$(this.inputs.lastName).val("Last");
+	}
+}
+
 /*--Voicemails------------*/
 
 var Voicemails = {

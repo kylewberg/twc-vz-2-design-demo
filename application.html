@@ -116,7 +116,7 @@
 					</div>
 					<div id="contact-list" class="frame-content"></div>
 					<div class="frame-footer">
-						<div class="btn btn-action new-button left">New Contact</div> 
+						<div id="new-contact-button" class="btn btn-action new-button left">New Contact</div> 
 						<div class="btn btn-action export-button right">Export</div> 
 						<div class="btn btn-action import-button right">Import</div> 
 					</div>
@@ -177,36 +177,36 @@
 					</div>
 				</div>
 				
-				<!-- Edit Contact -->
-				<div id="contact-edit" class="frame contact-edit-frame">
+				<!-- Change Contact -->
+				<div id="contact-change" class="frame contact-change-frame">
 					<div class="frame-header">					
-						<div class="frame-title">Edit Contact</div> 
-						<span id="contact-edit-back" class="frame-subtitle link back-link">Back</span>
+						<div id="contact-change-title" class="frame-title">Edit Contact</div> 
+						<span id="contact-change-back" class="frame-subtitle link back-link">Back</span>
 					</div>
-					<div id="contact-edit-info" class="frame-content">
+					<div id="contact-change-info" class="frame-content">
 						<div class="edit">
 							<div class="image">
-								<!--div class="btn btn-image add-image-button"><span>Add</span></div-->
-								<div class="btn btn-image change-image-button"><span>Change</span></div>
-								<div class="btn btn-image remove-image-button"><span>Remove</span></div>
+								<div id="add-image-button" class="btn btn-image add-image-button"><span>Add</span></div>
+								<div id="change-image-button" class="btn btn-image change-image-button"><span>Change</span></div>
+								<div id="remove-image-button" class="btn btn-image remove-image-button"><span>Remove</span></div>
 								<img src="img/contact-image.png" />
 							</div>
-							<input type="text" class="name first-name" value="First" placeholder="First Name"/>
-							<input type="text" class="name last-name" value="Last" placeholder="Last Name" />
-							<input type="text" class="name nick-name" value="" placeholder="Nickname" />
+							<input id="first-name" type="text" class="name first-name" value="" placeholder="First Name"/>
+							<input id="last-name" type="text" class="name last-name" value="" placeholder="Last Name" />
+							<input id="nick-name" type="text" class="name nick-name" value="" placeholder="Nickname" />
 							<div class="select-menu ringtone">
 								<div class="selected">Ringtone 1</div>
 								<ul class="options ringtones"></ul>
 							</div>		
 						</div>
-						<div id="contact-edit-numbers" class="numbers">
+						<div id="contact-change-numbers" class="numbers">
 							<div class="contact-number home">
 								<span class="number-label">Home</span>
-								<input type="text" class="number" value="000-000-0000" placeholder="Number" />
+								<input type="text" class="number" value="" placeholder="Number" />
 							</div>
 							<div class="contact-number office">
 								<span class="number-label">Office</span>
-								<input type="text" class="number" value="000-000-0000" placeholder="Number" />
+								<input type="text" class="number" value="" placeholder="Number" />
 							</div>	
 							<div class="contact-number mobile">
 								<span class="number-label">Mobile</span>

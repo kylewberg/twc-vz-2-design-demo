@@ -374,22 +374,6 @@
 
 /** Drop Down Menus *****************************************/
 
-.styled-select {
-	overflow: hidden;
-}
-
-.styled-select select {
-	margin:0;
-	padding:0;	
-	background: transparent;
-	border: 0;
-	border-radius: 0;
-	-webkit-appearance: none;
-	font:inherit;
-	cursor:pointer;
-	color:inherit;
-}
-
 .select-menu{
 	display: inline-block;
 }
@@ -480,6 +464,11 @@
 
 
 /** Inputs and Labels *****************************************/
+
+input{
+	font-size: inherit;
+	font-family: inherit;
+}
 
 input[type=text],
 input[type=password],
@@ -803,43 +792,59 @@ input[type="checkbox"] {
 /** Contact Number Containers *****************************************/
 
 .numbers{
-	width:93%;
+	width:90%;
 }
 
 .contact-number{
+	float: left;
 	position:relative;
-	width:100%;
+	width:47%;
 	height:30px;
-	margin-bottom:5px;	
+	margin:0% 6% 1% 0%;	
 }
 
+.contact-number:nth-child(even){
+	margin-right:0%;	
+}
+
+.contact-number .number-label,
+.contact-number .number
+{
+	position:absolute;
+	top:7px;
+}
 .contact-number .number-label{
-	position:absolute;
-	top:23%;
 	left:0%;
-	font-size:14px;
-}
-
-.contact-number .number{
-	position:absolute;
-	top:19%;
-	left:21%;
 }
 
 .contact-number input.number{
-	top:9%;
+	top:3px;
+	margin-left:-2px;
+	width:104px;
+}
+
+.contact-number .number,
+.contact-number .number-buttons
+{
+	position:absolute;	
+	left:32%;
 }
 
 .contact-number .number-buttons{
-	position:absolute;
-	width:36%;
-	right:2%;
-	top:10%;
+	display:none;
+	width:109px;
+	top:3px;
 }
 
-.commercial .contact-number .number-buttons {
-	width: 41%;
-	top: 0%;
+
+.contact-number:hover .number{
+	display:none;
+}
+
+.contact-number:hover .number-buttons,
+.contact-number:hover input.number
+{
+	display:block;
 }
 
 .number-buttons .btn{
@@ -1203,6 +1208,11 @@ table{
 }
 
 /** Misc *****************************************/
+
+.frame-content .info .name,
+.frame-content .edit .name{
+	font-size:14px;
+}
 
 .truncate {
 	white-space: nowrap;

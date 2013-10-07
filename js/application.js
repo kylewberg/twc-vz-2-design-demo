@@ -41,7 +41,8 @@ var App = {
 	"call" : "#call",
 	"contacts" : "#contacts",
 	"contact" : "#contact",
-	"contact-edit" : "#contact-edit",
+	"contact-add" : "#contact-change",
+	"contact-edit" : "#contact-change",
 	"voicemails" : "#voicemails",
 	"voicemail" : "#voicemail",
 	"sms-conversations" : "#sms-conversations",
@@ -68,7 +69,7 @@ var App = {
   "backLinks" : {
   	"call" : "#call-back",
 	"contact" : "#contact-back",
-	"contactEdit" : "#contact-edit-back",
+	"contactChange" : "#contact-change-back",
 	"voicemail" : "#voicemail-back"
   },
   "otherLinks" : {
@@ -84,6 +85,7 @@ var App = {
   "buttons" : {
   	"login" : "#login-button",
   	"edit" : ".edit-button",
+  	"newContact" : "#new-contact-button",
   	"save" : ".save-button",
 	"cancel" : ".cancel-button",
 	"close" : "#close-button",
@@ -248,6 +250,7 @@ App.navigate = function(frame){
 		case "contacts":
 		case "contact":
 		case "contact-edit":
+		case "contact-add":
 		    linkReference = this.elements.menuLinks.contacts;
 			break;
 		case "voicemails":
@@ -293,6 +296,15 @@ App.showFrame = function(frameReference){
 	this.frame.current = frameReference;
 	this.expand();
 	this.hideFrames();
+
+	if(frameReference == "contact-add"){
+		ChangeContactFrame.modify('add');
+	}
+
+	if(frameReference == "contact-edit"){
+		ChangeContactFrame.modify('edit');
+	}
+
 	$(this.elements.frames[frameReference]).show();	
 }
 
@@ -341,6 +353,7 @@ $(document).ready(function(){
 	$(App.elements.buttons.close).click(function(){App.close();});	
 	$(App.elements.buttons.minimize).click(function(){App.minimize();});
 	$(App.elements.buttons.login).click(function(){App.login();});	
+	$(App.elements.buttons.newContact).click(function(){App.navigate("contact-add");});
 	$(App.elements.buttons.edit).click(function(){App.navigate("contact-edit");});	
 	$(App.elements.buttons.save).click(function(){App.navigatePrevious();});
 	$(App.elements.buttons.cancel).click(function(){App.navigatePrevious();});	
@@ -358,7 +371,7 @@ $(document).ready(function(){
 	//back links
 	$(App.elements.backLinks.call).click(function(){App.navigate("calls");});
 	$(App.elements.backLinks.contact).click(function(){App.navigate("contacts");});	
-	$(App.elements.backLinks.contactEdit).click(function(){App.navigate("contact");});	
+	$(App.elements.backLinks.contactChange).click(function(){App.navigatePrevious();});	
 	$(App.elements.backLinks.voicemail).click(function(){App.navigate("voicemails");});	
 		
 	//menu links
