@@ -309,7 +309,8 @@ App.showFrame = function(frameReference){
 
 App.loadRingtones = function(n){
 	for (var i = ((n) ? n : 10) - 1; i >= 0; i--){
-		$("select.ringtones").prepend('<option class="ringtone">Ringtone '+i+'</option>');
+		$("select.ringtones").prepend('<option>Ringtone '+i+'</option>');
+		$("ul.options.ringtones").prepend('<li data-value="'+i+'">Ringtone '+i+'</li>');
 	};	
 }
 
@@ -363,13 +364,17 @@ $(document).ready(function(){
 	$(App.elements.utilityLinks.settings).click(function(){App.navigate("settings");});	
 	
 	//list items
-	$(App.elements.listItems.call).click(function(){App.navigate("call");});
+	//$(App.elements.listItems.call).click(function(){App.navigate("call");});
+	$(App.elements.listItems.call).click(function(){$(this).toggleClass("expanded");});
 	$(App.elements.listItems.contact).click(function(){App.navigate("contact");});	
 	$(App.elements.listItems.voicemail).click(function(){App.navigate("voicemail");});	
 	$(App.elements.listItems.conversation).click(function(){App.navigate("sms-conversation");});
 	
 	//expandable containers
-	$(App.elements.expandableContainer.title).click(function(){$(this).parent().toggleClass("open");});	
+	$(App.elements.expandableContainer.title).click(function(){$(this).parent().toggleClass("expanded");});	
+
+	//select menus
+	$('.select-menu').click(function(){$(this).toggleClass("open");});	
 	
 	//app functionality
 	$(App.elements.top).on("mousedown", function(){App.move();});		

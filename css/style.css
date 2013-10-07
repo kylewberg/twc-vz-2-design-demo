@@ -419,6 +419,44 @@ select.ringtone-select{
 	background:url('../img/arrow-gray-down.png') right center no-repeat;
 }
 
+.select-menu{
+
+}
+
+.select-menu .options{
+	display: none;
+	position: relative;
+	list-style-type: none;
+	margin:3px 0 0 0;
+	padding:0;
+	z-index: 100;
+	background:#ffffff;
+}
+
+.select-menu.open .options{
+	display: block;
+}
+
+.select-menu .options li{
+	padding:6px 6px;
+	cursor: pointer;
+	color:#3376b2;
+}
+
+.select-menu .options li:nth-child(even){
+	background:#ffffff;
+}
+
+.select-menu .options li:nth-child(odd){
+	background:#F5F5F5;
+}
+
+.select-menu .options li:hover{
+	background:#3376b2;
+	color:#ffffff;
+}
+
+
 /** Inputs and Labels *****************************************/
 
 input[type=text],
@@ -432,6 +470,13 @@ textarea
 	color: #555555;
 	-webkit-border-radius: 3px;
 	vertical-align: middle;	
+}
+
+label + input[type=text],
+label + input[type=password]
+{
+	margin-left:5px;
+	vertical-align: 1px;
 }
 
 .login-label{
@@ -456,8 +501,6 @@ textarea
 	font-size:11px;
 	resize: none;	
 }
-
-/** Checkboxes *****************************************/
 
 input[type="checkbox"] {
 	height: 15px;
@@ -486,7 +529,6 @@ input[type="checkbox"] {
 
 .btn {
 	display: inline-block;	
-	vertical-align: middle;	
 	text-align: center;
 	-webkit-box-sizing: border-box;
 	cursor:pointer;
@@ -502,6 +544,26 @@ input[type="checkbox"] {
 
 .btn-app:hover{
 	background: #387ab4;
+}
+
+.btn-image{
+	display: block;	
+	width: 100%;
+	height:50%;
+	color:#ffffff;
+	background:url('../img/background-gray-transparent.png') 0 0 repeat;
+	z-index: 5;	
+}
+
+.btn-image span{
+	position: absolute;
+	font-size: 12px;
+	line-height: 1em;
+	height:1em;	
+	width: 100%;
+	top:50%;	
+	margin-top:-0.5em;
+	left:0;
 }
 
 .btn-action,
@@ -522,12 +584,9 @@ input[type="checkbox"] {
 .commercial .btn-action,
 .commercial .btn-number
 {
-	text-transform:uppercase;
-	border-radius: 4px;
+	/*text-transform:uppercase;*/
 	font-family: inherit;
-	padding: 7px 12px;
 	font-weight: bold;
-	font-size: 11px;
 	color: #ffffff;
 	box-shadow:none;
 	border:none;
@@ -805,11 +864,11 @@ input[type="checkbox"] {
 	padding-left:6px;	
 }
 
-.expandable.open .expand-title{
+.expandable.expanded .expand-title{
 	background-position: 5px -32px;
 }
 
-.commercial .expandable.open .expand-title:before{
+.commercial .expandable.expanded .expand-title:before{
 	content:"-";	
 	padding-right: 8px;
 	padding-left: 9px;
@@ -820,7 +879,7 @@ input[type="checkbox"] {
 	padding:5px 0px 10px 18px;
 }
 
-.expandable.open .expand-content{
+.expandable.expanded .expand-content{
 	display:block;
 }
 
@@ -872,7 +931,11 @@ table{
 	border-bottom: 1px dotted #ddd;
 	cursor:pointer;
 }
-
+/*
+.list-item:nth-child(odd){
+	background:#888888;
+}
+*/
 .commercial .list-item{
 	border-bottom-style:solid;
 }
@@ -898,6 +961,7 @@ table{
 }
 
 .list-item .number,
+.list-item .type,
 .list-item .date,
 .list-item .time
 {
@@ -1031,84 +1095,6 @@ table{
 
 .message.outgoing .delete-message{
 	left:-30px;
-}
-
-/** Info Cards *****************************************/
-
-.info .image,
-.info .name,
-.info .number,
-.info .datetime,
-.info .ringtone
-{
-	position:absolute;
-}
-
-.info .image
-{
-	top:5%;
-}
-
-.info .name
-{
-	top:9%;
-}
-
-.info .number,
-.info .ringtone
-{
-	top:20%;
-}
-
-.info .datetime
-{
-	top:32%;
-}
-
-.info .image{
-	left:5%;
-}
-
-.info .name,
-.info .number,
-.info .datetime,
-.info .ringtone
-{
-	left:38%;	
-}
-
-/** Edit Cards *****************************************/
-
-.edit .image{
-	position:absolute;
-	top:5%;
-	left:5%;
-}
-
-.edit .first-name,
-.edit .last-name,
-.edit .nick-name
-{
-	position:absolute;
-	left:38%;
-	width:45%;
-}
-
-.edit .first-name{
-	top:5%;
-}
-
-.edit .last-name{
-	top:15%;
-}
-.edit .nick-name{
-	top:25%;
-}
-
-.edit .ringtone{
-	position:absolute;
-	left:38%;
-	top:36%;
 }
 
 /** Links *****************************************/

@@ -84,6 +84,19 @@
 	display:none;
 }
 
+/** Has Recipient Transformation *****************************************/
+
+.sms-conversation-new-frame.has-recipient .change-recipient-button
+{
+	display:block;
+}
+
+.sms-conversation-new-frame .change-recipient-button,
+.sms-conversation-new-frame.has-recipient .add-recipient-button
+{
+	display:none;
+}
+
 /** Modal Transformation *****************************************/
 
 .app-modal{

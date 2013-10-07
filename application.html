@@ -101,10 +101,10 @@
 						</div>			
 					</div>
 					<div class="frame-footer">
-						<div class="btn btn-action edit-button">Edit</div>	
-						<div class="btn btn-action delete-button">Delete</div>
-						<div class="btn btn-action call-button">Call</div>
-						<div class="btn btn-action text-button">Text</div>
+						<div class="btn btn-action edit-button left">Edit</div>	
+						<div class="btn btn-action text-button right">Text</div>
+						<div class="btn btn-action call-button right">Call</div>
+						<div class="btn btn-action delete-button right">Delete</div>
 					</div>					
 				</div>
 				
@@ -115,9 +115,9 @@
 					</div>
 					<div id="contact-list" class="frame-content"></div>
 					<div class="frame-footer">
-						<div class="btn btn-action new-button">New Contact</div> 
-						<div class="btn btn-action export-button">Export</div> 
-						<div class="btn btn-action import-button">Import</div> 
+						<div class="btn btn-action new-button left">New Contact</div> 
+						<div class="btn btn-action export-button right">Export</div> 
+						<div class="btn btn-action import-button right">Import</div> 
 					</div>
 				</div>	
 				
@@ -171,8 +171,8 @@
 						</div>
 					</div>
 					<div class="frame-footer">
-						<div class="btn btn-action edit-button">Edit</div>
-						<div class="btn btn-action delete-button">Delete</div> 
+						<div class="btn btn-action edit-button left">Edit</div>
+						<div class="btn btn-action delete-button left">Delete</div> 
 					</div>
 				</div>
 				
@@ -185,14 +185,24 @@
 					<div id="contact-edit-info" class="frame-content">
 						<div class="edit">
 							<div class="image">
+								<!--div class="btn btn-image add-image-button"><span>Add</span></div-->
+								<div class="btn btn-image change-image-button"><span>Change</span></div>
+								<div class="btn btn-image remove-image-button"><span>Remove</span></div>
 								<img src="img/contact-image.png" />
 							</div>
 							<input type="text" class="name first-name" value="First" placeholder="First Name"/>
 							<input type="text" class="name last-name" value="Last" placeholder="Last Name" />
 							<input type="text" class="name nick-name" value="" placeholder="Nickname" />
-							<span class="styled-select ringtone">
+							<!--span class="styled-select ringtone">
 								<select class="ringtones ringtone-select"></select>
-							</span>
+							</span-->
+
+							<div class="select-menu ringtone">
+								<div class="btn btn-action selected">Ringtone 1</div>
+								<ul class="options ringtones">
+								</ul>
+							</div>
+								
 						</div>
 						<div id="contact-edit-numbers" class="numbers">
 							<div class="contact-number home">
@@ -214,8 +224,8 @@
 						</div>
 					</div>
 					<div class="frame-footer">
-						<div class="btn btn-action cancel-button">Cancel</div>
-						<div class="btn btn-action save-button">Save</div>	
+						<div class="btn btn-action cancel-button left">Cancel</div>
+						<div class="btn btn-action save-button left">Save</div>	
 					</div>					
 				</div>	
 				
@@ -255,10 +265,10 @@
 						</div>	
 					</div>
 					<div class="frame-footer">
-						<div class="btn btn-action edit-button">Edit</div>	
-						<div class="btn btn-action delete-button">Delete</div>
-						<div class="btn btn-action call-button">Call</div>
-						<div class="btn btn-action text-button">Text</div>
+						<div class="btn btn-action edit-button left">Edit</div>	
+						<div class="btn btn-action text-button right">Text</div>
+						<div class="btn btn-action call-button right">Call</div>
+						<div class="btn btn-action delete-button right">Delete</div>
 					</div>					
 				</div>	
 				
@@ -269,7 +279,7 @@
 					</div>
 					<div id="conversation-list" class="frame-content"></div>
 					<div class="frame-footer">
-						<div id="new-sms-button" class="btn btn-action new-button">New Text</div>
+						<div id="new-sms-button" class="btn btn-action new-button left">New Text</div>
 					</div>						
 				</div>	
 				
@@ -281,12 +291,12 @@
 					</div>
 					<div id="message-list" class="frame-content"></div>
 					<div class="frame-footer new-message">
-						<div id="edit-conversation-button" class="btn btn-action edit-conversation-button">Edit</div>
-						<div id="delete-selected-button" class="btn btn-action delete-selected-button">Delete Selected (<span id="delete-selected-count"></span>)</div>
-						<div id="delete-all-button" class="btn btn-action delete-all-button">Delete All</div>
-						<div id="cancel-delete-button" class="btn btn-action cancel-delete-button">Cancel</div>
+						<div id="edit-conversation-button" class="btn btn-action edit-conversation-button left">Edit</div>
+						<div id="delete-selected-button" class="btn btn-action delete-selected-button right">Delete Selected (<span id="delete-selected-count"></span>)</div>
+						<div id="delete-all-button" class="btn btn-action delete-all-button right">Delete All</div>
+						<div id="cancel-delete-button" class="btn btn-action cancel-delete-button left">Cancel</div>
 						<textarea id="message-content" class="message-content" placeholder="Message"></textarea>
-						<div id="send-message-button" class="btn btn-action send-button">Send</div>
+						<div id="send-message-button" class="btn btn-action send-button right">Send</div>
 					</div>	
 				</div>
 				
@@ -301,13 +311,14 @@
 						<span id="recipient-label" class="recipient-label"></span>
 						<input type="text" id="recipient-filter" class="recipient-filter" />
 						<span id="add-recipient-button" class="btn btn-action add-recipient-button">Add</span>
+						<span id="change-recipient-button" class="btn btn-action change-recipient-button">Change</span>
 						<span id="cancel-recipient-button" class="btn btn-action cancel-recipient-button">Cancel</span>
 					</div>
 					<div id="recipient-list" class="frame-content"></div>
 					<div class="frame-footer new-message">
-						<div id="cancel-new-message-button" class="btn btn-action cancel-new-message-button">Cancel</div>
+						<div id="cancel-new-message-button" class="btn btn-action cancel-new-message-button left">Cancel</div>
 						<textarea id="new-message-content" class="message-content" placeholder="Message"></textarea>
-						<div id="send-new-message-button" class="btn btn-action send-button">Send</div>
+						<div id="send-new-message-button" class="btn btn-action send-button right">Send</div>
 					</div>	
 				</div>				
 				
@@ -422,8 +433,8 @@
 
 					</div>
 					<div class="frame-footer">
-						<div class="btn btn-action cancel-button">Cancel</div>
-						<div class="btn btn-action save-button">Save</div>	
+						<div class="btn btn-action cancel-button left">Cancel</div>
+						<div class="btn btn-action save-button left">Save</div>	
 					</div>						
 				</div>	
 																						
@@ -464,6 +475,12 @@
 				<span class="number"></span>
 				<span class="date">Jan 1</span>
 				<span class="time">12:00 am</span>
+				<div class="action-buttons">
+					<div class="btn btn-action edit-button left">Edit</div>	
+					<div class="btn btn-action text-button right">Text</div>
+					<div class="btn btn-action call-button right">Call</div>
+					<div class="btn btn-action delete-button right">Delete</div>
+				</div>				
 			</div>
 			<div class="list-item contact">
 				<img class="image" src="img/contact-image.png" />

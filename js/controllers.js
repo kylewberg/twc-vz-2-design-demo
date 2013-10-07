@@ -247,6 +247,7 @@ var NewSMSFrame = {
 		"cancel" : "#cancel-new-message-button",
 		"send" : "#send-new-message-button",
 		"add" : "#add-recipient-button",
+		"change" : "#change-recipient-button",
 		"cancelRecipient" :  "#cancel-recipient-button"
 	},
 	"inputs" : {
@@ -300,9 +301,14 @@ NewSMSFrame.filterRecipients = function(){
 	var length = filter.length;
 	var n = (length <= 5) ? 5 - length : 0;
 	Recipients.load(n);
+
+	if($.isNumeric(filter)){
+		Recipients.appendSearch(filter);		
+	}
 }
 
 NewSMSFrame.addRecipient = function(){
+	$(this.frame).addClass("has-recipient");	
 	this.recipient = "1234567890";
 	$(this.outputs.recipient).html("123-456-7890");
 	this.resetAddRecipient();
@@ -315,6 +321,7 @@ NewSMSFrame.resetAddRecipient = function(){
 }
 
 NewSMSFrame.clearRecipient = function(){
+	$(this.frame).removeClass("has-recipient");	
 	this.recipient = false;
 	$(this.outputs.recipient).html("");
 }
@@ -326,6 +333,7 @@ NewSMSFrame.removeRecipients = function(){
 $(document).ready(function(){
 	$(NewSMSFrame.backLink).click(function(){NewSMSFrame.back();});	
 	$(NewSMSFrame.buttons.add).click(function(){NewSMSFrame.enableAddRecipient();});
+	$(NewSMSFrame.buttons.change).click(function(){NewSMSFrame.enableAddRecipient();});
 	$(NewSMSFrame.buttons.cancelRecipient).click(function(){NewSMSFrame.resetAddRecipient();});	
 	$(NewSMSFrame.buttons.send).click(function(){NewSMSFrame.sendMessage();});
 	$(NewSMSFrame.buttons.cancel).click(function(){NewSMSFrame.cancel();});
@@ -346,7 +354,13 @@ Recipients.load = function(n){
 		clone = $(this.template).clone();
 		clone.find('.name').html(testContent.contact.name);	
 		clone.find('.number').html(testContent.contact.number);
-		clone.find('.type').html(testContent.contact.number);
+		clone.find('.type').html(testContent.contact.type);
 		$(this.container).append(clone);
 	};	
+}
+
+Recipients.appendSearch = function(searchTerm){
+	var clone = $(this.template).clone();
+	clone.find('.name').html(searchTerm);	
+	$(this.container).append(clone);
 }

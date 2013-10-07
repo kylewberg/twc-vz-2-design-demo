@@ -190,6 +190,105 @@
 	height:66%;
 }
 
+.frame-content .image{
+	width:auto;
+	height:auto;
+}
+
+.frame-content .image .btn{
+	position: absolute;
+	left:0;
+}
+
+.frame-content .image .change-image-button{
+	top:0;
+}
+
+.frame-content .image .add-image-button,
+.frame-content .image .remove-image-button
+{
+	bottom:0;
+}
+
+/** Info Cards **/
+
+.frame-content .info .image,
+.frame-content .info .name,
+.frame-content .info .number,
+.frame-content .info .datetime,
+.frame-content .info .ringtone
+{
+	position:absolute;
+}
+
+.frame-content .info .image
+{
+	top:5%;
+}
+
+.frame-content .info .name
+{
+	top:9%;
+}
+
+.frame-content .info .number,
+.frame-content .info .ringtone
+{
+	top:20%;
+}
+
+.frame-content .info .datetime
+{
+	top:32%;
+}
+
+.frame-content .info .image{
+	left:5%;
+}
+
+.frame-content .info .name,
+.frame-content .info .number,
+.frame-content .info .datetime,
+.frame-content .info .ringtone
+{
+	left:38%;	
+}
+
+/** Edit Cards **/
+
+.frame-content .edit .image{
+	position:absolute;
+	top:5%;
+	left:5%;
+}
+
+.frame-content .edit .first-name,
+.frame-content .edit .last-name,
+.frame-content .edit .nick-name
+{
+	position:absolute;
+	left:38%;
+	width:45%;
+}
+
+.frame-content .edit .first-name{
+	top:5%;
+}
+
+.frame-content .edit .last-name{
+	top:15%;
+}
+
+.frame-content .edit .nick-name{
+	top:25%;
+}
+
+.frame-content .edit .ringtone{
+	position:absolute;
+	left:38%;
+	top:36%;
+}
+
 .frame-content .audiojs{
 	position:absolute;
 	top:47%;
@@ -221,95 +320,29 @@
 	bottom:0px;
 	width:100%;
 	height:10%;	
+	padding:0 3%;
+}
+
+.commercial .frame-footer{
+	padding:0;
 }
 
 .frame-footer.new-message{
 	height:14%;		
 }
 
-.frame-footer .btn-action{
-	position:absolute;
-	top:14%;
+.frame-footer .btn{
+	margin-top:1%;
 }
 
-.frame-footer .edit-button,
-.frame-footer .add-button,
-.frame-footer .new-button,
-.frame-footer .save-button,
-.frame-footer .edit-conversation-button,
-.frame-footer .cancel-delete-button
-{
-	left:3%;
+.frame-footer .btn.left{
+	float:left;
+	margin-right:3%;
 }
 
-.commercial .frame-footer .edit-button,
-.commercial .frame-footer .add-button,
-.commercial .frame-footer .new-button,
-.commercial .frame-footer .save-button,
-.commercial .frame-footer .edit-conversation-button,
-.commercial .frame-footer .cancel-delete-button
-{
-	left:0%;
-}
-
-.frame-footer .cancel-button
-{
-	left:23%;
-}
-
-.commercial .frame-footer .cancel-button {
-	left: 21%;
-}
-
-.frame-footer .delete-button
-{
-	left:41%;
-}
-
-.commercial .frame-footer .delete-button
-{
-	left:37%;
-}
-
-.frame-footer .delete-selected-button
-{
-	right:28%;
-}
-
-.frame-footer .call-button
-{
-	right:22%;
-}
-
-.commercial .frame-footer .call-button
-{
-	right:20%;
-}
-
-.frame-footer .import-button
-{
-	right:23%;
-}
-
-.commercial .frame-footer .import-button
-{
-	right:25%;
-}
-
-.frame-footer .text-button,
-.frame-footer .send-button,
-.frame-footer .export-button,
-.frame-footer .delete-all-button
-{
-	right:3%;
-}
-
-.commercial .frame-footer .text-button,
-.commercial .frame-footer .send-button,
-.commercial .frame-footer .export-button,
-.commercial .frame-footer .delete-all-button
-{
-	right:0%;
+.frame-footer .btn.right{
+	float:right;
+	margin-left:3%;
 }
 
 .frame-footer .message-content
@@ -319,6 +352,12 @@
 	left: 19%;
 	width: 60%;
 	height: 80%;	
+}
+
+.commercial .frame-footer .message-content
+{
+	left: 16%;
+	width: 66%;	
 }
 
 /** App Footer *****************************************/
@@ -399,9 +438,14 @@
 	height:40px;
 }
 
+.list-item.expanded{
+	height:67px;
+}
+
 .list-item .image,
 .list-item .name,
 .list-item .number,
+.list-item .type,
 .list-item .date,
 .list-item .time,
 .list-item .copy
@@ -411,27 +455,34 @@
 
 .list-item .image{
 	left:2%;
-	top:12%;	
+	top:5px;	
 	max-width:30px;
 	max-height:30px;	
 }
 
 .list-item .name{
 	left: 13%;
-	top: 35%;
+	top: 14px;
 	width: 37%;	
 }
 
 .list-item .number,
+.list-item .type,
 .list-item .date,
 .list-item .time
 {
-	top:42%;		
+	top:16px;		
 }
 
 .list-item .number
 {
 	right: 28%;
+	width: 20%;		
+}
+
+.list-item .type
+{
+	right: 2%;
 	width: 20%;		
 }
 
@@ -448,7 +499,7 @@
 .list-item .copy{
 	width: 85%;
 	left: 13%;
-	bottom: 15%;
+	bottom: 7px;
 }
 
 
@@ -458,18 +509,40 @@
 }
 
 .list-item.has-copy .image{
-	top:22%;	
+	top:10px;	
 }
 
 .list-item.has-copy .name{
-	top:19%;	
+	top:9px;	
 }
 
 .list-item.has-copy .number,
 .list-item.has-copy .date,
 .list-item.has-copy .time
 {
-	top:24%;	
+	top:11px;	
+}
+
+.list-item .action-buttons{
+	display:none;	
+	position: absolute;
+	left:2%;
+	bottom:4px;
+	width:96%;
+}
+
+.list-item.expanded .action-buttons{
+	display:block;	
+}
+
+.list-item .action-buttons .btn.left{
+	float:left;
+	margin-right:3%;
+}
+
+.list-item .action-buttons .btn.right{
+	float:right;
+	margin-left:3%;
 }
 
 /** Individual Frames *****************************************/
@@ -516,16 +589,6 @@
 
 /**** Contact ****/
 
-.contact-frame .frame-footer .delete-button
-{
-	left:23%;
-}
-
-.commercial .contact-frame .frame-footer .delete-button
-{
-	left:20%;
-}
-
 /**** Contact Edit ****/
 
 /**** Voicemails ****/
@@ -547,42 +610,44 @@
 
 .new-message-recipient .recipient-title{
 	position:absolute;
-	left:3%;
-	top:28%;		
+	left:2%;
+	top:7px;		
 }
 
 .new-message-recipient .recipient-label,
 .new-message-recipient .recipient-filter
 {
 	position:absolute;
-	left:25%;			
+	left:24%;			
 }
 
 .new-message-recipient .recipient-label
 {
-	top:25%;			
+	top:6px;			
 }
 
 .commercial .new-message-recipient .recipient-label
 {
-	top:29%;			
+	top:7px;			
 }
 
 .new-message-recipient .recipient-filter
 {
-	top:24%;	
+	top:6px;	
 	width:45%;		
 }
 
 .new-message-recipient .add-recipient-button,
+.new-message-recipient .change-recipient-button,
 .new-message-recipient .cancel-recipient-button
 {
 	position:absolute;
 	right:3%;
-	top:15%;	
+	top:3px;	
 }
 
 .commercial .new-message-recipient .add-recipient-button,
+.commercial .new-message-recipient .change-recipient-button,
 .commercial .new-message-recipient .cancel-recipient-button
 {
 	top:9%;	
@@ -600,13 +665,13 @@
 
 .sms-conversation-new-frame .frame-footer .message-content
 {
-	left: 21%;
-	width: 60%;
+	left: 23%;
+	width: 57%;
 }
 
 .commercial .sms-conversation-new-frame .frame-footer .message-content {
-	left: 24%;
-	width: 56%;
+	left: 21%;
+	width: 61%;
 }
 
 .sms-conversation-new-frame .frame-footer .cancel-new-message-button
