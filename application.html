@@ -339,7 +339,11 @@
 				                </div>
 				                <div class="section">
 				                    <div class="title">Ringtone</div>
-				                    <label for="default-ringtone">Default Ringtone</label><select id="default-ringtone" class="ringtones"></select>
+				                    <label>Default Ringtone</label>
+				                    <div id="default-ringtone" class="select-menu ringtone">
+										<div class="selected">Ringtone 1</div>
+										<ul class="options ringtones"></ul>
+									</div>
 				                </div>
 							</div>
 			            </div>
@@ -371,11 +375,15 @@
 					                <div class="title">Voicemail Notification</div>
 									<input type="checkbox" id="showVMNotif"><label for="showVMNotif">Display notifications for Voicemails</label><br/>
 									<input type="checkbox" id="playVMTone"><label for="playVMTone">Play a Ringtone when a new voicemail is received</label><br/>
-									<label for="defaultVMTone" class="secondary">Ringtone:</label><select id="defaultVMTone" class="ringtones"></select>
+									<label class="secondary">Ringtone:</label>
+									<div id="defaultVMTone" class="select-menu ringtone">
+										<div class="selected">Ringtone 1</div>
+										<ul class="options ringtones"></ul>
+									</div>
 					             </div>
 								 <div class="section">
 					                <div class="title">Voicemail-to-Text</div>
-									<input type="checkbox" id="enableVoicemailToText"><label for="enableVoicemailToText">Enable Voicemail-to-Text</label>
+									<input type="checkbox" id="enableVoicemailToText"><label for="enableVoicemailToText">Display Voicemail-to-Text Transcripts</label>
 					             </div>					             
 							 </div>
 						</div>

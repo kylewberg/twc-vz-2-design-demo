@@ -111,7 +111,7 @@ App.initialize = function() {
 	
 	//enable modes
 	//this.enableDevelopment();
-	this.enableCommercial();	
+	//this.enableCommercial();	
 	
 	//data
 	this.loadData();

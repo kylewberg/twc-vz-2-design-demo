@@ -90,12 +90,13 @@
 
 .app-splash .app-name{
 	position:absolute;
-	top:15%;
+	top:7px;
 	left:3%;	
 }
 
 .commercial .app-splash .app-name{
-	left:2%;	
+	left:2%;
+	top:8px;	
 }
 
 /** App Menu *****************************************/
@@ -388,7 +389,7 @@
 }
 
 .my-location .options.my-locations{
-	max-height:160px;
+	max-height:165px;
 }
 
 .collapsed .my-location .options.my-locations{
