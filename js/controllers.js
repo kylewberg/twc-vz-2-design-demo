@@ -104,8 +104,8 @@ Voicemails.load = function(n){
 	for (var i = n - 1; i >= 0; i--){
 		contact = (Math.random() > 0.5) ? true : false;
 		unread = (Math.random() > 0.7) ? true : false;
-		urgent = (Math.random() > 0.9) ? true : false;
-		confidential = (Math.random() > 0.9) ? true : false;
+		urgent = (Math.random() > 0.7) ? true : false;
+		confidential = (Math.random() > 0.7) ? true : false;
 		transcript = true;
 		clone = $(this.template).clone();
 		if(contact){
@@ -347,8 +347,8 @@ NewSMSFrame.filterRecipients = function(){
 
 NewSMSFrame.addRecipient = function(){
 	$(this.frame).addClass("has-recipient");	
-	this.recipient = "1234567890";
-	$(this.outputs.recipient).html("123-456-7890");
+	this.recipient = "0000000000";
+	$(this.outputs.recipient).html(testContent.contact.number);
 	this.resetAddRecipient();
 }
 

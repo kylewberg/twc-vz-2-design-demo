@@ -111,7 +111,7 @@ App.initialize = function() {
 	
 	//enable modes
 	//this.enableDevelopment();
-	//this.enableCommercial();	
+	this.enableCommercial();	
 	
 	//data
 	this.loadData();
@@ -382,8 +382,8 @@ $(document).ready(function(){
 	$(App.elements.utilityLinks.settings).click(function(){App.navigate("settings");});	
 	
 	//list items
-	//$(App.elements.listItems.call).click(function(){App.navigate("call");});
-	$(App.elements.listItems.call).click(function(){$(this).toggleClass("expanded");});
+	$(App.elements.listItems.call).click(function(){App.navigate("call");});
+	//$(App.elements.listItems.call).click(function(){$(this).toggleClass("expanded");});
 	$(App.elements.listItems.contact).click(function(){App.navigate("contact");});	
 	$(App.elements.listItems.voicemail).click(function(){App.navigate("voicemail");});	
 	$(App.elements.listItems.conversation).click(function(){App.navigate("sms-conversation");});
