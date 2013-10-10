@@ -239,7 +239,7 @@ App.conversation.cancel = function(){
 	this.disableDeleteMode();
 }
 
-App.conversation.deleteSelected = function(){
+App.conversation.deleteMarked = function(){
 	this.disableDeleteMode();
 }
 
@@ -270,8 +270,8 @@ $(document).ready(function(){
 	$(App.conversation.buttons.send).click(function(){App.conversation.sendMessage();});
 	$(App.conversation.buttons.edit).click(function(){App.conversation.edit();});
 	$(App.conversation.buttons.cancel).click(function(){App.conversation.cancel();});
-	$(App.conversation.buttons.deleteSelected).click(function(){App.conversation.deleteSelected();});
-	$(App.conversation.buttons.deleteAll).click(function(){App.conversation.deleteAll();});		
+	$(App.conversation.buttons.deleteSelected).click(function(){App.showModal(3);});
+	$(App.conversation.buttons.deleteAll).click(function(){App.showModal(4);});		
 	$(App.conversation.inputs.deleteCheckbox).on("change", function(){App.conversation.updateDeleteButton();});
 });
 

@@ -55,7 +55,52 @@ Modal.init = function(id){
 					"action" : function(){}
 				}
 			}
-			break;												
+			break;
+		case 3:
+		    title = "Delete Marked Messages";
+			message = "Are you sure you want to delete the marked messages?";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "Delete",
+					"action" : function(){
+						App.conversation.deleteMarked();
+					}
+				},
+				"deny" : {
+					"label" : "Cancel",
+					"action" : function(){}
+				}
+			}
+			break;	
+		case 4:
+		    title = "Delete All Messages";
+			message = "Are you sure you want to delete all messages?";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "Delete",
+					"action" : function(){
+						App.conversation.deleteAll();
+					}
+				},
+				"deny" : {
+					"label" : "Cancel",
+					"action" : function(){}
+				}
+			}
+			break;
+		case 5:
+		    title = "Sign In Again";
+			message = "Changes have been made to your account that require you to sign in again.";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "OK",
+					"action" : function(){}
+				}
+			}
+			break;																				
 		default: 
 			title = "Notice";	
 			message = "Default Content";

@@ -122,7 +122,7 @@
 	padding:2% 0 0 0;
 }
 
-/**** Frame ****/
+/****** Frame ******/
 
 .frame{
 	position:relative;
@@ -203,103 +203,13 @@
 	height:66%;
 }
 
-.frame-content .image{
-	width:auto;
-	height:auto;
-}
 
-.frame-content .image .btn{
-	position: absolute;
-	left:0;
-}
-
-.frame-content .image .change-image-button{
-	top:0;
-}
-
-.frame-content .image .add-image-button,
-.frame-content .image .remove-image-button
-{
-	bottom:0;
-}
-
-/** Info Cards **/
-
-.frame-content .info .image,
-.frame-content .info .name,
-.frame-content .info .number,
-.frame-content .info .datetime,
-.frame-content .info .ringtone
-{
+.frame-content .card{
 	position:absolute;
-}
-
-.frame-content .info .image
-{
-	top:5%;
-}
-
-.frame-content .info .name
-{
-	top:9%;
-}
-
-.frame-content .info .number,
-.frame-content .info .ringtone
-{
-	top:20%;
-}
-
-.frame-content .info .datetime
-{
-	top:32%;
-}
-
-.frame-content .info .image{
+	width:90%;
+	height:100px;
+	top:13px;
 	left:5%;
-}
-
-.frame-content .info .name,
-.frame-content .info .number,
-.frame-content .info .datetime,
-.frame-content .info .ringtone
-{
-	left:38%;	
-}
-
-/** Edit Cards **/
-
-.frame-content .edit .image{
-	position:absolute;
-	top:5%;
-	left:5%;
-}
-
-.frame-content .edit .first-name,
-.frame-content .edit .last-name,
-.frame-content .edit .nick-name
-{
-	position:absolute;
-	left:38%;
-	width:45%;
-}
-
-.frame-content .edit .first-name{
-	top:5%;
-}
-
-.frame-content .edit .last-name{
-	top:15%;
-}
-
-.frame-content .edit .nick-name{
-	top:25%;
-}
-
-.frame-content .edit .ringtone{
-	position:absolute;
-	left:38%;
-	top:36%;
 }
 
 .frame-content .audiojs{
@@ -324,6 +234,14 @@
 	position:absolute;
 	top:51%;
 	left:5%;
+}
+
+/** List Items **/
+
+.list-item{
+	float:left;
+	position:relative;
+	width:100%;
 }
 
 /**** Frame Footer ****/
@@ -422,11 +340,12 @@
 
 .modal-container .modal-header{
 	position:relative;
+	height:30px;	
 }
 
 .modal-container .modal-title{
 	position:absolute;
-	width:50%;
+	width:73%;
 	top:17%;
 	left:4%;
 }
@@ -445,123 +364,7 @@
 	margin-top:3%;
 }
 
-.modal-container .modal-footer .btn-modal{
-	float:right;
-	margin-left:3%;
-}
-
-/** List Items *****************************************/
-
-.list-item{
-	float:left;
-	position:relative;
-	width:100%;
-	height:40px;
-}
-
-.list-item.expanded{
-	height:67px;
-}
-
-.list-item .image,
-.list-item .name,
-.list-item .number,
-.list-item .type,
-.list-item .date,
-.list-item .time,
-.list-item .copy
-{
-	position:absolute;
-}
-
-.list-item .image{
-	left:2%;
-	top:5px;	
-	max-width:30px;
-	max-height:30px;	
-}
-
-.list-item .name{
-	left: 13%;
-	top: 14px;
-	width: 37%;	
-}
-
-.list-item .number,
-.list-item .type,
-.list-item .date,
-.list-item .time
-{
-	top:16px;		
-}
-
-.list-item .number
-{
-	right: 28%;
-	width: 20%;		
-}
-
-.list-item .type
-{
-	right: 2%;
-	width: 20%;		
-}
-
-.list-item .date{		
-	text-align:right;
-	right:17%;	
-}
-
-.list-item .time{	
-	text-align:right;
-	right:2%;	
-}
-
-.list-item .copy{
-	width: 85%;
-	left: 13%;
-	bottom: 7px;
-}
-
-
-.list-item.has-copy
-{
-	height:47px;	
-}
-
-.list-item.has-copy .image{
-	top:10px;	
-}
-
-.list-item.has-copy .name{
-	top:9px;	
-}
-
-.list-item.has-copy .number,
-.list-item.has-copy .date,
-.list-item.has-copy .time
-{
-	top:11px;	
-}
-
-.list-item .action-buttons{
-	display:none;	
-	position: absolute;
-	left:2%;
-	bottom:4px;
-	width:96%;
-}
-
-.list-item.expanded .action-buttons{
-	display:block;	
-}
-
-.list-item .action-buttons .btn.left{
-	float:left;
-	margin-right:3%;
-}
-
-.list-item .action-buttons .btn.right{
+.modal-container .modal-footer .btn{
 	float:right;
 	margin-left:3%;
 }
@@ -610,15 +413,15 @@
 
 /**** Contact ****/
 
-/**** Contact Edit ****/
-
+/**** Contact Change ****/
 
 .contact-change-frame .select-menu.ringtone .options{
 	max-height:120px;
 }
 
-/**** Voicemails ****/
+/**** Contact Add ****/
 
+/**** Voicemails ****/
 
 /**** Voicemail ****/
 
@@ -630,7 +433,6 @@
 	position:absolute;
 	bottom:20px;
 }
-
 
 /**** New SMS Conversation ****/
 

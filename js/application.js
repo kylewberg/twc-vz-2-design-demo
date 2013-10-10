@@ -110,7 +110,6 @@ App.initialize = function() {
 	this.initGUI();
 	
 	//enable modes
-	//this.enableDevelopment();
 	this.enableCommercial();	
 	
 	//data
@@ -361,6 +360,7 @@ $(document).ready(function(){
 	//login links
 	$(App.elements.otherLinks.forgotUsername).click(function(){App.showModal(0);});
 	$(App.elements.otherLinks.forgotPassword).click(function(){App.showModal(1);});
+	$('#app-splash').click(function(){App.showModal(5);});
 		
 	//utility links	
 	$(App.elements.utilityLinks.sound).click(function(){App.toggleSound();});
@@ -377,7 +377,7 @@ $(document).ready(function(){
 	//menu links
 	$(App.elements.menuLinks.calls).click(function(){App.navigate("calls");});
 	$(App.elements.menuLinks.contacts).click(function(){App.navigate("contacts");});	
-	$(App.elements.menuLinks.voicemails).click(function(){App.showModal(2)});		
+	$(App.elements.menuLinks.voicemails).click(function(){App.showModal(2);});		
 	$(App.elements.menuLinks.sms).click(function(){App.navigate("sms-conversations");});
 	$(App.elements.utilityLinks.settings).click(function(){App.navigate("settings");});	
 	

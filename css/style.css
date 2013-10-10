@@ -126,7 +126,6 @@
 }
 
 .modal-header {
-	height:30px;
 	border-bottom: 1px solid #eee;
 	background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #eaf1f6), color-stop(100%, #ffffff));
 }
@@ -136,14 +135,15 @@
 	font-size:20px;
 }
 
+.commercial .modal-title{
+	font-family: inherit;
+	font-size:20px;
+}
+
 .modal-close{
 	cursor:pointer;
 	color: #3e90d2;
 	font-size:16px;
-}
-
-.modal-close .icon-close{
-	font-size:15px;
 }
 
 .modal-container .modal-content{
@@ -156,7 +156,7 @@
 }
 
 .modal-container .modal-footer{
-	padding:4% 10%;
+	padding:4% 8%;
 }
 
 /** Frames *****************************************/
@@ -265,10 +265,10 @@
     /*border-radius: 10px;*/	
 }
 
-::-webkit-scrollbar-button       { /* 2 */ }
-::-webkit-scrollbar-track-piece  { /* 4 */ }
-::-webkit-scrollbar-corner       { /* 6 */ }
-::-webkit-resizer                { /* 7 */ }
+::-webkit-scrollbar-button       {}
+::-webkit-scrollbar-track-piece  {}
+::-webkit-scrollbar-corner       {}
+::-webkit-resizer                {}
 
 /** Navigation Menus *****************************************/
 
@@ -306,9 +306,9 @@
 
 .nav-main > .nav-link{
 	float:left;
+	margin: 10px 0 0 6px;	
 	font-weight:bold;
 	cursor:pointer;
-	margin: 10px 0 0 6px;
 	padding: 6px 12px 11px;
 	-webkit-box-sizing: border-box;
 	font-size: 15px;
@@ -316,10 +316,10 @@
 }
 
 .commercial .nav-main > .nav-link{
+	margin: 3px 0;	
 	font-weight:normal;	
 	text-transform:uppercase;
 	font-size:13px;
-	margin: 3px 0;
 	padding: 13px 15px 11px;
 	border-right:solid 1px #bbbbbb;
 }
@@ -329,20 +329,20 @@
 }
 
 .nav-main > .nav-link:hover{
-  color: #457aab;
-  border-bottom: 2px solid #457aab;
-  -webkit-box-shadow: #dfe0e2 0px 2px 6px 4px inset;
+	color: #457aab;
+	border-bottom: 2px solid #457aab;
+	-webkit-box-shadow: #dfe0e2 0px 2px 6px 4px inset;
 }
 
 .commercial .nav-main > .nav-link:hover,
 .commercial .nav-main > .nav-link.active:hover{
-  color: #ffffff;	
+ 	color: #ffffff;	
 }
 
 .commercial .nav-main > .nav-link:hover{
-  border-bottom: none;
-  -webkit-box-shadow: none;
-  background-color: #343b46;
+	border-bottom: none;
+	-webkit-box-shadow: none;
+	background-color: #343b46;
 }
 
 .nav-main > .nav-link.active{
@@ -497,12 +497,12 @@ label + input[type=password]
 	margin-bottom:5px;	
 }
 
-.login-input{
+input[type=text].login-input{
 	display: inline-block;		
 	display: block;		
 	width: 214px;
 	padding: 4px 6px;
-	margin-bottom:9px;
+	margin:0 0 9px 0;
 	font-size: 13px;
 	line-height: 18px;	
 }
@@ -519,7 +519,10 @@ input[type="checkbox"] {
 	vertical-align:-2px;
 }
 
-
+.voicemail-pin-entry{
+	width:40px;
+	margin-bottom:9px;
+}
 
 /** Logos *****************************************/
 
@@ -657,19 +660,34 @@ input[type="checkbox"] {
 	vertical-align:-2px;
 }
 
-.btn-modal{
-	border: 0px;	
-	border-radius: 4px;	
-	font-family:"TWC-Round-Book";	
-	font-size: 13px;				
-	color: #ffffff;		
-	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #387ab4), color-stop(100%, #01437d));
-	padding: 4px 14px;	
+/** Icons *****************************************/
+
+.icon-close{
+	font-size:15px;
 }
 
-.btn-modal:hover{
-	  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #255981), color-stop(100%, #1c4362));
+.icon-unread{
+	width:16px;
+	height:16px;	
+	background:url('../img/icon-dot-green.png') 2px 3px no-repeat;
 }
+
+.commercial .icon-unread{	
+	background-image:url('../img/icon-dot-yellow.png');
+}
+
+.icon-urgent{
+	width:16px;
+	height:16px;	
+	background:url('../img/icon-exclamation.png') 0 0 no-repeat;
+}
+
+.icon-confidential{
+	width:16px;
+	height:16px;
+	background:url('../img/icon-lock.png') 0 0 no-repeat;
+}
+
 
 /** Audio Players *****************************************/
 
@@ -943,13 +961,6 @@ table{
 	padding:0;
 }
 
-/** Images *****************************************/
-
-.image img{
-	max-width:100px;
-	max-height:100px;
-}
-
 
 /** List Items *****************************************/
 
@@ -957,7 +968,13 @@ table{
 	-webkit-box-sizing: border-box;	
 	border-bottom: 1px dotted #ddd;
 	cursor:pointer;
+	height:40px;	
 }
+
+.list-item.expanded{
+	height:67px;
+}
+
 /*
 .list-item:nth-child(odd){
 	background:#888888;
@@ -975,13 +992,28 @@ table{
 	background:#c8ccd2;	
 }
 
-.list-item .name{
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;	
+.list-item .image,
+.list-item .name,
+.list-item .number,
+.list-item .type,
+.list-item .date,
+.list-item .time,
+.list-item .copy
+{
+	position:absolute;
 }
 
-.list-item .number{
+.list-item .image{
+	left:2%;
+	top:5px;	
+	max-width:30px;
+	max-height:30px;	
+}
+
+.list-item .name{
+	left: 13%;
+	top: 14px;
+	width: 37%;		
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;	
@@ -992,7 +1024,22 @@ table{
 .list-item .date,
 .list-item .time
 {
+	top:16px;		
 	font-size:11px;
+}
+
+.list-item .number{
+	right: 28%;
+	width: 20%;		
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+}
+
+.list-item .type
+{
+	right: 2%;
+	width: 20%;		
 }
 
 .list-item .date,
@@ -1001,8 +1048,19 @@ table{
 	text-align:right;	
 }
 
+.list-item .date{		
+	right:17%;	
+}
+
+.list-item .time{	
+	right:2%;	
+}
+
 
 .list-item .copy{
+	width: 85%;
+	left: 13%;
+	bottom: 7px;	
 	font-size: 10px;
 	color: #666666;
 	white-space: nowrap;
@@ -1012,6 +1070,202 @@ table{
 
 .commercial .list-item.conversation .copy{
 	color: #444444;
+}
+
+.list-item.has-copy
+{
+	height:47px;	
+}
+
+.list-item.has-copy .image{
+	top:10px;	
+}
+
+.list-item.has-copy .name{
+	top:9px;	
+}
+
+.list-item.has-copy .number,
+.list-item.has-copy .date,
+.list-item.has-copy .time
+{
+	top:11px;	
+}
+
+.list-item .action-buttons{
+	display:none;	
+	position: absolute;
+	left:2%;
+	bottom:4px;
+	width:96%;
+}
+
+.list-item.expanded .action-buttons{
+	display:block;	
+}
+
+.list-item .action-buttons .btn.left{
+	float:left;
+	margin-right:3%;
+}
+
+.list-item .action-buttons .btn.right{
+	float:right;
+	margin-left:3%;
+}
+
+.list-item .icon-unread,
+.list-item .icon-urgent,
+.list-item .icon-confidential
+{
+	display:none;
+	float:left;
+	margin-top:5%;	
+}
+
+.list-item.unread .icon-unread,
+.list-item.urgent .icon-urgent,
+.list-item.confidential .icon-confidential
+{
+	display:block;
+}
+
+.list-item.unread .image,
+.list-item.urgent .image,
+.list-item.confidential .image
+{left:5%;}
+
+.list-item.unread .name,
+.list-item.urgent .name,
+.list-item.confidential .name
+{left:16%;width:33%;}
+
+.list-item.unread .copy,
+.list-item.urgent .copy,
+.list-item.confidential .copy
+{left:16%;width:82%;}
+
+.list-item.unread.urgent .image,
+.list-item.unread.confidential .image,
+.list-item.urgent.confidential .image
+{left:10%;}
+
+.list-item.unread.urgent .name,
+.list-item.unread.confidential .name,
+.list-item.urgent.confidential .name
+{left:21%;width:30%;}
+
+.list-item.unread.urgent .copy,
+.list-item.unread.confidential .copy,
+.list-item.urgent.confidential .copy
+{left:21%;width:77%;}
+
+.list-item.unread.urgent.confidential .image{left:15%;}
+.list-item.unread.urgent.confidential .name{left:26%;width:26%;}
+.list-item.unread.urgent.confidential .copy{left:26%;width:72%;}
+
+
+/** Cards *****************************************/
+
+.card .image,
+.card .name,
+.card .first-name,
+.card .last-name,
+.card .nick-name,
+.card .number,
+.card .datetime,
+.card .ringtone
+{
+	position:absolute;
+}
+
+.card .image{
+	width:auto;
+	height:auto;	
+	top:0px;
+	left:0px;
+}
+
+.card .image img{
+	max-width:100px;
+	max-height:100px;	
+}
+
+.card .image .btn{
+	position: absolute;
+	left:0;
+}
+
+.card .image .btn.top{
+	top:0;
+}
+
+.card .image .btn.bottom
+{
+	bottom:0;
+}
+
+.card .name{
+	font-size:14px;
+}
+
+/** Info Cards **/
+
+.info-card .name
+{
+	top:10px;
+}
+
+.info-card  .number,
+.info-card  .ringtone
+{
+	top:37px;
+}
+
+.info-card  .datetime
+{
+	top:67px;
+}
+
+.info-card .name,
+.info-card .number,
+.info-card .datetime,
+.info-card .ringtone
+{
+	left:118px;	
+}
+
+/** Edit Cards **/
+
+.edit-card .first-name,
+.edit-card .last-name,
+.edit-card .nick-name,
+.edit-card .ringtone
+{
+	left:118px;
+}
+
+.edit-card .first-name,
+.edit-card .last-name,
+.edit-card .nick-name
+{
+	width:160px;
+}
+
+.edit-card .first-name{
+	top:0px;
+}
+
+.edit-card .last-name{
+	top:25px;
+}
+
+.edit-card .nick-name{
+	top:50px;
+}
+
+.edit-card .ringtone{
+	top:77px;
 }
 
 /** SMS Recipient *****************************************/
@@ -1208,16 +1462,6 @@ table{
 }
 
 /** Misc *****************************************/
-
-.frame-content .info .name,
-.frame-content .edit .name{
-	font-size:14px;
-}
-
-.voicemail-pin-entry{
-	width:40px;
-	margin-bottom:9px;
-}
 
 .truncate {
 	white-space: nowrap;

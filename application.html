@@ -15,12 +15,15 @@
     <body>
     	<div id="app" class="app">
 
+<!-- #app-top -->
     		<div id="app-top" class="app-top">
     			<div class="app-title app-name">VoiceZone</div>
 	    		<div id="close-minimize" class="btn btn-app app-minimize">-</div>
 	    		<div id="close-button" class="btn btn-app app-close">x</div>				
-    		</div><!-- /#app-top -->
+    		</div>
+<!-- /#app-top -->
 
+<!-- #app-header -->	
 	    	<div id="app-header" class="app-header">
 	    		<div class="logo logo-twc"></div>
 				<div id="sound-control" class="sound-control"></div>
@@ -34,22 +37,28 @@
 					<li id="settings-link" class="link settings-link">Settings</li>
 					<li id="help-link" class="last help-link">Help</li>
 				</ul>
-	    	</div><!-- /#app-header -->	
-			
+	    	</div>
+<!-- /#app-header -->
+
+<!-- #app-splash -->
 			<div id="app-splash" class="app-splash">
 				<span class="app-name"></span>
-			</div><!-- /#app-splash -->
-			
+			</div>
+<!-- /#app-splash -->
+
+<!-- #app-menu -->
 			<div id="app-menu" class="app-menu nav-main">
 				<div id="calls-link" class="nav-link first">Recents</div>
 				<div id="contacts-link" class="nav-link">Contacts</div>
 				<div id="voicemails-link" class="nav-link">Voicemail</div>
 				<div id="sms-link" class="nav-link last">Texts</div>
-			</div><!-- /#app-menu -->	
+			</div>	
+<!-- /#app-menu -->
 
+<!-- #app-content -->
 			<div id="app-content" class="app-content">
 				
-				<!-- Login -->
+	<!-- #login.frame -->
 				<div id="login" class="frame login-frame">
 					<div class="frame-header">
 						<div class="frame-title">Sign In</div> 
@@ -73,23 +82,25 @@
 						<div id="login-button" class="btn btn-login login-button">Sign In</div>
 					</div>
 				</div>	
-				
-				<!-- Calls -->				
+	<!-- /#login.frame -->
+
+	<!-- #calls.frame -->				
 				<div id="calls" class="frame calls-frame">
 					<div class="frame-header">
 						<div class="frame-title">Recents</div> 
 					</div>
 					<div id="call-list" class="frame-content"></div>
 				</div>
-				
-				<!-- Call -->	
+	<!-- /#calls.frame -->
+
+	<!-- #call.frame -->	
 				<div id="call" class="frame call-frame">
 					<div class="frame-header">					
 						<div class="frame-title">Recent</div> 
 						<span id="call-back" class="frame-subtitle link back-link">Back</span>
 					</div>
 					<div id="call-info" class="frame-content">
-						<div class="info">
+						<div class="card info-card">
 							<div class="image">
 								<img src="img/contact-image.png" />
 							</div>
@@ -108,8 +119,9 @@
 						<div class="btn btn-action delete-button right">Delete</div>
 					</div>					
 				</div>
-				
-				<!-- Contacts -->					
+	<!-- /#call.frame -->	
+
+	<!-- #contacts.frame -->					
 				<div id="contacts" class="frame contacts-frame">
 					<div class="frame-header">
 						<div class="frame-title">Contacts</div> 
@@ -121,15 +133,16 @@
 						<div class="btn btn-action import-button right">Import</div> 
 					</div>
 				</div>	
-				
-				<!-- Contact -->
+	<!-- /#contacts.frame -->
+
+	<!-- #contact.frame -->
 				<div id="contact" class="frame contact-frame">
 					<div class="frame-header">					
 						<div class="frame-title">Contact</div> 
 						<span id="contact-back" class="frame-subtitle link back-link">Back</span>
 					</div>
 					<div id="contact-info" class="frame-content">
-						<div class="info">
+						<div class="card info-card">
 							<div class="image">
 								<img src="img/contact-image.png" />
 							</div>	
@@ -176,19 +189,20 @@
 						<div class="btn btn-action delete-button left">Delete</div> 
 					</div>
 				</div>
-				
-				<!-- Change Contact -->
+	<!-- /#contact.frame -->
+
+	<!-- #contact-change.frame -->
 				<div id="contact-change" class="frame contact-change-frame">
 					<div class="frame-header">					
 						<div id="contact-change-title" class="frame-title">Edit Contact</div> 
 						<span id="contact-change-back" class="frame-subtitle link back-link">Back</span>
 					</div>
 					<div id="contact-change-info" class="frame-content">
-						<div class="edit">
+						<div class="card edit-card">
 							<div class="image">
-								<div id="add-image-button" class="btn btn-image add-image-button"><span>Add</span></div>
-								<div id="change-image-button" class="btn btn-image change-image-button"><span>Change</span></div>
-								<div id="remove-image-button" class="btn btn-image remove-image-button"><span>Remove</span></div>
+								<div id="change-image-button" class="btn top btn-image change-image-button"><span>Change</span></div>
+								<div id="remove-image-button" class="btn bottom btn-image remove-image-button"><span>Remove</span></div>
+								<div id="add-image-button" class="btn bottom btn-image add-image-button"><span>Add</span></div>
 								<img src="img/contact-image.png" />
 							</div>
 							<input id="first-name" type="text" class="name first-name" value="" placeholder="First Name"/>
@@ -223,23 +237,25 @@
 						<div class="btn btn-action save-button left">Save</div>	
 					</div>					
 				</div>	
-				
-				<!-- Voicemails -->			
+	<!-- /#contact-change.frame -->	
+
+	<!-- #voicemails.frame -->			
 				<div id="voicemails" class="frame voicemails-frame">
 					<div class="frame-header">					
 						<div class="frame-title">Voicemail</div> 
 					</div>
 					<div id="voicemail-list" class="frame-content"></div>
 				</div>	
-				
-				<!-- Voicemail -->
+	<!-- /#voicemails.frame -->	
+
+	<!-- #voicemail.frame -->
 				<div id="voicemail" class="frame voicemail-frame">
 					<div class="frame-header">					
 						<div class="frame-title">Voicemail</div> 
 						<span id="voicemail-back" class="frame-subtitle link back-link">Back</span>
 					</div>
 					<div id="voicemail-info" class="frame-content">
-						<div class="info">
+						<div class="card info-card">
 							<div class="image">
 								<img src="img/contact-image.png" />	
 							</div>					
@@ -266,8 +282,9 @@
 						<div class="btn btn-action delete-button right">Delete</div>
 					</div>					
 				</div>	
-				
-				<!-- SMS Conversations -->							
+	<!-- /#voicemail.frame -->	
+
+	<!-- #sms-conversations.frame -->							
 				<div id="sms-conversations" class="frame sms-conversations-frame">
 					<div class="frame-header">					
 						<div class="frame-title">Texts</div> 
@@ -277,8 +294,9 @@
 						<div id="new-sms-button" class="btn btn-action new-button left">New Text</div>
 					</div>						
 				</div>	
-				
-				<!-- SMS Conversation -->		
+	<!-- /#sms-conversations.frame -->
+
+	<!-- #sms-conversation.frame -->		
 				<div id="sms-conversation" class="frame sms-conversation-frame">
 					<div class="frame-header">
 						<div class="frame-title">Text</div> 
@@ -294,8 +312,9 @@
 						<div id="send-message-button" class="btn btn-action send-button right">Send</div>
 					</div>	
 				</div>
-				
-				<!-- New SMS Conversation -->		
+	<!-- /#sms-conversation.frame -->
+
+	<!-- #sms-conversation-new.frame -->		
 				<div id="sms-conversation-new" class="frame sms-conversation-new-frame">
 					<div class="frame-header">
 						<div class="frame-title">New Text</div> 
@@ -316,8 +335,9 @@
 						<div id="send-new-message-button" class="btn btn-action send-button right">Send</div>
 					</div>	
 				</div>				
-				
-				<!-- Settings -->	
+	<!-- #sms-conversation-new.frame -->
+
+	<!-- #settings.frame -->	
 				<div id="settings" class="frame settings-frame">
 					<div class="frame-header">
 						<div class="frame-title">Settings</div> 
@@ -440,8 +460,11 @@
 						<div class="btn btn-action save-button left">Save</div>	
 					</div>						
 				</div>	
-																						
-			</div><!-- /#app-content -->	
+	<!-- /#settings.frame -->																					
+			</div>	
+<!-- /#app-content -->	
+
+<!-- #app-footer -->	
 			<div id="app-footer" class="app-footer">
 				<div class="my-location">
 					<span>My Location: </span>
@@ -451,8 +474,10 @@
 					</div>
 				</div>
 				<div id="collapse-link" class="link collapse-link">Collapse</div>
-			</div><!-- /#app-footer -->	
-			
+			</div>
+<!-- /#app-footer -->	
+
+<!-- /#app-modal -->
 			<div id="app-modal" class="app-modal">
 				<div class="modal-container">
 					<div class="modal-header">										
@@ -461,14 +486,15 @@
 					</div>
 					<div id="modal-content" class="modal-content"></div>
 					<div class="modal-footer">
-						<div id="modal-confirm-button" class="btn btn-modal modal-confirm-button">OK</div>
-						<div id="modal-deny-button" class="btn btn-modal modal-deny-button">Cancel</div>					
+						<div id="modal-confirm-button" class="btn btn-action modal-confirm-button">OK</div>
+						<div id="modal-deny-button" class="btn btn-action modal-deny-button">Cancel</div>					
 					</div>
 				</div>
-			</div><!-- /#app-modal -->	
-			
-		</div><!-- /#app -->	
-		
+			</div>	
+<!-- /#app-modal -->
+		</div>	
+<!-- /#app -->	
+
 		<div id="templates" style="display:none;">
 			<div class="list-item call">
 				<img class="image" src="img/contact-image.png" />
