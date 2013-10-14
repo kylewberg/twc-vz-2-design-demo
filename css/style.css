@@ -548,6 +548,10 @@ input[type="checkbox"] {
 	cursor:pointer;
 }
 
+.btn.disabled{
+	cursor: default;
+}
+
 .btn-app{
 	padding:0px 8px;
 	border: 0px;	
@@ -580,8 +584,7 @@ input[type="checkbox"] {
 	left:0;
 }
 
-.btn-action,
-.btn-number
+.btn-action
 {
 	border-radius: 4px;	
 	font-family:"TWC-Round-Book";		
@@ -595,10 +598,20 @@ input[type="checkbox"] {
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));	
 }
 
-.commercial .btn-action,
-.commercial .btn-number
+.btn-action:hover
 {
-	/*text-transform:uppercase;*/
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bab9b7), color-stop(100%, #acaaad));
+}
+
+.btn-action.disabled,
+.btn-action.disabled:hover
+{
+	color: #ffffff;
+	background:#bbbbbb;
+}
+
+.commercial .btn-action
+{
 	font-family: inherit;
 	font-weight: bold;
 	color: #ffffff;
@@ -608,26 +621,16 @@ input[type="checkbox"] {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e90d2),color-stop(21%, #3b89c8),color-stop(79%, #2f6c9d),color-stop(100%, #2b6492));
 }
 
-/*
-.commercial .btn-action:after,
-.commercial .btn-number:after
-{
-	content:url('../img/arrow-white-right.png');
-	padding-left:7px;
-	vertical-align:0px;
-}
-*/
-
-.btn-action:hover,
-.btn-number:hover
-{
-	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bab9b7), color-stop(100%, #acaaad));
-}
-
-.commercial .btn-action:hover,
-.commercial .btn-number:hover
+.commercial .btn-action:hover
 {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #285c86),color-stop(25%, #2b6492),color-stop(79%, #367eb8),color-stop(100%, #3986c2));
+}
+
+.btn-action.disabled,
+.btn-action.disabled:hover
+{
+	color: #ffffff;	
+	background:#bbbbbb;
 }
 
 .btn-login{
@@ -688,6 +691,25 @@ input[type="checkbox"] {
 	background:url('../img/icon-lock.png') 0 0 no-repeat;
 }
 
+.icon-plus{
+	cursor: pointer;
+	width:23px;
+	height:23px;
+	background:url('../img/icon-plus-minus.png') top left no-repeat;	
+}
+
+.icon-minus{
+	cursor: pointer;
+	width:23px;
+	height:23px;
+	background:url('../img/icon-plus-minus.png') bottom left no-repeat;	
+}
+
+.commercial .icon-plus,
+.commercial .icon-minus
+{
+	background-image:url('../img/icon-plus-minus-flat.png');	
+}
 
 /** Audio Players *****************************************/
 
@@ -899,24 +921,16 @@ input[type="checkbox"] {
 
 .commercial .expandable .expand-title{
 	color:#336699;	
-	background:none;
-	padding-left:0px;
-}
-
-.commercial .expandable .expand-title:before{
-	content:"+";
-	padding-right:6px;
-	padding-left:6px;	
+	background:url('../img/icon-plus-minus-flat.png') 5px -1px no-repeat;
+	padding-left: 33px;
 }
 
 .expandable.expanded .expand-title{
 	background-position: 5px -32px;
 }
 
-.commercial .expandable.expanded .expand-title:before{
-	content:"-";	
-	padding-right: 8px;
-	padding-left: 9px;
+.commercial .expandable.expanded .expand-title{
+	background-position: 5px -34px;
 }
 
 .expandable .expand-content{

@@ -170,7 +170,22 @@
 	position:absolute;
 	top:10%;
 	width:100%;
-	height:10%;		
+	height:10%;	
+	padding:0 2%;		
+}
+
+.frame-topbar .btn{
+	margin-top:3px;
+}
+
+.frame-topbar .left{
+	float:left;
+	margin-right:3%;
+}
+
+.frame-topbar .right{
+	float:right;
+	margin-left:3%;
 }
 
 /**** Frame Content ****/
@@ -198,7 +213,9 @@
 	height:76%;
 }
 
-.frame.sms-conversation-new-frame .frame-content{
+.frame.sms-conversation-new-frame .frame-content,
+.frame.sms-conversation-frame .frame-content
+{
 	top:20%;
 	height:66%;
 }
@@ -251,7 +268,7 @@
 	bottom:0px;
 	width:100%;
 	height:10%;	
-	padding:0 3%;
+	padding:0 2%;
 }
 
 .commercial .frame-footer{
@@ -266,29 +283,40 @@
 	margin-top:1%;
 }
 
-.frame-footer .btn.left{
+.frame-footer.new-message .btn{
+	margin-top:10px;
+}
+
+.commercial .frame-footer.new-message .btn{
+	margin-top:12px;
+}
+
+.frame-footer.new-message .send-button{
+	margin-left:0;
+}
+
+.frame-footer .left{
 	float:left;
 	margin-right:3%;
 }
 
-.frame-footer .btn.right{
+.frame-footer .right{
 	float:right;
 	margin-left:3%;
 }
 
 .frame-footer .message-content
 {
-	position: absolute;
-	top: 10%;
-	left: 19%;
-	width: 60%;
+	margin-top:5px;
+	margin-right:0;
+	width: 79%;
 	height: 80%;	
 }
 
 .commercial .frame-footer .message-content
 {
-	left: 16%;
-	width: 66%;	
+	margin-top:7px;
+	width: 81%;	
 }
 
 /** App Footer *****************************************/
@@ -429,85 +457,32 @@
 
 /**** SMS Conversation ****/
 
-.new-message-bar{
-	position:absolute;
-	bottom:20px;
-}
-
 /**** New SMS Conversation ****/
 
-.new-message-recipient .recipient-title{
-	position:absolute;
-	left:2%;
-	top:7px;		
-}
-
-.new-message-recipient .recipient-label,
-.new-message-recipient .recipient-filter
-{
-	position:absolute;
-	left:24%;			
-}
-
+.new-message-recipient .recipient-title,
 .new-message-recipient .recipient-label
 {
-	top:6px;			
+	margin-top:6px;			
 }
 
+.commercial .new-message-recipient .recipient-title,
 .commercial .new-message-recipient .recipient-label
 {
-	top:7px;			
+	margin-top:7px;			
 }
 
 .new-message-recipient .recipient-filter
 {
-	top:6px;	
-	width:45%;		
+	margin-top:6px;	
+	width:68%;		
 }
 
-.new-message-recipient .add-recipient-button,
-.new-message-recipient .change-recipient-button,
-.new-message-recipient .cancel-recipient-button
+.new-message-recipient .remove-recipient-button
 {
-	position:absolute;
-	right:3%;
-	top:3px;	
+	margin-top:3px;	
 }
 
-.commercial .new-message-recipient .add-recipient-button,
-.commercial .new-message-recipient .change-recipient-button,
-.commercial .new-message-recipient .cancel-recipient-button
+.commercial .new-message-recipient .remove-recipient-button
 {
-	top:9%;	
-}
-
-.sms-conversation-new-frame .frame-footer .send-button
-{
-	right:1%;
-}
-
-.commercial .sms-conversation-new-frame .frame-footer .send-button
-{
-	right:0%;
-}
-
-.sms-conversation-new-frame .frame-footer .message-content
-{
-	left: 23%;
-	width: 57%;
-}
-
-.commercial .sms-conversation-new-frame .frame-footer .message-content {
-	left: 21%;
-	width: 61%;
-}
-
-.sms-conversation-new-frame .frame-footer .cancel-new-message-button
-{
-	left: 1%;
-}
-
-.commercial .sms-conversation-new-frame .frame-footer .cancel-new-message-button
-{
-	left: 0%;
+	margin-top:3px;
 }

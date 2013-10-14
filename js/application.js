@@ -110,7 +110,7 @@ App.initialize = function() {
 	this.initGUI();
 	
 	//enable modes
-	this.enableCommercial();	
+	//this.enableCommercial();	
 	
 	//data
 	this.loadData();
@@ -120,7 +120,7 @@ App.initialize = function() {
 }
 
 App.log = function(message){
-	//console.log(message);
+	console.log(message);
 }
 
 App.move = function(){

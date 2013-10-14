@@ -154,32 +154,32 @@
 								<span class="number-label">Home</span>
 								<span class="number">000-000-0000</span>
 								<div class="number-buttons">
-									<div class="btn btn-number call-button">Call</div>
-									<div class="btn btn-number text-button">Text</div>
+									<div class="btn btn-action call-button">Call</div>
+									<div class="btn btn-action text-button">Text</div>
 								</div>
 							</div>
 							<div class="contact-number office">
 								<span class="number-label">Office</span>
 								<span class="number">000-000-0000</span>
 								<div class="number-buttons">
-									<div class="btn btn-number call-button">Call</div>
-									<div class="btn btn-number text-button">Text</div>
+									<div class="btn btn-action call-button">Call</div>
+									<div class="btn btn-action text-button">Text</div>
 								</div>
 							</div>	
 							<div class="contact-number mobile">
 								<span class="number-label">Mobile</span>
 								<span class="number">000-000-0000</span>
 								<div class="number-buttons">
-									<div class="btn btn-number call-button">Call</div>
-									<div class="btn btn-number text-button">Text</div>
+									<div class="btn btn-action call-button">Call</div>
+									<div class="btn btn-action text-button">Text</div>
 								</div>
 							</div>
 							<div class="contact-number other">
 								<span class="number-label">Other</span>
 								<span class="number">000-000-0000</span>
 								<div class="number-buttons">
-									<div class="btn btn-number call-button">Call</div>
-									<div class="btn btn-number text-button">Text</div>
+									<div class="btn btn-action call-button">Call</div>
+									<div class="btn btn-action text-button">Text</div>
 								</div>
 							</div>																				
 						</div>
@@ -302,14 +302,16 @@
 						<div class="frame-title">Text</div> 
 						<span id="sms-back" class="frame-subtitle link back-link">Back</span>
 					</div>
+					<div id="" class="frame-topbar">
+						<div id="edit-conversation-button" class="btn btn-action edit-conversation-button left">Edit Messages</div>
+						<div id="cancel-delete-button" class="btn btn-action cancel-delete-button left">Cancel</div>
+					</div>				
 					<div id="message-list" class="frame-content"></div>
 					<div class="frame-footer new-message">
-						<div id="edit-conversation-button" class="btn btn-action edit-conversation-button left">Edit</div>
 						<div id="delete-selected-button" class="btn btn-action delete-selected-button right">Delete Selected (<span id="delete-selected-count"></span>)</div>
-						<div id="delete-all-button" class="btn btn-action delete-all-button right">Delete All</div>
-						<div id="cancel-delete-button" class="btn btn-action cancel-delete-button left">Cancel</div>
-						<textarea id="message-content" class="message-content" placeholder="Message"></textarea>
-						<div id="send-message-button" class="btn btn-action send-button right">Send</div>
+						<div id="delete-all-button" class="btn btn-action delete-all-button right">Delete Conversation</div>						
+						<textarea id="message-content" class="message-content left" placeholder="Message"></textarea>
+						<div id="send-message-button" class="btn btn-action send-button right disabled">Send</div>
 					</div>	
 				</div>
 	<!-- /#sms-conversation.frame -->
@@ -318,21 +320,18 @@
 				<div id="sms-conversation-new" class="frame sms-conversation-new-frame">
 					<div class="frame-header">
 						<div class="frame-title">New Text</div> 
-						<span id="sms-new-back" class="frame-subtitle link back-link">Back</span>
+						<span id="sms-new-back" class="frame-subtitle link back-link">Cancel</span>
 					</div>
 					<div id="new-message-recipient" class="frame-topbar new-message-recipient">
-						<span class="recipient-title">Recipient:</span>
-						<span id="recipient-label" class="recipient-label"></span>
-						<input type="text" id="recipient-filter" class="recipient-filter" />
-						<span id="add-recipient-button" class="btn btn-action add-recipient-button">Add</span>
-						<span id="change-recipient-button" class="btn btn-action change-recipient-button">Change</span>
-						<span id="cancel-recipient-button" class="btn btn-action cancel-recipient-button">Cancel</span>
+						<span class="recipient-title left">To:</span>
+						<span id="recipient-label" class="recipient-label left"></span>
+						<input type="text" id="recipient-filter" class="recipient-filter left" placeholder="Search" />
+						<span id="remove-recipient-button" class="remove-recipient-button icon-minus right"></span>
 					</div>
 					<div id="recipient-list" class="frame-content"></div>
 					<div class="frame-footer new-message">
-						<div id="cancel-new-message-button" class="btn btn-action cancel-new-message-button left">Cancel</div>
-						<textarea id="new-message-content" class="message-content" placeholder="Message"></textarea>
-						<div id="send-new-message-button" class="btn btn-action send-button right">Send</div>
+						<textarea id="new-message-content" class="message-content left" placeholder="Message"></textarea>
+						<div id="send-new-message-button" class="btn btn-action send-button disabled right">Send</div>
 					</div>	
 				</div>				
 	<!-- #sms-conversation-new.frame -->

@@ -184,19 +184,19 @@ Messages.load = function(n){
 
 /*--SMS Conversations Frame------------*/
 
-App.conversations = {
+var ConversationsFrame = {
 	"buttons" : {
 		"new" : "#new-sms-button"
 	}
 }
 
 $(document).ready(function(){
-	$(App.conversations.buttons["new"]).click(function(){App.navigate("sms-conversation-new");});
+	$(ConversationsFrame.buttons["new"]).click(function(){App.navigate("sms-conversation-new");});
 });
 
 /*--SMS Conversation Frame------------*/
 
-App.conversation = {
+var ConversationFrame = {
 	"frame" : App.elements.frames["sms-conversation"],
 	"backLink" : "#sms-back",
 	"buttons" : {
@@ -215,49 +215,50 @@ App.conversation = {
 	}
 }
 
-App.conversation.enableDeleteMode = function(){
+ConversationFrame.enableDeleteMode = function(){
 	$(this.frame).addClass("delete-mode");	
 	this.updateDeleteButton();
 }
 
-App.conversation.disableDeleteMode = function(){
+ConversationFrame.disableDeleteMode = function(){
 	$(this.frame).removeClass("delete-mode");	
 	$(this.inputs.deleteCheckbox).prop('checked', false);
 	this.updateDeleteButton();
 }
 
-App.conversation.updateDeleteButton = function(){
+ConversationFrame.updateDeleteButton = function(){
 	var n = $(this.inputs.deleteCheckbox+':checked').length;
 	$(this.outputs.deleteSelectedCount).html(n);
 }
 
-App.conversation.edit = function(){
+ConversationFrame.edit = function(){
 	this.enableDeleteMode();
 }
 
-App.conversation.cancel = function(){
+ConversationFrame.cancel = function(){
 	this.disableDeleteMode();
 }
 
-App.conversation.deleteMarked = function(){
+ConversationFrame.deleteMarked = function(){
 	this.disableDeleteMode();
 }
 
-App.conversation.deleteAll = function(){
+ConversationFrame.deleteAll = function(){
 	App.navigate("sms-conversations");
 	this.disableDeleteMode();
 }
 
-App.conversation.back = function(){
+ConversationFrame.back = function(){
 	App.navigate("sms-conversations");
 	this.disableDeleteMode();
 }
 
-App.conversation.resetSendMessage = function(){
+ConversationFrame.resetSendMessage = function(){
 	$(this.inputs.messageContent).val("");	
+	this.disableSendButton();
 }
 
-App.conversation.sendMessage = function(){
+ConversationFrame.sendMessage = function(){
 	var n = $(this.inputs.messageContent).val().length;	
 	if(n > 0){
 		Messages.load(1);
@@ -265,14 +266,32 @@ App.conversation.sendMessage = function(){
 	}
 }
 
+ConversationFrame.enableSendButton = function(){
+	$(this.buttons.send).removeClass('disabled');	
+}
+
+ConversationFrame.disableSendButton = function(){
+	$(this.buttons.send).addClass('disabled');	
+}
+
+ConversationFrame.countCharacters = function(){
+	var message = $(this.inputs.messageContent).val();	
+	if(message.length > 0){
+		this.enableSendButton();			
+	}else{
+		this.disableSendButton();
+	}	
+}
+
 $(document).ready(function(){
-	$(App.conversation.backLink).click(function(){App.conversation.back();});
-	$(App.conversation.buttons.send).click(function(){App.conversation.sendMessage();});
-	$(App.conversation.buttons.edit).click(function(){App.conversation.edit();});
-	$(App.conversation.buttons.cancel).click(function(){App.conversation.cancel();});
-	$(App.conversation.buttons.deleteSelected).click(function(){App.showModal(3);});
-	$(App.conversation.buttons.deleteAll).click(function(){App.showModal(4);});		
-	$(App.conversation.inputs.deleteCheckbox).on("change", function(){App.conversation.updateDeleteButton();});
+	$(ConversationFrame.backLink).click(function(){ConversationFrame.back();});
+	$(ConversationFrame.buttons.send).click(function(){ConversationFrame.sendMessage();});
+	$(ConversationFrame.buttons.edit).click(function(){ConversationFrame.edit();});
+	$(ConversationFrame.buttons.cancel).click(function(){ConversationFrame.cancel();});
+	$(ConversationFrame.buttons.deleteSelected).click(function(){App.showModal(3);});
+	$(ConversationFrame.buttons.deleteAll).click(function(){App.showModal(4);});		
+	$(ConversationFrame.inputs.deleteCheckbox).on("change", function(){ConversationFrame.updateDeleteButton();});
+	$(ConversationFrame.inputs.messageContent).on("input propertychange", function(){ConversationFrame.countCharacters();});
 });
 
 /*--New SMS Frame------------*/
@@ -285,7 +304,7 @@ var NewSMSFrame = {
 		"cancel" : "#cancel-new-message-button",
 		"send" : "#send-new-message-button",
 		"add" : "#add-recipient-button",
-		"change" : "#change-recipient-button",
+		"remove" : "#remove-recipient-button",
 		"cancelRecipient" :  "#cancel-recipient-button"
 	},
 	"inputs" : {
@@ -311,8 +330,7 @@ NewSMSFrame.back = function(){
 
 NewSMSFrame.resetSendMessage = function(){
 	$(this.inputs.messageContent).val("");	
-	this.resetAddRecipient();
-	this.clearRecipient();
+	this.resetRecipient();
 }
 
 NewSMSFrame.sendMessage = function(){
@@ -323,60 +341,88 @@ NewSMSFrame.sendMessage = function(){
 	}
 }
 
-NewSMSFrame.enableAddRecipient = function(n){
-	$(this.frame).addClass("add-recipient");
-	this.loadRecipients(5);
-}
-
 NewSMSFrame.loadRecipients = function(n){
 	this.removeRecipients();
 	Recipients.load(n);
-}
-
-NewSMSFrame.filterRecipients = function(){
-	this.removeRecipients();
-	var filter = $(this.inputs.recipientFilter).val();
-	var length = filter.length;
-	var n = (length <= 5) ? 5 - length : 0;
-	Recipients.load(n);
-
-	if($.isNumeric(filter)){
-		Recipients.appendSearch(filter);		
-	}
-}
-
-NewSMSFrame.addRecipient = function(){
-	$(this.frame).addClass("has-recipient");	
-	this.recipient = "0000000000";
-	$(this.outputs.recipient).html(testContent.contact.number);
-	this.resetAddRecipient();
-}
-
-NewSMSFrame.resetAddRecipient = function(){
-	$(this.frame).removeClass("add-recipient");	
-	this.removeRecipients();
-	$(this.inputs.recipientFilter).val("");
-}
-
-NewSMSFrame.clearRecipient = function(){
-	$(this.frame).removeClass("has-recipient");	
-	this.recipient = false;
-	$(this.outputs.recipient).html("");
 }
 
 NewSMSFrame.removeRecipients = function(){
 	$(this.outputs.list).empty();	
 }
 
+NewSMSFrame.filterRecipients = function(){
+	var filter = $(this.inputs.recipientFilter).val();
+	var length = filter.length;
+	var n = (length >= 1) ? 7 - length : 0;
+	this.loadRecipients(n);
+	if($.isNumeric(filter)){
+		this.recipient = filter;
+		this.enableSendButton();		
+	}else{
+		this.recipient = false;
+		this.disableSendButton();		
+	}
+}
+
+NewSMSFrame.addContactRecipient = function(){
+	this.addRecipient(testContent.contact.number);
+}
+
+NewSMSFrame.addInputRecipient = function(){	
+	var filter = $(this.inputs.recipientFilter).val();	
+	if($.isNumeric(filter)){
+		this.addRecipient(filter);			
+	}	
+}
+
+NewSMSFrame.addRecipient = function(number){
+	$(this.frame).addClass("has-recipient");	
+	this.recipient = number;
+	$(this.outputs.recipient).html(number);
+	this.enableSendButton();
+	this.removeRecipients();	
+}
+
+NewSMSFrame.resetRecipient = function(){	
+	$(this.frame).removeClass("has-recipient");		
+	$(this.inputs.recipientFilter).val("").focus();
+	this.recipient = false;
+	$(this.outputs.recipient).html("");
+	this.disableSendButton();	
+	this.removeRecipients();		
+}
+
+NewSMSFrame.enableSendButton = function(){
+	App.log("Enable Send; recipient: "+this.recipient+", message length: "+this.messageLength);
+	if(this.recipient && this.messageLength){
+		$(this.buttons.send).removeClass('disabled');
+	}	
+}
+
+NewSMSFrame.disableSendButton = function(){
+	App.log("Disable Send Button");
+	$(this.buttons.send).addClass('disabled');	
+}
+
+NewSMSFrame.countCharacters = function(){
+	var message = $(this.inputs.messageContent).val();	
+	this.messageLength = message.length;
+	if(this.messageLength > 0){
+		this.enableSendButton();			
+	}else{
+		this.disableSendButton();
+	}	
+}
+
 $(document).ready(function(){
 	$(NewSMSFrame.backLink).click(function(){NewSMSFrame.back();});	
-	$(NewSMSFrame.buttons.add).click(function(){NewSMSFrame.enableAddRecipient();});
-	$(NewSMSFrame.buttons.change).click(function(){NewSMSFrame.enableAddRecipient();});
-	$(NewSMSFrame.buttons.cancelRecipient).click(function(){NewSMSFrame.resetAddRecipient();});	
+	$(NewSMSFrame.buttons.remove).click(function(){NewSMSFrame.resetRecipient();});	
 	$(NewSMSFrame.buttons.send).click(function(){NewSMSFrame.sendMessage();});
 	$(NewSMSFrame.buttons.cancel).click(function(){NewSMSFrame.cancel();});
-	$(document).on("click", NewSMSFrame.listItem, function(){NewSMSFrame.addRecipient();});
+	$(document).on("click", NewSMSFrame.listItem, function(){NewSMSFrame.addContactRecipient();});
 	$(NewSMSFrame.inputs.recipientFilter).on("input propertychange", function(){NewSMSFrame.filterRecipients();});
+	$(NewSMSFrame.inputs.messageContent).on("input propertychange", function(){NewSMSFrame.countCharacters();});
+	$(NewSMSFrame.inputs.messageContent).on("focus", function(){NewSMSFrame.addInputRecipient();});	
 });
 
 /*--Recipients------------*/
@@ -387,8 +433,8 @@ var Recipients = {
 };
 
 Recipients.load = function(n){
-	var clone;
-	for (var i = n - 1; i >= 0; i--){
+	var clone;	
+	for (var i = 0; i < n; i++) {
 		clone = $(this.template).clone();
 		clone.find('.name').html(testContent.contact.name);	
 		clone.find('.number').html(testContent.contact.number);
