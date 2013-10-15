@@ -100,7 +100,51 @@ Modal.init = function(id){
 					"action" : function(){}
 				}
 			}
-			break;																				
+			break;		
+		case 6:
+		    title = "Enter 10 Digit Number";
+			message = "You must enter a valid 10-digit number.";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "OK",
+					"action" : function(){}
+				}
+			}
+			break;	
+		case 7:
+		    title = "Enter Message";
+			message = "You must enter a message.";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "OK",
+					"action" : function(){}
+				}
+			}
+			break;	
+		case 8:
+		    title = "Select Recipient";
+			message = "You must enter or choose a recipient.";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "OK",
+					"action" : function(){}
+				}
+			}
+			break;
+		case 9:
+		    title = "Enter Message Information";
+			message = "You must enter a message and select a recipient.";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "OK",
+					"action" : function(){}
+				}
+			}
+			break;																												
 		default: 
 			title = "Notice";	
 			message = "Default Content";
@@ -132,7 +176,7 @@ Modal.init = function(id){
 	
 	//modal buttons	
 	if(buttons.confirm){
-		$(this.buttons.confirm).html(buttons.confirm.label).show();
+		$(this.buttons.confirm).html(buttons.confirm.label).show().off();
 		$(this.buttons.confirm).click(function(){
 			Modal.close();
 			buttons.confirm.action();
@@ -142,7 +186,7 @@ Modal.init = function(id){
 	}
 	
 	if(buttons.deny){
-		$(this.buttons.deny).html(buttons.deny.label).show();
+		$(this.buttons.deny).html(buttons.deny.label).show().off();
 		$(this.buttons.deny).click(function(){
 			Modal.close();
 			buttons.deny.action();

@@ -1,7 +1,7 @@
 var testContent = {
 	"contact" : {
 		"name" : "Contact Name",
-		"number" : "000-000-0000",
+		"number" : "0000000000",
 		"type" : "Number Type"
 	},
 	"identifier" : {
@@ -30,7 +30,7 @@ Calls.load = function(n){
 			clone.find('.number').html(testContent.contact.type);	
 		}else{
 			clone.find('.name').html(testContent.identifier.call);	
-			clone.find('.number').html(testContent.contact.number);			
+			clone.find('.number').html(testContent.contact.number.formatTN());			
 		}
 		$(this.container).append(clone);
 	};	
@@ -113,7 +113,7 @@ Voicemails.load = function(n){
 			clone.find('.number').html(testContent.contact.type);	
 		}else{
 			clone.find('.name').html(testContent.identifier.voicemail);	
-			clone.find('.number').html(testContent.contact.number);			
+			clone.find('.number').html(testContent.contact.number.formatTN());			
 		}
 		if(unread){
 			clone.addClass("unread");
@@ -148,7 +148,7 @@ Conversations.load = function(n){
 			clone.find('.name').html(testContent.contact.name);	
 			clone.find('.number').html(testContent.contact.type);	
 		}else{
-			clone.find('.name').html(testContent.contact.number);	
+			clone.find('.name').html(testContent.contact.number.formatTN());	
 			clone.find('.number').html("");			
 		}
 		$(this.container).append(clone);
@@ -301,6 +301,7 @@ var NewSMSFrame = {
 	"backLink" : "#sms-new-back",
 	"listItem" : ".recipient",
 	"messageLength" : 0,
+	"numberLength" : 10,
 	"buttons" : {
 		"cancel" : "#cancel-new-message-button",
 		"send" : "#send-new-message-button",
@@ -316,7 +317,7 @@ var NewSMSFrame = {
 		"list" : "#recipient-list",
 		"recipient" : "#recipient-label"
 	},
-	"recipient" : false
+	"recipient" : null
 }
 
 NewSMSFrame.cancel = function(){
@@ -336,10 +337,16 @@ NewSMSFrame.resetSendMessage = function(){
 }
 
 NewSMSFrame.sendMessage = function(){
-	var n = $(this.inputs.messageContent).val().length;	
-	if(n > 0 && this.recipient){
+	var message = $(this.inputs.messageContent).val();	
+	if(message && this.recipient){
 		App.navigate("sms-conversation");
 		this.resetSendMessage();
+	}else if(message && !this.recipient){
+		App.showModal(8);
+	}else if(!message && this.recipient){
+		App.showModal(7);
+	}else if(!message && !this.recipient){
+		App.showModal(9);
 	}
 }
 
@@ -357,30 +364,30 @@ NewSMSFrame.filterRecipients = function(){
 	var length = filter.length;
 	var n = (length >= 1) ? 7 - length : 0;
 	this.loadRecipients(n);
-	if($.isNumeric(filter)){
-		this.recipient = filter;
-		this.enableSendButton();		
-	}else{
-		this.recipient = false;
-		this.disableSendButton();		
-	}
 }
 
 NewSMSFrame.addContactRecipient = function(){
-	this.addRecipient(testContent.contact.number);
+	this.addRecipient({"number" : testContent.contact.number, "label" : testContent.contact.name + " ("+testContent.contact.type+")"});
 }
 
 NewSMSFrame.addInputRecipient = function(){	
+	App.log("add input recipient; current: "+this.recipient);
 	var filter = $(this.inputs.recipientFilter).val();	
-	if($.isNumeric(filter)){
-		this.addRecipient(filter);			
+	if(filter && $.isNumeric(filter) && filter.length == this.numberLength){
+		this.addRecipient({"number" : filter});			
+	}else{
+		App.showModal(6);		
 	}	
 }
 
-NewSMSFrame.addRecipient = function(number){
+NewSMSFrame.addRecipient = function(recipient){
 	$(this.frame).addClass("has-recipient");	
-	this.recipient = number;
-	$(this.outputs.recipient).html(number.formatTN());
+	this.recipient = recipient.number;
+	if(recipient.label){
+		$(this.outputs.recipient).html(recipient.label);
+	}else{
+		$(this.outputs.recipient).html(recipient.number.formatTN());
+	}
 	this.enableSendButton();
 	this.removeRecipients();	
 }
@@ -388,7 +395,7 @@ NewSMSFrame.addRecipient = function(number){
 NewSMSFrame.resetRecipient = function(){	
 	$(this.frame).removeClass("has-recipient");		
 	$(this.inputs.recipientFilter).val("").focus();
-	this.recipient = false;
+	this.recipient = null;
 	$(this.outputs.recipient).html("");
 	this.disableSendButton();	
 	this.removeRecipients();		
@@ -418,13 +425,13 @@ NewSMSFrame.countCharacters = function(){
 
 $(document).ready(function(){
 	$(NewSMSFrame.backLink).click(function(){NewSMSFrame.back();});	
+	$(NewSMSFrame.buttons.add).click(function(){NewSMSFrame.addInputRecipient();});		
 	$(NewSMSFrame.buttons.remove).click(function(){NewSMSFrame.resetRecipient();});	
 	$(NewSMSFrame.buttons.send).click(function(){NewSMSFrame.sendMessage();});
 	$(NewSMSFrame.buttons.cancel).click(function(){NewSMSFrame.cancel();});
 	$(document).on("click", NewSMSFrame.listItem, function(){NewSMSFrame.addContactRecipient();});
 	$(NewSMSFrame.inputs.recipientFilter).on("input propertychange", function(){NewSMSFrame.filterRecipients();});
 	$(NewSMSFrame.inputs.messageContent).on("input propertychange", function(){NewSMSFrame.countCharacters();});
-	$(NewSMSFrame.inputs.messageContent).on("focus", function(){NewSMSFrame.addInputRecipient();});	
 });
 
 /*--Recipients------------*/
@@ -439,7 +446,7 @@ Recipients.load = function(n){
 	for (var i = 0; i < n; i++) {
 		clone = $(this.template).clone();
 		clone.find('.name').html(testContent.contact.name);	
-		clone.find('.number').html(testContent.contact.number);
+		clone.find('.number').html(testContent.contact.number.formatTN());
 		clone.find('.type').html(testContent.contact.type);
 		$(this.container).append(clone);
 	};	

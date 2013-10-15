@@ -477,6 +477,7 @@
 	width:68%;		
 }
 
+.new-message-recipient .add-recipient-button,
 .new-message-recipient .remove-recipient-button
 {
 	margin-top:8px;	

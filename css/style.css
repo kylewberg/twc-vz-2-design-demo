@@ -666,10 +666,6 @@ input[type="checkbox"] {
 
 /** Icons *****************************************/
 
-.icon{
-	background-size:contain;
-}
-
 .icon-close{
 	font-size:15px;
 }
@@ -700,7 +696,10 @@ input[type="checkbox"] {
 	cursor: pointer;
 	width:16px;
 	height:16px;
-	background:url('../img/icon-plus-minus.png') top left no-repeat;	
+	background-image:url('../img/icon-plus.png');	
+	background-position:0 0;
+	background-repeat:no-repeat;	
+	background-size:contain;	
 }
 
 .icon-minus{

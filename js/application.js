@@ -120,7 +120,7 @@ App.initialize = function() {
 }
 
 App.log = function(message){
-	//console.log(message);
+	console.log(message);
 }
 
 App.move = function(){
