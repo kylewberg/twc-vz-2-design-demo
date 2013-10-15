@@ -120,7 +120,7 @@ App.initialize = function() {
 }
 
 App.log = function(message){
-	console.log(message);
+	//console.log(message);
 }
 
 App.move = function(){
@@ -397,3 +397,50 @@ $(document).ready(function(){
 	//app functionality
 	$(App.elements.top).on("mousedown", function(){App.move();});		
 });
+
+String.prototype.formatTN = function(){
+/***************************************************************
+Detail 	: 	Returns numbers in xxx-xxx-xxxx format
+                for domestic numbers
+***************************************************************/
+    var value = this.replace(/[^0123456789\- ]/g, "");
+ 
+    // define offset (defaults to 0)
+    var os = 0;
+    var length = value.length - os;
+
+    if (length > 10) {
+       return value; 
+    }
+
+    // 1st set [xxx-]xxx-xxxx
+
+    if (length > 3 && value.charAt(3+os) != '-'){
+        value = value.substr(0,3+os) + "-"+ value.substr(3+os);
+        os += 4; 
+    }else{
+        os += 4; 
+    }
+    
+    
+    // 2nd set xxx-[xxx-]xxxx
+    length = value.length - os;
+    
+    if(length > 3 && value.charAt(3+os) != '-'){
+        value = value.substr(0,3+os) + "-"+ value.substr(3+os);
+        os += 4; 
+    }else{
+        os += 4; 
+    }
+    
+    
+    // 3rd set xxx-xxx-[xxxx ]
+    length = value.length - os;
+        
+    if(length > 4 && value.charAt(4+os) != ' '){
+        value = value.substr(0,4+os) + " "+ value.substr(4+os);
+    
+    }
+
+    return value;
+}

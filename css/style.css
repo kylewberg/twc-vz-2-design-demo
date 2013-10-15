@@ -480,7 +480,8 @@ textarea
 	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
 	color: #555555;
 	-webkit-border-radius: 3px;
-	vertical-align: middle;	
+	vertical-align: middle;
+	outline: none;	
 }
 
 label + input[type=text],
@@ -665,6 +666,10 @@ input[type="checkbox"] {
 
 /** Icons *****************************************/
 
+.icon{
+	background-size:contain;
+}
+
 .icon-close{
 	font-size:15px;
 }
@@ -693,16 +698,19 @@ input[type="checkbox"] {
 
 .icon-plus{
 	cursor: pointer;
-	width:23px;
-	height:23px;
+	width:16px;
+	height:16px;
 	background:url('../img/icon-plus-minus.png') top left no-repeat;	
 }
 
 .icon-minus{
 	cursor: pointer;
-	width:23px;
-	height:23px;
-	background:url('../img/icon-plus-minus.png') bottom left no-repeat;	
+	width:16px;
+	height:16px;
+	background-image:url('../img/icon-minus.png');
+	background-position:0 0;
+	background-repeat:no-repeat;	
+	background-size:contain;
 }
 
 .commercial .icon-plus,

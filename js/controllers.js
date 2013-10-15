@@ -300,6 +300,7 @@ var NewSMSFrame = {
 	"frame" : "#sms-conversation-new",
 	"backLink" : "#sms-new-back",
 	"listItem" : ".recipient",
+	"messageLength" : 0,
 	"buttons" : {
 		"cancel" : "#cancel-new-message-button",
 		"send" : "#send-new-message-button",
@@ -329,7 +330,8 @@ NewSMSFrame.back = function(){
 }
 
 NewSMSFrame.resetSendMessage = function(){
-	$(this.inputs.messageContent).val("");	
+	$(this.inputs.messageContent).val("");
+	this.messageLength = 0;	
 	this.resetRecipient();
 }
 
@@ -378,7 +380,7 @@ NewSMSFrame.addInputRecipient = function(){
 NewSMSFrame.addRecipient = function(number){
 	$(this.frame).addClass("has-recipient");	
 	this.recipient = number;
-	$(this.outputs.recipient).html(number);
+	$(this.outputs.recipient).html(number.formatTN());
 	this.enableSendButton();
 	this.removeRecipients();	
 }

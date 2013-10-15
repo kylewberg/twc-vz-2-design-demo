@@ -64,7 +64,7 @@ Modal.init = function(id){
 				"confirm" : {
 					"label" : "Delete",
 					"action" : function(){
-						App.conversation.deleteMarked();
+						ConversationFrame.deleteMarked();
 					}
 				},
 				"deny" : {
@@ -75,13 +75,13 @@ Modal.init = function(id){
 			break;	
 		case 4:
 		    title = "Delete All Messages";
-			message = "Are you sure you want to delete all messages?";
+			message = "Are you sure you want to delete all the messages in this conversation?";
 			template = "";
 			buttons = {
 				"confirm" : {
 					"label" : "Delete",
 					"action" : function(){
-						App.conversation.deleteAll();
+						ConversationFrame.deleteAll();
 					}
 				},
 				"deny" : {
