@@ -838,16 +838,14 @@ input[type="checkbox"] {
 
 /** Contact Number Containers *****************************************/
 
-.numbers{
-	width:90%;
-}
-
 .contact-number{
 	float: left;
 	position:relative;
 	width:47%;
-	height:30px;
+	min-height: 30px;
 	margin:0% 6% 1% 0%;	
+	overflow: hidden;
+	cursor: pointer;
 }
 
 .contact-number:nth-child(even){
@@ -857,41 +855,21 @@ input[type="checkbox"] {
 .contact-number .number-label,
 .contact-number .number
 {
-	position:absolute;
-	top:7px;
+	margin-top:3px;
 }
+
 .contact-number .number-label{
-	left:0%;
+	float: left;
 }
 
 .contact-number input.number{
-	top:3px;
-	margin-left:-2px;
+	margin-top:1px;
 	width:104px;
 }
 
-.contact-number .number,
-.contact-number .number-buttons
-{
-	position:absolute;	
-	left:32%;
-}
-
-.contact-number .number-buttons{
-	display:none;
-	width:109px;
-	top:3px;
-}
-
-
-.contact-number:hover .number{
-	display:none;
-}
-
-.contact-number:hover .number-buttons,
-.contact-number:hover input.number
-{
-	display:block;
+.contact-number .number
+{	
+	float:right;
 }
 
 .number-buttons .btn{
@@ -905,6 +883,40 @@ input[type="checkbox"] {
 
 .number-buttons .text-button{
 	right:0;
+}
+
+
+.contact-number .number-buttons{
+	display:none;	
+	position:relative;	
+	float: right;
+	width:109px;
+	height: 25px;
+}
+
+.contact-number:hover .number
+{
+	display:none;
+}
+
+.contact-number:hover .number-buttons,
+.contact-number:hover input.number
+{
+	display:block;
+}
+
+.contact-number .number
+{	
+	padding-right:13px;
+	background-image: url('../img/arrow-black-down.png');	
+	background-position:right center;
+	background-repeat:no-repeat;	
+}
+
+.alternate-1 .contact-number:hover .number
+{
+	display:block;
+	margin-bottom:3px;		
 }
 
 /** Expandable Containers *****************************************/

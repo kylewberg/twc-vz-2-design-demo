@@ -249,6 +249,7 @@
 
 .frame-content .numbers{
 	position:absolute;
+	width:93%;
 	top:51%;
 	left:5%;
 }
