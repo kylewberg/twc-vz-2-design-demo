@@ -474,7 +474,7 @@
 
 .new-message-recipient .recipient-filter
 {
-	margin-top:6px;	
+	margin:6px 2% 0 0;	
 	width:68%;		
 }
 
@@ -482,9 +482,4 @@
 .new-message-recipient .remove-recipient-button
 {
 	margin-top:8px;	
-}
-
-.commercial .new-message-recipient .remove-recipient-button
-{
-	margin-top:3px;
 }
