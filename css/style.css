@@ -690,6 +690,24 @@ input[type="checkbox"] {
 	background:url('../img/icon-lock.png') 0 0 no-repeat;
 }
 
+.icon-phone{
+	width:32px;
+	height:32px;	
+	background-image:url('../img/icon-phone.png');	
+	background-position:0 0;
+	background-repeat:no-repeat;	
+	background-size:contain;
+}
+
+.icon-chat{
+	width:32px;
+	height:32px;	
+	background-image:url('../img/icon-chat-bubble.png');	
+	background-position:0 0;
+	background-repeat:no-repeat;	
+	background-size:contain;
+}
+
 .icon-plus{
 	cursor: pointer;
 	width:23px;
@@ -750,7 +768,10 @@ input[type="checkbox"] {
 }
 
 .audiojs .play {
-	background: url("../plugins/audiojs/player-graphics.gif") 0px -1px no-repeat;
+	background-size: 24px 24px;
+	background-image: url("../img/icon-play.png");
+	background-position:center center;
+	background-repeat: no-repeat;
 }
 
 .audiojs .pause {
@@ -844,88 +865,52 @@ input[type="checkbox"] {
 /** Contact Number Containers *****************************************/
 
 .contact-number{
-	float: left;
-	position:relative;
-	width:47%;
-	min-height: 30px;
-	margin:0% 6% 1% 0%;	
+	width:100%;
+	margin:0 0 4px 0;	
 	overflow: hidden;
-	cursor: pointer;
+	min-height: 27px;
 }
 
 .contact-number:nth-child(even){
 	margin-right:0%;	
 }
 
+
 .contact-number .number-label,
 .contact-number .number
 {
-	margin-top:3px;
+	position: relative;	
+	display: inline-block;
+	top:-6px;		
+}
+
+.contact-change-frame .contact-number .number-label,
+.contact-change-frame .contact-number .number
+{
+	top:5px;		
 }
 
 .contact-number .number-label{
-	float: left;
+	width: 19%;
 }
 
-.contact-number .number
-{	
-	padding-right:13px;
-	background-image: url('../img/arrow-black-down.png');	
-	background-position:right center;
-	background-repeat:no-repeat;	
+.contact-number .number{
+	margin-right: 6%;
 }
 
 .contact-number input.number{
-	margin-top:1px;
-	padding-right:0;
+	margin:0;
 	width:104px;
-	background:none;
 }
 
-.contact-number .number
-{	
-	float:right;
-}
-
-.number-buttons .btn{
-	position:absolute;
-	top:0;
-}
-
-.number-buttons .call-button{
-	left:0;
-}
-
-.number-buttons .text-button{
-	right:0;
-}
-
-
-.contact-number .number-buttons{
-	display:none;	
-	position:relative;	
-	float: right;
-	width:109px;
-	height: 25px;
-}
-
-/* original 
-.contact-number:hover .number
+.contact-number .icon-phone,
+.contact-number .icon-chat
 {
-	display:none;
-}
-*/
-/* alternate */
-.contact-number:hover .number
-{
-	display:block;
-	margin-bottom:3px;		
-}
-
-.contact-number:hover .number-buttons,
-.contact-number:hover input.number
-{
-	display:block;
+	display: inline-block;	
+	margin-right: 3%;
+	width:24px;
+	height:24px;	
+	cursor: pointer;		
 }
 
 /** Expandable Containers *****************************************/
