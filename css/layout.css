@@ -472,14 +472,20 @@
 	margin-top:7px;			
 }
 
+.commercial .new-message-recipient .recipient-label,
+.commercial .new-message-recipient .recipient-filter
+{
+	margin-right:0px;			
+}
+
 .new-message-recipient .recipient-filter
 {
-	margin:6px 2% 0 0;	
+	margin-top:6px;	
 	width:68%;		
 }
 
 .new-message-recipient .add-recipient-button,
 .new-message-recipient .remove-recipient-button
 {
-	margin-top:8px;	
+	margin-top:4px;	
 }

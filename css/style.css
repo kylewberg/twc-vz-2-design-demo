@@ -666,6 +666,10 @@ input[type="checkbox"] {
 
 /** Icons *****************************************/
 
+.icon{	
+	background-size:contain;
+}
+
 .icon-close{
 	font-size:15px;
 }
@@ -673,17 +677,13 @@ input[type="checkbox"] {
 .icon-unread{
 	width:16px;
 	height:16px;	
-	background:url('../img/icon-dot-green.png') 2px 3px no-repeat;
+	background:url('../img/icon-envelope.png') 0 2px no-repeat;
 }
 
-.commercial .icon-unread{	
-	background-image:url('../img/icon-dot-yellow.png');
-}
-
-.icon-urgent{
-	width:16px;
-	height:16px;	
-	background:url('../img/icon-exclamation.png') 0 0 no-repeat;
+.icon-urgent {
+	width: 10px;
+	height: 16px;
+	background: url('../img/icon-exclamation.png')center 1px no-repeat;
 }
 
 .icon-confidential{
@@ -694,8 +694,8 @@ input[type="checkbox"] {
 
 .icon-plus{
 	cursor: pointer;
-	width:16px;
-	height:16px;
+	width:23px;
+	height:23px;
 	background-image:url('../img/icon-plus.png');	
 	background-position:0 0;
 	background-repeat:no-repeat;	
@@ -704,8 +704,8 @@ input[type="checkbox"] {
 
 .icon-minus{
 	cursor: pointer;
-	width:16px;
-	height:16px;
+	width:23px;
+	height:23px;
 	background-image:url('../img/icon-minus.png');
 	background-position:0 0;
 	background-repeat:no-repeat;	
@@ -836,6 +836,11 @@ input[type="checkbox"] {
 	width:100%;
 	margin:0;
 	padding:0 0 15px 0;
+}
+
+.transcript .copy.disclaimer{
+	color:#777777;
+	font-style: italic;
 }
 
 /** Contact Number Containers *****************************************/
@@ -1364,6 +1369,16 @@ table{
 
 .message{
 	position:relative;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+.message:last-child{
+	margin-bottom:30px;
+}
+
+.message .content{
 	max-width:80%;
 	min-width:60%;
 	margin:5px 10px;
@@ -1372,86 +1387,79 @@ table{
 	border: 1px solid #cdd2d8;
 }
 
-.message:last-child{
-	margin-bottom:30px;
-}
-
-.message .name,
-.message .datetime
+.message .content .name,
+.message .content .datetime
 {
 	display:inline-block;
 }
 
-.message .name{
+.message .content .name{
 	max-width:65%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;	
 }
 
-.message .datetime{
+.message .content .datetime{
 	padding-top:2px;
 	font-size:11px;	
 }
 
-.message .copy{
+.message .content .copy{
 	clear:both;
 	color:#666666;
 	padding-top:5px;
 	font-size:12px;
 }
 
-.commercial .message .copy{
+.commercial .message .content .copy{
 	color:#444444;
 }
 
 .message .delete-message{
 	position:absolute;
+	left:3px;
 	top: 50%;
 	margin-top: -8px;
 }
 
-.message.incoming{
+.message.incoming .content{
 	float:left;
 	background:#f8f8fa;	
 }
 
-.commercial .message.incoming{
+.commercial .message.incoming .content{
 	background:#eeedee;	
 }
 
-.message.incoming .name{
+.message.incoming .content .name{
 	float:left;	
 }
 
-.message.incoming .datetime{
+.message.incoming .content .datetime{
 	float:right;
 }
 
-.message.incoming .delete-message{
-	right:-30px;
-}
-
-.message.outgoing{
+.message.outgoing .content{
 	float:right;
 	background:#c3d6e7;
 }
 
-.commercial .message.outgoing{
+.commercial .message.outgoing .content{
 	background:#c8ccd2;
 }
 
-.message.outgoing .name{
+.message.outgoing .content .name{
 	float:right;
 	text-align:right;
 }
 
-.message.outgoing .datetime{
+.message.outgoing .content .datetime{
 	float:left;
 }
 
-.message.outgoing .delete-message{
-	left:-30px;
+.delete-mode .message.incoming .content{
+	margin-left:28px;
 }
 
 /** Links *****************************************/

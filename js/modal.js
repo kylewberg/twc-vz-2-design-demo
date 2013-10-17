@@ -74,8 +74,8 @@ Modal.init = function(id){
 			}
 			break;	
 		case 4:
-		    title = "Delete All Messages";
-			message = "Are you sure you want to delete all the messages in this conversation?";
+		    title = "Delete Conversation";
+			message = "Are you sure you want to delete all the messages in this conversation? You will be returned to the conversations list screen if confirmed.";
 			template = "";
 			buttons = {
 				"confirm" : {

@@ -272,7 +272,7 @@
 						</div>
 						<div class="transcript">
 							<span class="title">Transcript</span>
-							<p class="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel dapibus quam. Aenean orci turpis, varius at viverra sit amet, tempus eu eros. Morbi mi est, euismod eget placerat ac, luctus non ligula. Aliquam vehicula pellentesque consectetur. Aenean congue sodales quam. Mauris vitae interdum ipsum. Integer vitae lorem leo. Aenean vel leo bibendum, placerat eros ac, imperdiet metus. Mauris rhoncus metus eget feugiat pharetra. Suspendisse blandit augue at pretium adipiscing. Sed in tincidunt elit, vulputate porttitor augue. Vestibulum dictum cursus convallis. Nam tempor metus eu fermentum sagittis. In id lectus sit amet neque vulputate commodo. Mauris eget mi vel libero varius varius nec quis ligula.</p>					
+							<p id="transcript-container" class="copy"></p>					
 						</div>	
 					</div>
 					<div class="frame-footer">
@@ -303,13 +303,13 @@
 						<span id="sms-back" class="frame-subtitle link back-link">Back</span>
 					</div>
 					<div id="" class="frame-topbar">
-						<div id="edit-conversation-button" class="btn btn-action edit-conversation-button left">Edit Messages</div>
-						<div id="cancel-delete-button" class="btn btn-action cancel-delete-button left">Cancel</div>
+						<div id="edit-conversation-button" class="btn btn-action edit-conversation-button right">Edit Messages</div>
+						<div id="cancel-delete-button" class="btn btn-action cancel-delete-button right">Cancel</div>
 					</div>				
 					<div id="message-list" class="frame-content"></div>
 					<div class="frame-footer new-message">
-						<div id="delete-selected-button" class="btn btn-action delete-selected-button right">Delete Selected (<span id="delete-selected-count"></span>)</div>
-						<div id="delete-all-button" class="btn btn-action delete-all-button right">Delete Conversation</div>						
+						<div id="delete-all-button" class="btn btn-action delete-all-button right">Delete Conversation</div>							
+						<div id="delete-selected-button" class="btn btn-action delete-selected-button right">Delete Selected (<span id="delete-selected-count"></span>)</div>					
 						<textarea id="message-content" class="message-content left" placeholder="Message"></textarea>
 						<div id="send-message-button" class="btn btn-action send-button right disabled">Send</div>
 					</div>	
@@ -521,9 +521,9 @@
 			</div>
 			<div class="list-item voicemail">
 				<div class="icons">
-					<span class="icon icon-unread"></span>
-					<span class="icon icon-urgent"></span>		
-					<span class="icon icon-confidential"></span>						
+					<span class="icon icon-urgent"></span>	
+					<span class="icon icon-confidential"></span>									
+					<span class="icon icon-unread"></span>						
 				</div>	
 				<img class="image" src="img/contact-image.png" />
 				<span class="name"></span>
@@ -542,12 +542,14 @@
 			</div>	
 			<div class="message">
 				<input type="checkbox" class="delete-message" />
-				<span class="name">000-000-0000</span>
-				<div class="datetime">
-					<span class="date">Jan 1</span>
-					<span class="time">12:00 am</span>		
-				</div>
-				<div class="copy"></div>																		
+				<div class="content">
+					<span class="name">000-000-0000</span>
+					<div class="datetime">
+						<span class="date">Jan 1</span>
+						<span class="time">12:00 am</span>		
+					</div>
+					<div class="copy"></div>	
+				</div>																	
 			</div>									
 		</div><!-- /#templates -->
 		

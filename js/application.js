@@ -161,6 +161,8 @@ App.initGUI = function(){
 	$('.app-name').html(this.info.name.residential);
 	$('#login-version').html("Version "+this.info.version.partial);	
 	$('#settings-version').html("Version "+this.info.version.full);
+
+	VoicemailFrame.init();
 }
 
 /*--Plugins------------*/
