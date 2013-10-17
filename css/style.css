@@ -666,9 +666,7 @@ input[type="checkbox"] {
 
 /** Icons *****************************************/
 
-.icon{	
-	background-size:contain;
-}
+
 
 .icon-close{
 	font-size:15px;
@@ -683,7 +681,7 @@ input[type="checkbox"] {
 .icon-urgent {
 	width: 10px;
 	height: 16px;
-	background: url('../img/icon-exclamation.png')center 1px no-repeat;
+	background: url('../img/icon-exclamation.png') center 1px no-repeat;
 }
 
 .icon-confidential{
