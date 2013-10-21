@@ -510,7 +510,7 @@ input[type=text].login-input{
 
 .message-content
 {
-	font-size:11px;
+	font-size:12px;
 	resize: none;	
 }
 
@@ -710,8 +710,8 @@ input[type="checkbox"] {
 
 .icon-plus{
 	cursor: pointer;
-	width:23px;
-	height:23px;
+	width:16px;
+	height:16px;
 	background-image:url('../img/icon-plus.png');	
 	background-position:0 0;
 	background-repeat:no-repeat;	
@@ -720,8 +720,8 @@ input[type="checkbox"] {
 
 .icon-minus{
 	cursor: pointer;
-	width:23px;
-	height:23px;
+	width:16px;
+	height:16px;
 	background-image:url('../img/icon-minus.png');
 	background-position:0 0;
 	background-repeat:no-repeat;	
@@ -1335,17 +1335,29 @@ table{
 /** SMS Recipient *****************************************/
 
 .new-message-recipient .recipient-title{
-	font-size:16px;
+	font-size:14px;
 }
 
 .new-message-recipient .recipient-label{
-	font-size:16px;
 	font-weight:bold;
-	color:#3376b2;	
+	color:#3376b2;			
 }
 
 .commercial .new-message-recipient .recipient-label{
 	color:#336699;	
+}
+
+.new-message-recipient .recipient-label .name,
+.new-message-recipient .recipient-label .number
+{
+	font-size:14px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+}
+
+.new-message-recipient .recipient-label .type{	
+	font-size:11px;	
 }
 
 /** SMS Messages *****************************************/

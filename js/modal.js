@@ -57,8 +57,8 @@ Modal.init = function(id){
 			}
 			break;
 		case 3:
-		    title = "Delete Marked Messages";
-			message = "Are you sure you want to delete the marked messages?";
+		    title = "Delete Selected Messages";
+			message = "Are you sure you want to delete the selected messages?";
 			template = "";
 			buttons = {
 				"confirm" : {

@@ -213,7 +213,12 @@
 	height:76%;
 }
 
-.frame.sms-conversation-new-frame .frame-content,
+.frame.sms-conversation-new-frame .frame-content
+{
+	top:20%;
+	height:55%;
+}
+
 .frame.sms-conversation-frame .frame-content
 {
 	top:20%;
@@ -310,7 +315,7 @@
 {
 	margin-top:5px;
 	margin-right:0;
-	width: 79%;
+	width: 81%;
 	height: 80%;	
 }
 
@@ -460,32 +465,87 @@
 
 /**** New SMS Conversation ****/
 
-.new-message-recipient .recipient-title,
-.new-message-recipient .recipient-label
-{
-	margin-top:6px;			
+.new-message-recipient .recipient-title{
+	display: block;
+	width:20px;	
+	margin:7px 2% 0 0;
+	float:left;
 }
 
-.commercial .new-message-recipient .recipient-title,
-.commercial .new-message-recipient .recipient-label
-{
-	margin-top:7px;			
-}
-
-.commercial .new-message-recipient .recipient-label,
-.commercial .new-message-recipient .recipient-filter
-{
-	margin-right:0px;			
-}
-
-.new-message-recipient .recipient-filter
-{
-	margin-top:6px;	
+.new-message-recipient .recipient-filter{
+	float:left;
+	margin:6px 0 0 0;	
 	width:68%;		
+}
+
+.new-message-recipient .recipient-label{	
+	float:left;
+	max-width:84%;
+	margin:6px 1% 0 0;
+	overflow: hidden;
+}
+
+.commercial .new-message-recipient .recipient-label{	
+	margin-top:8px;
+}
+
+.new-message-recipient .recipient-label .name,
+.new-message-recipient .recipient-label .number
+{
+	display:block;	
+	float:left;	
+	margin:0 0 0 0;
+}
+
+.new-message-recipient .recipient-label .name
+{
+	max-width: 85%;	
+}
+
+.new-message-recipient .recipient-label .type{
+	display:block;
+	float:left;		
+	margin:2px 0 0 5px;	
 }
 
 .new-message-recipient .add-recipient-button,
 .new-message-recipient .remove-recipient-button
 {
-	margin-top:4px;	
+	float: left;
+	margin:8px 0 0 2%;	
+}
+
+.commercial .new-message-recipient .add-recipient-button,
+.commercial .new-message-recipient .remove-recipient-button
+{
+	margin:4px 0 0 0;	
+	width:24px;
+	height:24px;
+}
+
+.sms-conversation-new-frame .frame-footer.new-message{
+	height:25%;		
+}
+
+.sms-conversation-new-frame .frame-footer.new-message .message-content{
+	width: 77%;	
+	height:66px;
+	position: absolute;
+	left:2%;
+	bottom:6px;	
+}
+
+.sms-conversation-new-frame .frame-footer.new-message .send-button{
+	position: absolute;
+	right: 2%;
+	bottom:6px;
+}
+
+.commercial .sms-conversation-new-frame .frame-footer.new-message .message-content{
+	left:0;
+	width: 81%;		
+}
+
+.commercial .sms-conversation-new-frame .frame-footer.new-message .send-button{
+	right:0;
 }

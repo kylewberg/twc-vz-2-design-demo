@@ -64,9 +64,9 @@
 
 /** Recipient Transformations *****************************************/
 
-.sms-conversation-new-frame .recipient-filter,
 .sms-conversation-new-frame .add-recipient-button,
 .sms-conversation-new-frame.has-recipient .remove-recipient-button,
+.sms-conversation-new-frame .recipient-filter,
 .sms-conversation-new-frame.has-recipient .recipient-label
 {
 	display:block;

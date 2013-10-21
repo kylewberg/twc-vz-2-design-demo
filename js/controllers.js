@@ -2,7 +2,7 @@ var testContent = {
 	"contact" : {
 		"name" : "Contact Name",
 		"number" : "0000000000",
-		"type" : "Number Type"
+		"type" : "Office"
 	},
 	"identifier" : {
 		"call" : "Call Identifier",
@@ -98,8 +98,8 @@ var VoicemailFrame = {
 }
 
 VoicemailFrame.init = function(){
-	//this.disableVMtoText();
-	this.enableVMtoText();
+	this.disableVMtoText();
+	//this.enableVMtoText();
 }
 
 VoicemailFrame.enableVMtoText = function(){
@@ -125,9 +125,9 @@ Voicemails.load = function(n){
 	var content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed placerat lacus, at tincidunt ante. Vivamus neque velit, lobortis vel sapien viverra fusce."	
 	for (var i = n - 1; i >= 0; i--){
 		contact = (Math.random() > 0.5) ? true : false;
-		unread = (Math.random() > 0.7) ? true : false;
-		urgent = (Math.random() > 0.7) ? true : false;
-		confidential = (Math.random() > 0.7) ? true : false;
+		unread = (Math.random() > 0.6) ? true : false;
+		urgent = (Math.random() > 0.6) ? true : false;
+		confidential = (Math.random() > 0.6) ? true : false;
 		transcript = true;
 		clone = $(this.template).clone();
 		if(contact){
@@ -363,12 +363,6 @@ NewSMSFrame.sendMessage = function(){
 	if(message && this.recipient){
 		App.navigate("sms-conversation");
 		this.resetSendMessage();
-	}else if(message && !this.recipient){
-		App.showModal(8);
-	}else if(!message && this.recipient){
-		App.showModal(7);
-	}else if(!message && !this.recipient){
-		App.showModal(9);
 	}
 }
 
@@ -389,27 +383,21 @@ NewSMSFrame.filterRecipients = function(){
 }
 
 NewSMSFrame.addContactRecipient = function(){
-	this.addRecipient({"number" : testContent.contact.number, "label" : testContent.contact.name + " ("+testContent.contact.type+")"});
+	this.addRecipient({"number" : testContent.contact.number, "label" : '<span class="name">'+testContent.contact.name+'</span><span class="type">('+testContent.contact.type+')</span>'});
 }
 
 NewSMSFrame.addInputRecipient = function(){	
 	App.log("add input recipient; current: "+this.recipient);
 	var filter = $(this.inputs.recipientFilter).val();	
 	if(filter && $.isNumeric(filter) && filter.length == this.numberLength){
-		this.addRecipient({"number" : filter});			
-	}else{
-		App.showModal(6);		
+		this.addRecipient({"number" : filter, "label" : '<span class="number">'+filter.formatTN()+'</span>'});			
 	}	
 }
 
 NewSMSFrame.addRecipient = function(recipient){
 	$(this.frame).addClass("has-recipient");	
 	this.recipient = recipient.number;
-	if(recipient.label){
-		$(this.outputs.recipient).html(recipient.label);
-	}else{
-		$(this.outputs.recipient).html(recipient.number.formatTN());
-	}
+	$(this.outputs.recipient).html(recipient.label);
 	this.enableSendButton();
 	this.removeRecipients();	
 }
