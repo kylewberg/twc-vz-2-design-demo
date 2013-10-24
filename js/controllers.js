@@ -98,8 +98,8 @@ var VoicemailFrame = {
 }
 
 VoicemailFrame.init = function(){
-	this.disableVMtoText();
-	//this.enableVMtoText();
+	//this.disableVMtoText();
+	this.enableVMtoText();
 }
 
 VoicemailFrame.enableVMtoText = function(){

@@ -3,8 +3,8 @@
 
 var App = {
  "account" : {
- 	"numbers" : ["123-456-7890", "098-765-4321","111-111-1111", "222-222-2222", "333-333-3333", "444-444-4444", "555-555-5555","111-111-1111", "222-222-2222", "333-333-3333","444-444-4444","555-555-5555"],
- 	"mylocations" : ["123-456-7890", "111-111-1111", "222-222-2222", "333-333-3333", "444-444-4444", "555-555-5555"]
+ 	"numbers" : ["1234567890", "0987654321","1111111111", "2222222222", "3333333333", "4444444444", "5555555555","6666666666", "7777777777", "8888888888","9999999999"],
+ 	"mylocations" : ["1234567890", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555"]
  },
  "info" : {
  	"name" : {
@@ -92,7 +92,8 @@ var App = {
 	"minimize": "#minimize-button"
   },
   "selectMenus" : {
-  	"activeNumber" : "#active-number"
+  	"accountNumbers" : "#account-numbers",
+  	"myLocationNumbers" : "#my-location-numbers"
   },
   "expandableContainer" : {
   	"title" : ".expand-title"
@@ -110,7 +111,7 @@ App.initialize = function() {
 	this.initGUI();
 	
 	//enable modes
-	this.enableCommercial();	
+	//this.enableCommercial();	
 	
 	//data
 	this.loadData();
@@ -320,13 +321,13 @@ App.loadRingtones = function(n){
 
 App.loadAccountNumbers = function(){
 	for (var i = 0; i < this.account.numbers.length; i++) {
-		$("ul#account-numbers").append('<li data-value="'+i+'">'+this.account.numbers[i]+'</li>');
+		$(this.elements.selectMenus.accountNumbers).append('<option value="'+this.account.numbers[i]+'">'+this.account.numbers[i].formatTN()+'</option>');
 	};
 }
 
 App.loadMyLocations = function(){
 	for (var i = 0; i < this.account.mylocations.length; i++) {
-		$("ul#my-locations").append('<li data-value="'+i+'">'+this.account.mylocations[i]+'</li>');
+		$(this.elements.selectMenus.myLocationNumbers).append('<option value="'+this.account.mylocations[i]+'">'+this.account.mylocations[i].formatTN()+'</option>');
 	};			
 }
 
@@ -348,7 +349,7 @@ $(document).ready(function(){
 	App.initialize();
 	
 	//select dropdowns
-	$(App.elements.selectMenus.activeNumber).on("change", function(){App.changeActiveNumber();});	
+	$(App.elements.selectMenus.accountNumbers).on("change", function(){App.changeActiveNumber();});	
 	
 	//buttons
 	$(App.elements.buttons.close).click(function(){App.close();});	
@@ -384,8 +385,8 @@ $(document).ready(function(){
 	$(App.elements.utilityLinks.settings).click(function(){App.navigate("settings");});	
 	
 	//list items
-	$(App.elements.listItems.call).click(function(){App.navigate("call");});
-	//$(App.elements.listItems.call).click(function(){$(this).toggleClass("expanded");});
+	//$(App.elements.listItems.call).click(function(){App.navigate("call");});
+	$(App.elements.listItems.call).click(function(){$(this).toggleClass("expanded");});
 	$(App.elements.listItems.contact).click(function(){App.navigate("contact");});	
 	$(App.elements.listItems.voicemail).click(function(){App.navigate("voicemail");});	
 	$(App.elements.listItems.conversation).click(function(){App.navigate("sms-conversation");});

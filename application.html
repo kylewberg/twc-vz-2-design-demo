@@ -26,13 +26,10 @@
 <!-- #app-header -->	
 	    	<div id="app-header" class="app-header">
 	    		<div class="logo logo-twc"></div>
-				<div id="sound-control" class="sound-control"></div>
+				<div id="sound-control" class="sound-control icon-volume"></div>
 				<ul class="utility-links">
-					<li class="active-number">
-						<div class="select-menu right active-number-select">
-							<div class="selected">123-456-7890</div>
-							<ul id="account-numbers" class="options account-numbers"></ul>
-						</div>	
+					<li id="active-number" class="active-number">
+						<select id="account-numbers" class="styled-select active-number-select"></select>
 					</li>
 					<li id="settings-link" class="link settings-link">Settings</li>
 					<li id="help-link" class="last help-link">Help</li>
@@ -461,10 +458,7 @@
 			<div id="app-footer" class="app-footer">
 				<div class="my-location">
 					<span>My Location: </span>
-					<div class="select-menu my-location-select">
-						<ul id="my-locations" class="options my-locations"></ul>
-						<div class="selected">123-456-7890</div>
-					</div>
+					<select id="my-location-numbers" class="styled-select my-location-select"></select>
 				</div>
 				<div id="collapse-link" class="link collapse-link">Collapse</div>
 			</div>

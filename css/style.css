@@ -374,27 +374,43 @@
 
 /** Drop Down Menus *****************************************/
 
+select.styled-select{
+	margin:0;
+	padding:0 13px 0 0;	
+	border: 0;
+	border-radius: 0;
+	-webkit-appearance: none;
+	font:inherit;
+	cursor:pointer;
+	color:inherit;	
+	outline: none;
+}
+
+select.active-number-select{
+	background: url('../img/arrow-white-down.png') right center no-repeat transparent;
+	color:#ffffff;
+}
+
+.commercial select.active-number-select{
+	background-image: url('../img/arrow-black-down.png');	
+}
+
+select.my-location-select{
+	background:url('../img/arrow-blue-down.png') right center no-repeat transparent;		
+}
+
+.commercial select.my-location-select{
+	color:#336699;
+	background-image:url('../img/arrow-black-down.png');	
+}
+
+
 .select-menu{
 	display: inline-block;
 }
 
 .select-menu .selected{
 	cursor: pointer;
-}
-
-.select-menu.active-number-select{
-	padding-left:13px;
-}
-
-.select-menu.active-number-select .selected{
-	padding:0 13px 0 13px;
-	background-image: url('../img/arrow-white-down.png');	
-	background-position:right center;
-	background-repeat:no-repeat;
-}
-
-.commercial .select-menu.active-number-select .selected{
-	background-image: url('../img/arrow-black-down.png');	
 }
 
 .select-menu.ringtone .selected{
@@ -407,19 +423,6 @@
 
 .select-menu.ringtone.open .selected{
 	background-image:url('../img/icon-updown-gray.png');		
-}
-
-.select-menu.my-location-select .selected{
-	padding-right:26px;		
-	color:#3376b2;
-	background-image: url('../img/arrow-blue-down.png');	
-	background-position:86% 5px;
-	background-repeat:no-repeat;	
-}
-
-.commercial .select-menu.my-location-select .selected{
-	color:#336699;
-	background-image: url('../img/arrow-black-down.png');	
 }
 
 .select-menu .options{
@@ -734,6 +737,18 @@ input[type="checkbox"] {
 
 .commercial .icon-minus{
 	background-image:url('../img/icon-minus-flat.png');	
+}
+
+.icon-volume{
+	cursor:pointer;
+	width:23px;
+	height:23px;
+	background-image:url('../img/icon-volume-white.png');
+	background-repeat:no-repeat;		
+}
+
+.commercial .icon-volume{
+	background-image:url('../img/icon-volume-black.png');	
 }
 
 /** Audio Players *****************************************/
@@ -1504,18 +1519,6 @@ table{
 
 .collapse-link:hover{
 	background-image:url('../img/arrow-blue-up.png');
-}
-
-.sound-control{
-	cursor:pointer;
-	width:20px;
-	height:20px;
-	background-image:url('../img/icon-volume-white.png');
-	background-repeat:no-repeat;	
-}
-
-.commercial .sound-control{
-	background-image:url('../img/icon-volume-black.png');	
 }
 
 .forgot-link{
