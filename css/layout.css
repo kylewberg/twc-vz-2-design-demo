@@ -549,3 +549,13 @@
 .commercial .sms-conversation-new-frame .frame-footer.new-message .send-button{
 	right:0;
 }
+
+/**** Settings ****/
+
+.settings-frame .select-menu.ringtone{
+	width:175px;
+}
+
+.settings-frame .select-menu.ringtone .options{
+	max-height:83px;
+}

@@ -94,22 +94,25 @@ ChangeContactFrame.modify = function(mode){
 /*--Voicemail Frame ------------*/
 
 var VoicemailFrame = {
-	"transcriptContainer" : "#transcript-container"
+	"transcriptContainer" : "#transcript-container",
+	"transcriptTitle" : "#transcript-title"
 }
 
 VoicemailFrame.init = function(){
-	//this.disableVMtoText();
-	this.enableVMtoText();
+	this.disableVMtoText();
+	//this.enableVMtoText();
 }
 
 VoicemailFrame.enableVMtoText = function(){
 	var transcript = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel dapibus quam. Aenean orci turpis, varius at viverra sit amet, tempus eu eros. Morbi mi est, euismod eget placerat ac, luctus non ligula. Aliquam vehicula pellentesque consectetur. Aenean congue sodales quam. Mauris vitae interdum ipsum. Integer vitae lorem leo. Aenean vel leo bibendum, placerat eros ac, imperdiet metus. Mauris rhoncus metus eget feugiat pharetra. Suspendisse blandit augue at pretium adipiscing. Sed in tincidunt elit, vulputate porttitor augue. Vestibulum dictum cursus convallis. Nam tempor metus eu fermentum sagittis. In id lectus sit amet neque vulputate commodo. Mauris eget mi vel libero varius varius nec quis ligula."
 	$(this.transcriptContainer).html(transcript).removeClass('disclaimer');
+	$(this.transcriptTitle).html("Transcript");
 }
 
 VoicemailFrame.disableVMtoText = function(){
 	var disclaimer = "The Voicemail-to-Text feature is currently not enabled on your account. To enable this feature, please log in to the portal. Further information can be found here.";
 	$(this.transcriptContainer).html(disclaimer).addClass('disclaimer');
+	$(this.transcriptTitle).html("Voicemail-to-Text");
 }
 
 

@@ -392,7 +392,8 @@ select.active-number-select{
 }
 
 .commercial select.active-number-select{
-	background-image: url('../img/arrow-black-down.png');	
+	background-image: url('../img/arrow-black-down.png');
+	color: inherit;	
 }
 
 select.my-location-select{
@@ -427,11 +428,12 @@ select.my-location-select{
 
 .select-menu .options{
 	display: none;
-	position: relative;
+	width: inherit;
+	position: absolute;
 	list-style-type: none;
 	margin:3px 0;
 	padding:0;
-	z-index: 1000;
+	z-index: 10;
 	background:#ffffff;
 	overflow-y:auto;
 	-webkit-box-sizing: border-box;		
@@ -590,42 +592,17 @@ input[type="checkbox"] {
 
 .btn-action
 {
-	border-radius: 4px;	
-	font-family:"TWC-Round-Book";		
+	border-radius: 4px;		
 	padding: 4px 14px;	
 	font-size: 13px;	
-	color: #3e90d2;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);	
-	border-color: #adacb1;	
-	border: 1px solid #bbbbbb;
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));	
-}
-
-.btn-action:hover
-{
-	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bab9b7), color-stop(100%, #acaaad));
-}
-
-.btn-action.disabled,
-.btn-action.disabled:hover
-{
-	color: #ffffff;
-	background:#bbbbbb;
-}
-
-.commercial .btn-action
-{
 	font-family: inherit;
 	font-weight: bold;
 	color: #ffffff;
-	box-shadow:none;
 	border:none;
-	text-shadow:none;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e90d2),color-stop(21%, #3b89c8),color-stop(79%, #2f6c9d),color-stop(100%, #2b6492));
 }
 
-.commercial .btn-action:hover
+.btn-action:hover
 {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #285c86),color-stop(25%, #2b6492),color-stop(79%, #367eb8),color-stop(100%, #3986c2));
 }
@@ -633,31 +610,21 @@ input[type="checkbox"] {
 .btn-action.disabled,
 .btn-action.disabled:hover
 {
-	color: #ffffff;	
+	color: #ffffff;
 	background:#bbbbbb;
 }
 
 .btn-login{
 	border: 0px;	
 	border-radius: 4px;	
-	font-family:"TWC-Round-Medium";		
 	color: #ffffff;		
-	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #387ab4), color-stop(100%, #01437d));
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e90d2),color-stop(21%, #3b89c8),color-stop(79%, #2f6c9d),color-stop(100%, #2b6492));
 	min-width:102px;	
 	padding: 12px 16px;	
 	font-size: 14px;		
 }
 
-.commercial .btn-login{	
-	font-family: inherit;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e90d2),color-stop(21%, #3b89c8),color-stop(79%, #2f6c9d),color-stop(100%, #2b6492));
-}
-
 .btn-login:hover{
-	background: #01437d;
-}
-
-.commercial .btn-login:hover{
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #285c86),color-stop(25%, #2b6492),color-stop(79%, #367eb8),color-stop(100%, #3986c2));
 }
 
@@ -678,7 +645,7 @@ input[type="checkbox"] {
 .icon-unread{
 	width:16px;
 	height:16px;	
-	background:url('../img/icon-envelope.png') 0 2px no-repeat;
+	background:url('../img/icon-dot-green.png') 0 2px no-repeat;
 }
 
 .icon-urgent {
@@ -690,7 +657,7 @@ input[type="checkbox"] {
 .icon-confidential{
 	width:16px;
 	height:16px;
-	background:url('../img/icon-lock.png') 0 0 no-repeat;
+	background:url('../img/icon-lock-old.png') 0 0 no-repeat;
 }
 
 .icon-phone{
@@ -911,6 +878,7 @@ input[type="checkbox"] {
 
 .contact-number .number{
 	margin-right: 6%;
+	cursor: pointer;
 }
 
 .contact-number input.number{
@@ -926,6 +894,11 @@ input[type="checkbox"] {
 	width:24px;
 	height:24px;	
 	cursor: pointer;		
+}
+
+.contact-number .icon-phone
+{
+	display: none;	
 }
 
 /** Expandable Containers *****************************************/
@@ -1013,25 +986,25 @@ table{
 	height:40px;	
 }
 
-.list-item.expanded{
-	height:67px;
+.list-item:hover{
+	background:#F1F6F9;	
 }
 
-/*
-.list-item:nth-child(odd){
-	background:#888888;
+.list-item.expanded{
+	height:67px;
+	background: #eeeeee;
 }
-*/
+
 .commercial .list-item{
 	border-bottom-style:solid;
 }
 
-.list-item:hover{
-	background:#afc7d9;	
+.commercial .list-item:hover{
+	background: #8b929b;	
 }
 
-.commercial .list-item:hover{
-	background:#c8ccd2;	
+.commercial .list-item.expanded{
+	background:#c8ccd2;		
 }
 
 .list-item .icons,
@@ -1157,61 +1130,6 @@ table{
 	margin-left:3%;
 }
 
-/* original 
-
-.list-item .icons{
-	top:17px;
-	left:0;	
-}
-
-.list-item .icons .icon
-{
-	display:none;
-	float:left;
-}
-
-.list-item.unread .icon-unread,
-.list-item.urgent .icon-urgent,
-.list-item.confidential .icon-confidential
-{
-	display:block;
-}
-
-.list-item.unread .image,
-.list-item.urgent .image,
-.list-item.confidential .image
-{left:5%;}
-
-.list-item.unread .name,
-.list-item.urgent .name,
-.list-item.confidential .name
-{left:16%;width:33%;}
-
-.list-item.unread .copy,
-.list-item.urgent .copy,
-.list-item.confidential .copy
-{left:16%;width:82%;}
-
-.list-item.unread.urgent .image,
-.list-item.unread.confidential .image,
-.list-item.urgent.confidential .image
-{left:10%;}
-
-.list-item.unread.urgent .name,
-.list-item.unread.confidential .name,
-.list-item.urgent.confidential .name
-{left:21%;width:30%;}
-
-.list-item.unread.urgent .copy,
-.list-item.unread.confidential .copy,
-.list-item.urgent.confidential .copy
-{left:21%;width:77%;}
-
-.list-item.unread.urgent.confidential .image{left:15%;}
-.list-item.unread.urgent.confidential .name{left:26%;width:26%;}
-.list-item.unread.urgent.confidential .copy{left:26%;width:72%;}
-*/
-
 /* alternate */
 .list-item .icons{
 	top:25px;
@@ -1220,7 +1138,8 @@ table{
 
 .list-item .icons .icon
 {
-	display:none;
+	/*display:none;*/
+	visibility: hidden;
 	float:right;
 }
 
@@ -1228,21 +1147,25 @@ table{
 .list-item.urgent .icon-urgent,
 .list-item.confidential .icon-confidential
 {
-	display:block;
+	/*display:block;*/
+	visibility: visible;
 }
 
 .list-item.unread .copy,
 .list-item.urgent .copy,
 .list-item.confidential .copy
-{width:81%;}
-
+{
+	/*width:81%;*/
+	width: 72%;
+}
+/*
 .list-item.unread.urgent .copy,
 .list-item.unread.confidential .copy,
 .list-item.urgent.confidential .copy
 {width:77%;}
 
 .list-item.unread.urgent.confidential .copy{width:72%;}
-
+*/
 
 /** Cards *****************************************/
 
@@ -1322,13 +1245,7 @@ table{
 .edit-card .ringtone
 {
 	left:118px;
-}
-
-.edit-card .first-name,
-.edit-card .last-name,
-.edit-card .nick-name
-{
-	width:160px;
+	width:175px;	
 }
 
 .edit-card .first-name{

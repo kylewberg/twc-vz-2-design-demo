@@ -111,7 +111,7 @@ App.initialize = function() {
 	this.initGUI();
 	
 	//enable modes
-	//this.enableCommercial();	
+	this.enableCommercial();	
 	
 	//data
 	this.loadData();

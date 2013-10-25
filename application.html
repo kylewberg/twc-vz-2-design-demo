@@ -257,10 +257,10 @@
 						</div>
 						<audio src="sounds/test.mp3" preload="auto"></audio>
 						<div class="mark-unread">
-							<input type="checkbox" id="mark-unread"><label for="mark-unread">Mark as unread</label>
+							<input type="checkbox" id="mark-unread"><label for="mark-unread">Mark as new</label>
 						</div>
-						<div class="transcript">
-							<span class="title">Transcript</span>
+						<div id="transcript" class="transcript">
+							<span id="transcript-title" class="title">Transcript</span>
 							<p id="transcript-container" class="copy"></p>					
 						</div>	
 					</div>
@@ -393,7 +393,7 @@
 					             </div>
 								 <div class="section">
 					                <div class="title">Voicemail-to-Text</div>
-									<input type="checkbox" id="enableVoicemailToText"><label for="enableVoicemailToText">Display Voicemail-to-Text Transcripts</label>
+									<input type="checkbox" id="enableVoicemailToText" checked="true"><label for="enableVoicemailToText">Display Voicemail-to-Text Transcripts</label>
 					             </div>					             
 							 </div>
 						</div>
