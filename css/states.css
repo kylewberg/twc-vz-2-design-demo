@@ -88,5 +88,5 @@
 }
 
 .modal .app-modal{
-	display:block;
+	display:-webkit-box;
 }
