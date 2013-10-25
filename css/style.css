@@ -135,6 +135,18 @@
 	font-size:20px;
 }
 
+.notify .modal-title{
+	padding-left: 22px;
+	background:url('../img/icon-alert-blue.png') 0 0 no-repeat;	
+	background-size: 18px 18px;
+}
+
+.error .modal-title{
+	padding-left: 22px;
+	background:url('../img/icon-alert-red.png') 0 0 no-repeat;	
+	background-size: 18px 18px;
+}
+
 .commercial .modal-title{
 	font-family: inherit;
 	font-size:20px;

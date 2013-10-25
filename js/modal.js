@@ -1,6 +1,7 @@
 /*--Modal------------*/
 
 var Modal = {
+	"container" : "#modal-container",
 	"title" : "#modal-title",
 	"content" : "#modal-content",
 	"defaultTemplate" : "#default-modal",
@@ -13,6 +14,7 @@ var Modal = {
 
 Modal.init = function(id){
 	var title, message, template, clone, buttons;
+	$(this.container).removeClass('notify error');
 	
 	switch(id) {	
 		case 0:
@@ -144,9 +146,40 @@ Modal.init = function(id){
 					"action" : function(){}
 				}
 			}
-			break;																												
+			break;	
+
+		case 10:
+		    title = "Notify";
+			message = "Are you sure you want to log off "+App.info.name.residential+"?";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "OK",
+					"action" : function(){
+						App.close();
+					}
+				},
+				"deny" : {
+					"label" : "Cancel",
+					"action" : function(){}
+				}				
+			}
+			break;
+
+		case 11:
+		    title = "Error";
+			message = "Login Failed. You have entered an invalid TWC ID username or password.";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "OK",
+					"action" : function(){}
+				}				
+			}
+			break;			
+
 		default: 
-			title = "Notice";	
+			title = "Notify";	
 			message = "Default Content";
 			buttons = {
 				"confirm" : {
@@ -159,6 +192,13 @@ Modal.init = function(id){
 				}
 			}
 	}	
+
+	//modal styles
+	if(title == "Notify"){
+		$(this.container).addClass('notify');
+	}else if(title == "Error"){
+		$(this.container).addClass('error');
+	}
 	
 	//modal title
 	$(this.title).html(title);

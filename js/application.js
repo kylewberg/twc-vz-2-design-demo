@@ -111,7 +111,7 @@ App.initialize = function() {
 	this.initGUI();
 	
 	//enable modes
-	this.enableCommercial();	
+	//this.enableCommercial();	
 	
 	//data
 	this.loadData();
@@ -143,7 +143,7 @@ App.collapse = function(){
 }
 
 App.expand = function(){
-	this.states.loggedIn = false;	
+	this.states.collapsed = false;	
 	$(this.elements.app).removeClass("collapsed");				
 }
 
@@ -209,15 +209,23 @@ App.changeActiveNumber = function(){
 /*--Login/Logout------------*/
 
 App.login = function(){
-	this.states.loggedIn = true;
-	$(this.elements.app).addClass("logged-in");			
-	this.collapse();
+	var un = $("#username").val();
+	var pw = $("#password").val();
+	if(un && pw){
+		this.states.loggedIn = true;
+		$(this.elements.app).addClass("logged-in");			
+		this.collapse();
+	}else{
+		this.showModal(11);
+	}
 }
 
 App.logout = function(){
-	this.states.loggedIn = false;	
-	$(this.elements.app).removeClass("logged-in");		
-	this.navigate("login");
+	if(this.states.loggedIn){
+		this.showModal(10);
+	}else{
+		this.close();		
+	}
 }
 
 /*--Sound------------*/
@@ -352,7 +360,7 @@ $(document).ready(function(){
 	$(App.elements.selectMenus.accountNumbers).on("change", function(){App.changeActiveNumber();});	
 	
 	//buttons
-	$(App.elements.buttons.close).click(function(){App.close();});	
+	$(App.elements.buttons.close).click(function(){App.logout();});	
 	$(App.elements.buttons.minimize).click(function(){App.minimize();});
 	$(App.elements.buttons.login).click(function(){App.login();});	
 	$(App.elements.buttons.newContact).click(function(){App.navigate("contact-add");});
