@@ -110,12 +110,12 @@ App.initialize = function() {
 	
 	//init GUI
 	this.initGUI();
-
-	//create support windows
-	this.createHelpWindow();
 	
 	//enable modes
 	//this.enableCommercial();	
+
+	//create support windows
+	this.createHelpWindow();	
 	
 	//data
 	this.loadData();

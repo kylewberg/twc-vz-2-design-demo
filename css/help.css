@@ -44,6 +44,14 @@
 	background-image:url('../img/icon-minus.png');
 }
 
+.commercial .navigation-tree .category .category-title{
+	background-image:url('../img/icon-plus-flat.png');
+}
+
+.commercial .navigation-tree .category.open .category-title{
+	background-image:url('../img/icon-minus-flat.png');
+}
+
 .navigation-tree .category .sub-categories{
 	display:none;
 
@@ -77,10 +85,28 @@
 	display:block;
 }
 
-.help-content .section-title{
+.help-content h2.section-title{
 	color: #00549F;
 	font-size: 26px;
 	font-family: "TWC-Round-Book";
+}
+
+.commercial .help-content h2.section-title{
+	font-family: inherit;
+}
+
+.help-content h3{
+	font-size:17px;
+	font-family: "TWC-Round-Book";
+	margin: 20px 0 7px 0;
+}
+
+.commercial .help-content h3{
+	font-family: inherit;
+}
+
+.help-content p{
+	margin:5px 0 10px 0;
 }
 
 .help-content a{
@@ -93,4 +119,8 @@
 .help-content a:hover{
 	text-decoration:underline;
 	color:#39567e;
+}
+
+.help-content .note{
+	font-size:smaller;
 }

@@ -10,6 +10,11 @@
         <script type="text/javascript" src="lib/air/AIRIntrospector.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
+				if(window.commercial){
+					$("#help-window").addClass("commercial");
+				}else{
+					$("#help-window").removeClass("commercial");
+				}
 				$("#window-header").on("mousedown", function(){window.nativeWindow.startMove();});				
                 $("#help-close").click(function(){window.Controller.close();});
 				$("a").click(function(e){
@@ -66,7 +71,7 @@
         </script>        
     </head>
     <body>
-        <div class="app-window help-window">
+        <div id="help-window" class="app-window help-window">
             <div id="window-header" class="window-header">                                  
                 <div id="window-title" class="window-title">Help - VoiceZone Connect</div>
                 <div id="help-close" class="window-close">Close <span class="icon-close"> &#x2716;</span></div>

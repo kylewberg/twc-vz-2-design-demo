@@ -19,6 +19,8 @@ HelpWindow.create = function(){
 
     //bridge
     this.el.window.Controller = this;
+	
+	this.el.window.commercial = App.states.commercial;
 
     this.el.load(new air.URLRequest('help.html'));
 }
