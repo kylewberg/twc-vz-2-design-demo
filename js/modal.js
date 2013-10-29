@@ -176,7 +176,19 @@ Modal.init = function(id){
 					"action" : function(){}
 				}				
 			}
-			break;			
+			break;		
+
+		case 12:
+		    title = "Error";
+			message = "Sending a text message to 911 is forbidden.";
+			template = "";
+			buttons = {
+				"confirm" : {
+					"label" : "OK",
+					"action" : function(){}
+				}				
+			}
+			break;				
 
 		default: 
 			title = "Notify";	

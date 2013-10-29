@@ -110,9 +110,9 @@ VoicemailFrame.enableVMtoText = function(){
 }
 
 VoicemailFrame.disableVMtoText = function(){
-	var disclaimer = "The Voicemail-to-Text feature is currently not enabled on your account. To enable this feature, please log in to the portal. Further information can be found here.";
+	var disclaimer = "The Voicemail to Text feature is currently not enabled on your account. To enable this feature, please log in to the portal. Further information can be found here.";
 	$(this.transcriptContainer).html(disclaimer).addClass('disclaimer');
-	$(this.transcriptTitle).html("Voicemail-to-Text");
+	$(this.transcriptTitle).html("Voicemail to Text");
 }
 
 
@@ -157,28 +157,7 @@ Voicemails.load = function(n){
 	};	
 }
 
-/*--Conversations------------*/
 
-var Conversations = {
-	"container" : "#conversation-list",
-	"template" : "#templates .conversation"
-};
-
-Conversations.load = function(n){
-	var contact, clone;
-	for (var i = n - 1; i >= 0; i--){
-		contact = (Math.random() > 0.5) ? true : false;
-		clone = $(this.template).clone();
-		if(contact){
-			clone.find('.name').html(testContent.contact.name);	
-			clone.find('.number').html(testContent.contact.type);	
-		}else{
-			clone.find('.name').html(testContent.contact.number.formatTN());	
-			clone.find('.number').html("");			
-		}
-		$(this.container).append(clone);
-	};	
-}
 
 
 /*--Messages------------*/
@@ -210,13 +189,59 @@ Messages.load = function(n){
 /*--SMS Conversations Frame------------*/
 
 var ConversationsFrame = {
+	"loadInitialNumber" : 20,
+	"loadMoreNumber" : 10,
 	"buttons" : {
-		"new" : "#new-sms-button"
+		"new" : "#new-sms-button",
+		"loadMore" : "#load-more-conversations-button"
+	},
+	"outputs" : {
+		"dataContainer" : "#conversation-list"
 	}
+}
+
+ConversationsFrame.init = function(){
+	this.loadData();
+}
+
+ConversationsFrame.loadData = function(){
+	this.loadMessages(this.loadInitialNumber);
+	this.showLoadButton();	
+}
+
+ConversationsFrame.loadMore = function(){
+	this.loadMessages(this.loadMoreNumber);
+	this.showLoadButton();
+}
+
+ConversationsFrame.loadMessages = function(n){
+	var contact, clone;
+	for (var i = n - 1; i >= 0; i--){
+		contact = (Math.random() > 0.5) ? true : false;
+		clone = $("#templates .conversation").clone();
+		if(contact){
+			clone.find('.name').html(testContent.contact.name);	
+			clone.find('.number').html(testContent.contact.type);	
+		}else{
+			clone.find('.name').html(testContent.contact.number.formatTN());	
+			clone.find('.number').html("");			
+		}
+		$(this.outputs.dataContainer).append(clone);
+	};	
+}
+
+ConversationsFrame.showLoadButton = function(){
+	$(this.buttons.loadMore).show();
+	$(this.buttons.loadMore).appendTo(this.outputs.dataContainer);
+}
+
+ConversationsFrame.hideLoadButton = function(){
+	$(this.buttons.loadMore).hide();
 }
 
 $(document).ready(function(){
 	$(ConversationsFrame.buttons["new"]).click(function(){App.navigate("sms-conversation-new");});
+	$(ConversationsFrame.buttons.loadMore).click(function(){ConversationsFrame.loadMore();});
 });
 
 /*--SMS Conversation Frame------------*/
@@ -229,7 +254,8 @@ var ConversationFrame = {
 		"cancel" : "#cancel-delete-button",
 		"deleteSelected" : "#delete-selected-button",
 		"deleteAll" : "#delete-all-button",
-		"send" : "#send-message-button"
+		"send" : "#send-message-button",
+		"loadMore" : "#load-more-messages-button"
 	},
 	"inputs" : {
 		"deleteCheckbox" : ".delete-message",
@@ -394,6 +420,8 @@ NewSMSFrame.addInputRecipient = function(){
 	var filter = $(this.inputs.recipientFilter).val();	
 	if(filter && $.isNumeric(filter) && filter.length == this.numberLength){
 		this.addRecipient({"number" : filter, "label" : '<span class="number">'+filter.formatTN()+'</span>'});			
+	}else if(filter == "911"){
+		App.showModal(12);
 	}	
 }
 
@@ -445,6 +473,7 @@ $(document).ready(function(){
 	$(document).on("click", NewSMSFrame.listItem, function(){NewSMSFrame.addContactRecipient();});
 	$(NewSMSFrame.inputs.recipientFilter).on("input propertychange", function(){NewSMSFrame.filterRecipients();});
 	$(NewSMSFrame.inputs.messageContent).on("input propertychange", function(){NewSMSFrame.countCharacters();});
+	$(NewSMSFrame.inputs.recipientFilter).on("blur", function(){NewSMSFrame.addInputRecipient();});
 });
 
 /*--Recipients------------*/

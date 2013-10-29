@@ -150,25 +150,25 @@
 						<div id="contact-numbers" class="numbers">
 							<div class="contact-number home">
 								<span class="number-label">Home</span>
-								<span class="number">000-000-0000</span>
+								<span class="number link">000-000-0000</span>
 								<div class="call-button icon icon-phone"></div>
 								<div class="text-button icon icon-chat"></div>
 							</div>
 							<div class="contact-number office">
 								<span class="number-label">Office</span>
-								<span class="number">000-000-0000</span>
+								<span class="number link">000-000-0000</span>
 								<div class="call-button icon icon-phone"></div>
 								<div class="text-button icon icon-chat"></div>
 							</div>	
 							<div class="contact-number mobile">
 								<span class="number-label">Mobile</span>
-								<span class="number">000-000-0000</span>
+								<span class="number link">000-000-0000</span>
 								<div class="call-button icon icon-phone"></div>
 								<div class="text-button icon icon-chat"></div>
 							</div>
 							<div class="contact-number other">
 								<span class="number-label">Other</span>
-								<span class="number">000-000-0000</span>
+								<span class="number link">000-000-0000</span>
 								<div class="call-button icon icon-phone"></div>
 								<div class="text-button icon icon-chat"></div>
 							</div>																				
@@ -256,7 +256,24 @@
 								<span class="time">12:00 am</span>
 							</div>	
 						</div>
-						<audio src="sounds/test.mp3" preload="auto"></audio>
+
+						<div class="audiojs " classname="audiojs" id="audiojs_wrapper0">
+							<div class="play-pause">
+								<p class="play"></p>
+								<!--p class="pause"></p>
+								<p class="loading"></p>
+								<p class="error"></p-->
+							</div>           
+							<div class="scrubber">             
+								<div class="progress"></div>             
+								<div class="loaded"></div>           
+							</div>
+							<div class="reload"></div>           
+							<div class="time">             
+								<span class="played">00:00</span>/<span class="duration">00:12</span>           
+							</div>           
+						</div>
+
 						<div class="mark-unread">
 							<input type="checkbox" id="mark-unread"><label for="mark-unread">Mark as new</label>
 						</div>
@@ -297,7 +314,9 @@
 						<div id="edit-conversation-button" class="btn btn-action edit-conversation-button right">Edit Messages</div>
 						<div id="cancel-delete-button" class="btn btn-action cancel-delete-button right">Cancel</div>
 					</div>				
-					<div id="message-list" class="frame-content"></div>
+					<div id="message-list" class="frame-content">
+						<div id="load-more-messages-button" class="load-more-link">Load More Messages</div>	
+					</div>
 					<div class="frame-footer new-message">
 						<div id="delete-all-button" class="btn btn-action delete-all-button right">Delete Conversation</div>							
 						<div id="delete-selected-button" class="btn btn-action delete-selected-button right">Delete Selected (<span id="delete-selected-count"></span>)</div>					
@@ -318,7 +337,7 @@
 						<span id="recipient-label" class="recipient-label"></span>
 						<input type="text" id="recipient-filter" class="recipient-filter" placeholder="Search" />
 						<span id="remove-recipient-button" class="remove-recipient-button icon icon-minus"></span>
-						<span id="add-recipient-button" class="add-recipient-button icon icon-plus"></span>
+						<!--span id="add-recipient-button" class="add-recipient-button icon icon-plus"></span-->
 					</div>
 					<div id="recipient-list" class="frame-content"></div>
 					<div class="frame-footer new-message">
@@ -337,7 +356,7 @@
 					<div id="settings-content" class="frame-content">
 			
 						<div id="general-settings" class="expandable general-settings">
-							<div class="expand-title">General Settings</div>
+							<div class="expand-title">General</div>
 							<div class="expand-content">
 				                <div class="section">
 				                    <div class="title">On Startup</div>
@@ -360,7 +379,7 @@
 			            </div>
 						
 			            <div id="callerid-settings" class="expandable callerid-settings">
-			            	<div class="expand-title">Caller ID Settings</div>
+			            	<div class="expand-title">Caller ID</div>
 							<div class="expand-content">	
 					             <div class="section">
 					                <div class="title">Caller ID on PC Notification</div>
@@ -371,7 +390,7 @@
 			            </div>
 
 						<div id="voicemail-settings" class="expandable voicemail-settings">  
-							<div class="expand-title">Voicemail Settings</div>
+							<div class="expand-title">Voicemail</div>
 							<div class="expand-content">	             
 								 <div class="section">
 									<div class="title">Voicemail PIN</div>
@@ -393,50 +412,43 @@
 									</div>
 					             </div>
 								 <div class="section">
-					                <div class="title">Voicemail-to-Text</div>
-									<input type="checkbox" id="enableVoicemailToText" checked="true"><label for="enableVoicemailToText">Display Voicemail-to-Text Transcripts</label>
+					                <div class="title">Voicemail to Text</div>
+									<input type="checkbox" id="enableVoicemailToText" checked="true"><label for="enableVoicemailToText">Display Voicemail to Text Transcripts</label>
 					             </div>					             
 							 </div>
 						</div>
 						
 						<div id="location-settings" class="expandable location-settings">  
-							<div class="expand-title">Location Settings</div>
+							<div class="expand-title">My Location</div>
 							<div class="expand-content">	             
 								  <div class="section">
 									<div class="title">My Location</div>						
-									<table class="default-mylocation-table">
+									<table class="mylocation-table">
 										<tr>
-											<td>Default</td>
 											<td></td>
 											<td></td>
 										</tr>
 										<tr>
-											<td><input id="default-mylocation-1" type="radio" name="mldefault" value="" checked="checked"></td>
 											<td>123-456-7890</td>
 											<td></td>
 										</tr>
 										<tr>
-											<td><input id="default-mylocation-2" type="radio" name="mldefault" value=""></td>
 											<td><input id="mylocation-2" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" /></td>
 											<td><input id="myname-2" class="myname" type="text" maxlength="15" placeholder="friendly name" /></td>
 										</tr>
 										<tr>
-											<td><input id="default-mylocation-3" type="radio" name="mldefault" value=""></td>
 											<td><input id="mylocation-3" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" /></td>
 											<td><input id="myname-3" class="myname" type="text" maxlength="15" placeholder="friendly name" /></td>
 										</tr>
 										<tr>
-											<td><input id="default-mylocation-4" type="radio" name="mldefault" value=""></td>
 											<td><input id="mylocation-4" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" /></td>
 											<td><input id="myname-4" class="myname" type="text" maxlength="15" placeholder="friendly name" /></td>
 										</tr>
 										<tr>
-											<td><input id="default-mylocation-5" type="radio" name="mldefault" value=""></td>
 											<td><input id="mylocation-5" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" /></td>
 											<td><input id="myname-5" class="myname" type="text" maxlength="15" placeholder="friendly name" /></td>
 										</tr>
 										<tr>
-											<td><input id="default-mylocation-6" type="radio" name="mldefault" value=""></td>
 											<td><input id="mylocation-6" class="mylocation" data-mlid="" type="text" placeholder="###-###-####" /></td>
 											<td><input id="myname-6" class="myname" type="text" maxlength="15" placeholder="friendly name" /></td>
 										</tr>																																	

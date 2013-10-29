@@ -801,6 +801,7 @@ input[type="checkbox"] {
 }
 
 .audiojs .play {
+	display: block;
 	background-size: 24px 24px;
 	background-image: url("../img/icon-play.png");
 	background-position:center center;
@@ -820,6 +821,7 @@ input[type="checkbox"] {
 }
 
 .audiojs .scrubber {
+	float:right;
 	width: 90%;
 	background: #cccccc;
 	height:100%;
@@ -833,6 +835,7 @@ input[type="checkbox"] {
 
 .audiojs .progress {
 	height: 100%;
+	width:80%;
 	background: #3e90d2;
 	background-image:none;
 }
@@ -845,6 +848,21 @@ input[type="checkbox"] {
 	height: 100%;
 	background: #cccccc;
 	background-image:none;
+}
+
+.audiojs .reload {
+	position:absolute;
+	width:14px;
+	height:14px;
+	background:url('../img/icon-refresh-white.png') 0px 0px no-repeat;
+	background-size: contain;
+	z-index:5;
+	left:71%;
+	top:8px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	color: #ffffff;
+	cursor: pointer;
 }
 
 .audiojs .time {
@@ -929,7 +947,7 @@ input[type="checkbox"] {
 
 .contact-number .number{
 	margin-right: 6%;
-	cursor: pointer;
+	text-decoration: underline;
 }
 
 .contact-number input.number{
@@ -945,11 +963,6 @@ input[type="checkbox"] {
 	width:24px;
 	height:24px;	
 	cursor: pointer;		
-}
-
-.contact-number .icon-phone
-{
-	display: none;	
 }
 
 /** Expandable Containers *****************************************/
@@ -1014,16 +1027,15 @@ table{
 	color:inherit;
 }
 
-.default-mylocation-table input{
+.mylocation-table input{
 	max-width:100px;
 }
 
-.default-mylocation-table td{
+.mylocation-table td{
 	padding-right:10px;
 }
 
-.default-mylocation-table td:first-child{
-	text-align:center;
+.mylocation-table td:first-child{
 	padding:0;
 }
 
@@ -1038,12 +1050,12 @@ table{
 }
 
 .list-item:hover{
-	background:#F1F6F9;	
+	background:#afc7d9;	
 }
 
 .list-item.expanded{
 	height:67px;
-	background: #eeeeee;
+	background: #dddddd;
 }
 
 .commercial .list-item{
@@ -1352,10 +1364,6 @@ table{
 	overflow: hidden;
 }
 
-.message:last-child{
-	margin-bottom:30px;
-}
-
 .message .content{
 	max-width:80%;
 	min-width:60%;
@@ -1498,6 +1506,22 @@ table{
 .forgot-link:hover{
 	text-decoration:none;
 }	
+
+.load-more-link{
+	float:left;
+	display:block;
+	width: 100%;
+	padding:10px 0;
+	margin:0;
+	font-weight: bold;
+	color: #3e90d2;
+	text-align: center;
+	cursor: pointer;
+}
+
+.load-more-link:hover{
+	text-decoration: underline;
+}
 
 /** Splash *****************************************/
 

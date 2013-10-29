@@ -106,13 +106,13 @@ var App = {
 
 App.initialize = function() {			
 	//init plugins
-	this.initPlugins();
+	//this.initPlugins();
 	
 	//init GUI
 	this.initGUI();
 	
 	//enable modes
-	//this.enableCommercial();	
+	this.enableCommercial();	
 
 	//create support windows
 	this.createHelpWindow();	
@@ -125,7 +125,11 @@ App.initialize = function() {
 }
 
 App.log = function(message){
-	//console.log(message);
+	if(air.trace){
+		air.trace(message);
+	}else{
+		console.log(message);
+	}
 }
 
 App.move = function(){
@@ -175,7 +179,9 @@ App.initGUI = function(){
 	$('#login-version').html("Version "+this.info.version.partial);	
 	$('#settings-version').html("Version "+this.info.version.full);
 
+	//initialize frames
 	VoicemailFrame.init();
+	ConversationsFrame.init();
 }
 
 /*--Plugins------------*/
@@ -355,7 +361,7 @@ App.loadData = function(){
 	Calls.load(50);
 	Contacts.load(10);		
 	Voicemails.load(50);
-	Conversations.load(10);
+	//ConversationsFrame.loadData();
 	Messages.load(10);
 	this.loadRingtones(20);	
 	this.loadAccountNumbers();
