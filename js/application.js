@@ -61,6 +61,7 @@ var App = {
   },
   "utilityLinks" : {
   	"settings" : "#settings-link",
+  	"help" : "#help-link",
 	"sound" : "#sound-control"
   },
   "footerLinks" : {
@@ -109,6 +110,9 @@ App.initialize = function() {
 	
 	//init GUI
 	this.initGUI();
+
+	//create support windows
+	this.createHelpWindow();
 	
 	//enable modes
 	//this.enableCommercial();	
@@ -154,6 +158,14 @@ App.showModal = function(id){
 
 App.hideModal = function(){
 	$(this.elements.app).removeClass("modal");	
+}
+
+App.createHelpWindow = function(){
+	HelpWindow.create();
+}
+
+App.openHelpWindow = function(){
+	HelpWindow.open('login');
 }
 
 /*--GUI------------*/
@@ -375,6 +387,7 @@ $(document).ready(function(){
 		
 	//utility links	
 	$(App.elements.utilityLinks.sound).click(function(){App.toggleSound();});
+	$(App.elements.utilityLinks.help).click(function(){App.openHelpWindow();});
 	
 	//collapse link
 	$(App.elements.footerLinks.collapse).click(function(){App.collapse();});

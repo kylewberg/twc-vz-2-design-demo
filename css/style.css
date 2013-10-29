@@ -121,10 +121,6 @@
 	-webkit-box-shadow: 0 2px 6px #666666;
 }
 
-.modal-header{
-	background:#cccccc;
-}
-
 .modal-header {
 	border-bottom: 1px solid #eee;
 	background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #eaf1f6), color-stop(100%, #ffffff));
@@ -168,6 +164,41 @@
 }
 
 .modal-container .modal-footer{
+	padding:4% 8%;
+}
+
+/** Window *****************************************/
+
+.app-window{	
+	padding:0;			
+	background:#ffffff;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	color: #333333;	
+}
+
+.window-header {
+	border-bottom: 1px solid #eee;
+	background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #eaf1f6), color-stop(100%, #ffffff));
+}
+
+.window-title{
+	font-family: "TWC-Round-Light";
+	font-size:20px;
+}
+
+.commercial .window-title{
+	font-family: inherit;
+	font-size:20px;
+}
+
+.window-close{
+	cursor:pointer;
+	color: #3e90d2;
+	font-size:16px;
+}
+
+.window-footer{
 	padding:4% 8%;
 }
 
@@ -716,6 +747,14 @@ input[type="checkbox"] {
 
 .commercial .icon-minus{
 	background-image:url('../img/icon-minus-flat.png');	
+}
+
+.icon-plus-minus-small{
+	width:8px;
+	height:8px;
+	background-image:url('../img/icon-plus-minus-small.png');	
+	background-position:top left;
+	background-repeat:no-repeat;		
 }
 
 .icon-volume{

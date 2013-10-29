@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <title></title>
+        <link type="text/css" href="css/style.css" rel="stylesheet" />
+        <link type="text/css" href="css/layout.css" rel="stylesheet" />
+        <link type="text/css" href="css/states.css" rel="stylesheet" />
+ 		<link type="text/css" href="css/help.css" rel="stylesheet" />
+        <script type="text/javascript" src="lib/jquery/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="lib/air/AIRAliases.js"></script>
+        <script type="text/javascript" src="lib/air/AIRIntrospector.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+				$("#window-header").on("mousedown", function(){window.nativeWindow.startMove();});				
+                $("#help-close").click(function(){window.Controller.close();});
+				$("a").click(function(e){
+					e.preventDefault();
+					HelpWindow.openLink(e.target.href);
+				});
+            });
+			
+			//bridge functions
+            window.showTopic = function(helpTopic){
+				HelpWindow.resetMenu();
+				HelpWindow.show(helpTopic);
+            }
+			
+            $(document).ready(function(){
+				$(".category-title").click(function(e){$(e.target).parent().toggleClass("open");});
+				$(HelpWindow.topics["login"].link).click(function(){HelpWindow.show("login")});
+				$(HelpWindow.topics["phoneList"].link).click(function(){HelpWindow.show("phoneList")});
+            });			
+			
+			var HelpWindow = {};		
+			
+			HelpWindow.topics = {
+            	"login" : { "link" : "#logging-in-link", "section" : "#logging-in-section"},
+				"phoneList" : { "link" : "#phone-list-link", "section" : "#phone-list-section"}
+            }	
+			
+			HelpWindow.show = function(topic){
+				this.activateLink(topic);
+				this.showSection(topic);				
+			}	
+			
+			HelpWindow.resetMenu = function(){
+				$(".category").removeClass("open");				
+			}					
+			
+			HelpWindow.activateLink = function(topic){
+				$(".sub-category").removeClass("active");
+				$(this.topics[topic].link).addClass("active");
+				$(this.topics[topic].link).parents(".category").addClass("open");
+			}	
+			
+			HelpWindow.showSection = function(topic){
+				$(".help-section").removeClass("show");					
+				$(this.topics[topic].section).addClass("show");
+			}	
+			
+			HelpWindow.openLink = function(link){
+				if(link){
+					alert("open link: "+link);
+					//window.Controller.openLink(link);					
+				}
+			}				
+        </script>        
+    </head>
+    <body>
+        <div class="app-window help-window">
+            <div id="window-header" class="window-header">                                  
+                <div id="window-title" class="window-title">Help - VoiceZone Connect</div>
+                <div id="help-close" class="window-close">Close <span class="icon-close"> &#x2716;</span></div>
+            </div>  
+            <div id="window-content" class="window-content">
+                <div class="help-navigation column left">
+                	<div class="navigation-tree">
+	                    <ul class="categories">
+	                        
+	                        <li class="category"> 
+								<div class="category-title">Logging in to VoiceZone Connect</div>   
+	                            <ul class="sub-categories">
+	                                <li class="sub-category" id="logging-in-link">Logging in to VoiceZone Connect</li>
+	                                <li class="sub-category" id="phone-list-link">Phone List</li>
+	                            </ul>
+	                         </li>
+	                        <li class="category"> 
+								<span class="category-title">Settings</span>   
+	                            <ul class="sub-categories"></ul>
+	                         </li>
+	                        <li class="category"> 
+								<span class="category-title">Recents</span>   
+	                            <ul class="sub-categories"></ul>
+	                         </li>	
+	                        <li class="category"> 
+								<span class="category-title">Call Control</span>   
+	                            <ul class="sub-categories"></ul>
+	                         </li>	
+	                        <li class="category"> 
+								<span class="category-title">Click to Call</span>   
+	                            <ul class="sub-categories"></ul>
+	                         </li>								 							 							 							 
+	                        <li class="category"> 
+								<span class="category-title">Contacts</span>   
+	                            <ul class="sub-categories"></ul>
+	                         </li>
+	                        <li class="category"> 
+								<span class="category-title">Voicemail</span>   
+	                            <ul class="sub-categories"></ul>
+	                         </li>
+	                        <li class="category"> 
+								<span class="category-title">Support</span>   
+	                            <ul class="sub-categories"></ul>
+	                         </li>
+	 						 						 
+	                    </ul>
+                    </div>                   
+                </div>
+                <div class="help-content column right">
+
+					<div id="logging-in-section" class="help-section">						
+						<h2 class="section-title">Logging into <span class="app-name">VoiceZone Connect</span></h2>						
+						<p>To use <span class="app-name">VoiceZone Connect</span> enter your TWC ID username and password. Your TWC ID is the username and password you created to access your Time Warner Cable MyServices account, and to manage your Home Phone services online.</p>						
+						<h3>Forgot Username or Password:</h3>
+						<p>From the login screen click either Username or Password links depending on which you need. You will be redirected to a MyServices webpage that will assist you in obtaining your username or resetting your password.</p>
+						<h3>Automatically log into <span class="app-name">VoiceZone Connect</span>:</h3>
+						<p>By clicking the "Remember Login" box, you will automatically be logged into <span class="app-name">VoiceZone Connect</span> every time you start the application. <span class="app-name">VoiceZone Connect</span> will save your username and password.  If you change your mind and prefer to enter your information every time, you can change this in the <a href="http://www.example.com">General Settings</a> tab (once you have logged in).</p>
+ 						<p>When you are ready to log in, click <span class="btn btn-login">Sign In</span>.</p>					
+					</div>
+
+					<div id="phone-list-section" class="help-section">						
+						<h2 class="section-title">Phone List</h2>						
+						<p>The Phone List is only applicable for accounts that have more than one phone number.</p>
+						<p>After successful login to an account associated with more than one number, a Phone List screen will appear. Click on the number you wish to use, the screen will close and take you directly into the application.</p>
+						<p>The number you are currently using along with a Phone List button can be seen at the top of the screen above the application ribbon next to the Time Warner Cable Logo.</p>
+						<p>To switch to another number, simply click on the Phone List button and it will bring up the Phone List screen so you can choose a different number. If you decide not to change from the number you are currently using, simply click Cancel to close the screen.</p>
+						<p class="note">Note: You may only use/monitor one phone number at a time, but you can easily switch between numbers using the Phone List button.</p>
+					</div>
+
+                </div>
+            </div>           
+        </div>
+    </body>
+</html>

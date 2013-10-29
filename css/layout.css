@@ -403,6 +403,44 @@
 	margin-left:3%;
 }
 
+/** Window *****************************************/
+
+.app-window{
+	width:98%;
+	height:98%;
+	margin:6px;		
+	-webkit-box-sizing: border-box;		
+	-webkit-box-shadow: 0 2px 6px #666666;	
+	overflow:hidden;	
+}
+
+.window-header{
+	position:relative;
+	height:30px;	
+}
+
+.window-title{
+	position:absolute;
+	width:73%;
+	top:17%;
+	left:2%;
+}
+
+.window-close{
+	position:absolute;
+	top:21%;
+	right:2%;
+}
+
+.window-footer{
+	overflow:hidden;
+}
+
+.window-footer .btn{
+	float:right;
+	margin-left:3%;
+}
+
 /** Individual Frames *****************************************/
 
 /**** Login ****/
