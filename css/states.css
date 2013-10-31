@@ -1,3 +1,13 @@
+/** Frames *****************************************/
+
+.frame{
+	display:none;
+}
+
+.frame.active{
+	display:block;
+}
+
 /** Logged In Transformation *****************************************/
 
 .sound-control,
@@ -87,6 +97,17 @@
 	display:none;
 }
 
-.modal .app-modal{
+.app-modal.active{
 	display:-webkit-box;
 }
+
+/** Error Modal Buttons *****************************************/
+
+.modal-container.error-modal .modal-footer .btn.active{
+	display:inline-block;
+}
+
+.modal-container.error-modal .modal-footer .btn.inactive{
+	display:none;
+}
+

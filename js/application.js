@@ -157,11 +157,11 @@ App.expand = function(){
 
 App.showModal = function(id){
 	Modal.init(id);
-	$(this.elements.app).addClass("modal");	
+	$("#app-modal").addClass("active");	
 }
 
 App.hideModal = function(){
-	$(this.elements.app).removeClass("modal");	
+	$("#app-modal").removeClass("active");	
 }
 
 App.createHelpWindow = function(){

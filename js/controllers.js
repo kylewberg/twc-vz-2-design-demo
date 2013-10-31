@@ -2,7 +2,7 @@ var testContent = {
 	"contact" : {
 		"name" : "Contact Name",
 		"number" : "0000000000",
-		"type" : "Office"
+		"type" : "Number Type"
 	},
 	"identifier" : {
 		"call" : "Call Identifier",

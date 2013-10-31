@@ -121,6 +121,11 @@
 	-webkit-box-shadow: 0 2px 6px #666666;
 }
 
+.modal-container.loading-modal{
+	background:none;
+	-webkit-box-shadow: none;
+}
+
 .modal-header {
 	border-bottom: 1px solid #eee;
 	background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #eaf1f6), color-stop(100%, #ffffff));
@@ -440,7 +445,8 @@ select.active-number-select{
 }
 
 select.my-location-select{
-	background:url('../img/arrow-blue-down.png') right center no-repeat transparent;		
+	background:url('../img/arrow-blue-down.png') right center no-repeat transparent;
+    color:#3376b2;			
 }
 
 .commercial select.my-location-select{
@@ -546,7 +552,9 @@ label + input[type=password]
 	margin-bottom:5px;	
 }
 
-input[type=text].login-input{
+input[type=text].login-input,
+input[type=password].login-input
+{
 	display: inline-block;		
 	display: block;		
 	width: 214px;
@@ -576,7 +584,7 @@ input[type="checkbox"] {
 /** Logos *****************************************/
 
 .logo-twc{
-	width:204px;
+	width:87px;
 	height:35px;
 	background-size:contain;
 	background-image:url('../img/logo-twc-residential.png');
@@ -585,12 +593,13 @@ input[type="checkbox"] {
 }
 
 .commercial .logo-twc{
+	width:131px;		
 	background-image:url('../img/logo-twc-commercial.png');	
 }
 
 /** Buttons *****************************************/
 
-.btn {
+.btn{
 	display: inline-block;	
 	text-align: center;
 	-webkit-box-sizing: border-box;
@@ -953,6 +962,7 @@ input[type="checkbox"] {
 .contact-number input.number{
 	margin:0;
 	width:104px;
+	text-decoration:none;
 }
 
 .contact-number .icon-phone,

@@ -6,12 +6,20 @@
  * New App window was 384 X 496 (+6px on each side for drop shadow)
  */
 
+html,
+body{
+	width:384px;
+	height:496px;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
 
 .app {
 	position:relative;
 	width:372px;
 	height:auto;/*target 472px total*/
-	overflow: visible;
+	overflow: hidden;
 }
 
 /** App Top *****************************************/
@@ -370,6 +378,11 @@
 
 .app-modal .modal-container{
 	width:90%;
+	z-index:200;	
+}
+
+.app-modal .modal-container.loading-modal{
+	z-index:180;
 }
 
 .modal-container .modal-header{

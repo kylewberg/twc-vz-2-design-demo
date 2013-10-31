@@ -12,8 +12,10 @@
             $(document).ready(function(){
 				if(window.commercial){
 					$("#help-window").addClass("commercial");
+					$("#window-title").html("Help - Voice Manager Connect");
 				}else{
 					$("#help-window").removeClass("commercial");
+					$("#window-title").html("Help - VoiceZone Connect");
 				}
 				$("#window-header").on("mousedown", function(){window.nativeWindow.startMove();});				
                 $("#help-close").click(function(){window.Controller.close();});
